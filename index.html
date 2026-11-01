@@ -4,231 +4,608 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Olasz leckék Assimil-módszerrel – magyar anyanyelvűeknek">
+<meta name="theme-color" content="#f6f5f0">
 <title>Olaszóra</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Kalam:wght@400;700&display=swap">
+<script>try{var t=JSON.parse(localStorage.getItem('olaszora:theme')||'""');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-/* Layout: egy oszlopos "füzet" — fejléc haladással, fülek (Leckék / Gyakorlás / Szókártyák), lecke-chipek, párbeszéd sorokban */
+/* Olaszóra — webalkalmazás: oldalsáv (asztali) / alsó sáv (mobil), útvonalak: #ma #leckek #lecke-N #kartyak #szotar */
 :root{
-  --bg:#fbfaf6; --paper:#fffefb; --ink:#1a2740; --muted:#55627a; --line:#d9e0ec;
-  --grid:rgba(76,128,205,.20); --margin:#e0525c; --pen:#1f4fa3; --pen-soft:#e6eefb;
-  --basil:#227a4c; --basil-soft:#e1f1e7; --tomato:#c8202f; --tomato-soft:#fbe5e7; --gold:#9a6a00;
-  --display:"Bodoni Moda", "Didot", Georgia, serif; --body:"Atkinson Hyperlegible", system-ui, sans-serif; --hand:"Kalam", "Comic Sans MS", cursive; --mono:var(--hand);
-  --lift:0 1px 0 rgba(26,39,64,.05), 0 6px 18px -10px rgba(26,39,64,.25);
+  --bg:#f6f5f0; --paper:#fffefa; --sunk:#eeece5; --ink:#19202e; --muted:#5b6372; --line:#e4e1d8; --line-2:#cfcbbf;
+  --grid:rgba(76,128,205,.16); --margin:#e0525c; --pen:#1f4fa3; --pen-soft:#e7eefb;
+  --basil:#227a4c; --basil-soft:#e2f2e8; --tomato:#c8202f; --tomato-soft:#fbe6e8;
+  --primary:#19202e; --on-primary:#fffefa;
+  --display:"Bodoni Moda", Didot, Georgia, serif; --body:"Atkinson Hyperlegible", system-ui, sans-serif; --hand:"Kalam", "Comic Sans MS", cursive;
+  --r:8px; --R:14px; --side:248px; --ease:cubic-bezier(.2,.7,.2,1);
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#121a28; --paper:#182233; --ink:#e9eef7; --muted:#a1adc2; --line:#2d3a52;
-  --grid:rgba(120,165,235,.10); --margin:#f0727b; --pen:#8fb3ff; --pen-soft:#1e2c47;
-  --basil:#72d19a; --basil-soft:#183528; --tomato:#ff7e88; --tomato-soft:#3b1d24; --gold:#e0b453;
-  --lift:0 6px 18px -10px rgba(0,0,0,.6); color-scheme:dark } }
-:root[data-theme="dark"]{ --bg:#121a28; --paper:#182233; --ink:#e9eef7; --muted:#a1adc2; --line:#2d3a52;
-  --grid:rgba(120,165,235,.10); --margin:#f0727b; --pen:#8fb3ff; --pen-soft:#1e2c47;
-  --basil:#72d19a; --basil-soft:#183528; --tomato:#ff7e88; --tomato-soft:#3b1d24; --gold:#e0b453;
-  --lift:0 6px 18px -10px rgba(0,0,0,.6); color-scheme:dark }
+  --bg:#141517; --paper:#1c1d20; --sunk:#25262a; --ink:#ecebe6; --muted:#a4a39c; --line:#2c2d31; --line-2:#3d3e43;
+  --grid:rgba(140,170,230,.08); --margin:#e86a72; --pen:#97b6ff; --pen-soft:#212a3a;
+  --basil:#7dd3a2; --basil-soft:#18291f; --tomato:#ff858d; --tomato-soft:#381b1e;
+  --primary:#ecebe6; --on-primary:#141517; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#141517; --paper:#1c1d20; --sunk:#25262a; --ink:#ecebe6; --muted:#a4a39c; --line:#2c2d31; --line-2:#3d3e43;
+  --grid:rgba(140,170,230,.08); --margin:#e86a72; --pen:#97b6ff; --pen-soft:#212a3a;
+  --basil:#7dd3a2; --basil-soft:#18291f; --tomato:#ff858d; --tomato-soft:#381b1e;
+  --primary:#ecebe6; --on-primary:#141517; color-scheme:dark }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
-body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:5mm 5mm;background-position:-1px -1px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;margin:0;min-height:100vh;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
 ::selection{background:var(--pen-soft);color:var(--ink)}
-.wrap{position:relative;max-width:900px;margin:0 auto;padding:28px 20px 72px 64px}
-.wrap::before{content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;background:var(--margin);opacity:.75}
-header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 24px;margin-bottom:26px}
-h1{font-family:var(--display);font-weight:500;font-style:italic;font-size:clamp(2.8rem,9vw,4.4rem);margin:0;line-height:.95;letter-spacing:-.02em;font-variation-settings:"opsz" 96}
-h1 .flag{display:inline-flex;gap:0;margin-left:12px;vertical-align:.18em;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
-h1 .flag i{display:block;width:9px;height:26px}
-.sub{color:var(--muted);margin:10px 0 0;font-family:var(--hand);font-size:1.1rem;line-height:1.3}
-.stats{display:flex;gap:8px;flex-wrap:wrap}
-.pill{background:var(--paper);border:1.5px solid var(--line);border-radius:4px;padding:4px 12px;font-size:.88rem;font-variant-numeric:tabular-nums;white-space:nowrap;box-shadow:var(--lift)}
-.pill b{color:var(--pen);font-size:1.05em}
-nav.tabs{display:flex;gap:2px;border-bottom:2px solid var(--line);margin-bottom:18px;overflow-x:auto;scrollbar-width:none}
-nav.tabs button{font:inherit;font-weight:700;font-size:1rem;background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px 16px;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color .15s}
-nav.tabs button:hover{color:var(--ink)}
-nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--tomato)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.chip{font:inherit;font-size:.9rem;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:4px;padding:6px 12px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:border-color .15s,background-color .15s,transform .15s}
-.chip:hover{border-color:var(--pen)}
-.chip[aria-pressed="true"]{border-color:var(--pen);background:var(--pen-soft);color:var(--pen);font-weight:700}
-.chip .dot{width:9px;height:9px;border-radius:50%;background:transparent;box-shadow:inset 0 0 0 1.5px var(--muted)}
-.chip.done .dot{background:var(--basil);box-shadow:none}
-button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2.5px solid var(--pen);outline-offset:2px}
-.lesson-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;margin-bottom:4px}
-.lesson-head h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.05;letter-spacing:-.015em;margin:2px 0 0;text-wrap:balance;font-variation-settings:"opsz" 72}
-.kicker{font-family:var(--hand);font-size:1.15rem;line-height:1.2;color:var(--tomato);font-weight:700}
-.hu-title{color:var(--muted);margin:6px 0 18px;font-size:1.02rem}
-.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 16px}
-.btn{font:inherit;font-size:.92rem;font-weight:700;border-radius:4px;padding:9px 16px;cursor:pointer;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);transition:border-color .15s,background-color .15s,transform .1s}
-.btn:hover{border-color:var(--pen)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--pen);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.muted{color:var(--muted)}
+svg.i{width:18px;height:18px;flex:none}
+
+/* Váz */
+.app{display:grid;grid-template-columns:var(--side) minmax(0,1fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:28px;padding:26px 14px 20px;border-right:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;padding:0 10px;font-family:var(--display);font-style:italic;font-weight:500;font-size:1.85rem;line-height:1;letter-spacing:-.015em;text-decoration:none;font-variation-settings:"opsz" 72}
+.flag{display:inline-flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.flag i{display:block;width:6px;height:17px}
+.nav{display:grid;gap:2px}
+.nav a{display:flex;align-items:center;gap:11px;height:42px;padding:0 12px;border-radius:var(--r);color:var(--muted);text-decoration:none;font-size:.97rem;transition:background-color .15s,color .15s}
+.nav a:hover{background:var(--sunk);color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--sunk);color:var(--ink);font-weight:700}
+.nav a[aria-current="page"] svg{color:var(--tomato)}
+.count{margin-left:auto;min-width:24px;text-align:center;font-size:.76rem;font-weight:700;font-variant-numeric:tabular-nums;background:var(--pen-soft);color:var(--pen);border-radius:999px;padding:1px 8px}
+.side-foot{margin-top:auto;display:grid;gap:16px;padding:0 12px}
+.side-prog{display:grid;gap:8px;font-size:.86rem;color:var(--muted)}
+.side-prog div{display:flex;justify-content:space-between}
+.side-prog b{color:var(--ink);font-variant-numeric:tabular-nums}
+.meter{height:6px;background:var(--sunk);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--pen);border-radius:inherit;transition:width .4s var(--ease)}
+.theme-btn{display:flex;align-items:center;gap:10px;background:none;border:0;padding:8px 0;color:var(--muted);cursor:pointer;font-size:.9rem}
+.theme-btn:hover{color:var(--ink)}
+.topbar,.tabbar{display:none}
+main{width:100%;max-width:1200px;padding:40px clamp(24px,4vw,56px) 96px;outline:none}
+
+/* Oldalfej */
+.crumbs{display:flex;gap:8px;align-items:center;font-size:.9rem;color:var(--muted);margin:0 0 18px}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.ph{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 24px;margin:0 0 28px}
+.ph h1{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.2vw,2.7rem);line-height:1.05;letter-spacing:-.018em;margin:0;text-wrap:balance;font-variation-settings:"opsz" 72}
+.lead{margin:8px 0 0;color:var(--muted);font-size:1.02rem}
+.kicker{font-family:var(--hand);font-weight:700;color:var(--tomato);font-size:1.15rem;line-height:1.2;margin:0 0 6px}
+.ptitle{font-size:1rem;font-weight:700;margin:0}
+.phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 18px}
+.phead span{color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
+
+/* Elemek */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:var(--r);border:1px solid var(--line-2);background:var(--paper);color:var(--ink);font-size:.94rem;font-weight:700;text-decoration:none;cursor:pointer;white-space:nowrap;transition:border-color .15s,background-color .15s,opacity .15s,transform .1s}
+.btn:hover{border-color:var(--ink)}
 .btn:active{transform:translateY(1px)}
-.btn.primary{background:var(--pen);border-color:var(--pen);color:var(--bg)}
-.btn.primary:hover{filter:brightness(1.08)}
-.btn.ghost{background:none}
-.dlg{list-style:none;margin:0;padding:6px 0;background:var(--paper);border:1.5px solid var(--line);border-radius:4px;box-shadow:var(--lift)}
-.dlg li{display:grid;grid-template-columns:2.2rem 1fr auto;gap:3px 10px;padding:12px 18px 12px 14px;border-top:1px dashed var(--line)}
-.dlg li:first-child{border-top:0}
-.dlg .num{font-family:var(--hand);color:var(--tomato);font-size:1.05rem;line-height:1.4;font-variant-numeric:tabular-nums;text-align:right}
-.dlg .it{font-family:var(--display);font-weight:500;font-size:1.22rem;line-height:1.4;min-width:0;font-variation-settings:"opsz" 24}
-.dlg .it sup{color:var(--tomato);font-family:var(--hand);font-weight:700;font-size:.62em;margin-left:2px}
-.dlg .hu{grid-column:2/3;color:var(--muted);font-size:.98rem;min-width:0}
-.dlg .hu i{opacity:.8}
-.dlg .hu.hidden{color:transparent;background:var(--pen-soft);border-radius:3px;cursor:pointer;user-select:none;transition:background-color .15s}
-.dlg .hu.hidden:hover{background:var(--line)}
-.dlg .hu.hidden i{color:transparent}
-.say{grid-row:1/3;grid-column:3;align-self:start;border:0;background:none;color:var(--pen);cursor:pointer;font-size:1.1rem;padding:2px 6px;border-radius:4px}
-.notes{margin:22px 0 0;padding:16px 18px 16px 20px;border-left:3px solid var(--tomato);background:var(--paper);border-radius:0 4px 4px 0;box-shadow:var(--lift)}
-.notes h3,.card h3{font-family:var(--hand);font-size:1.3rem;font-weight:700;line-height:1.2;color:var(--tomato);margin:0 0 10px}
-.notes ol{margin:0;padding-left:1.5rem;display:grid;gap:10px;font-size:1rem}
-.notes li::marker{color:var(--tomato);font-family:var(--hand);font-weight:700;font-size:1.05em}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{opacity:.88}
+.btn.done{background:var(--basil-soft);border-color:transparent;color:var(--basil)}
+.btn.sm{height:32px;padding:0 12px;font-size:.84rem}
+.btn svg{width:16px;height:16px}
+kbd{font:inherit;font-size:.75rem;font-weight:700;border:1px solid currentColor;border-radius:4px;padding:0 5px;opacity:.6}
+@media (hover:none){kbd{display:none}}
+.seg{display:inline-flex;background:var(--sunk);border-radius:10px;padding:3px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg button{border:0;background:none;color:var(--muted);font-size:.88rem;font-weight:700;padding:7px 13px;border-radius:8px;cursor:pointer;white-space:nowrap;transition:background-color .15s,color .15s}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:0 0 20px}
+.tag{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 9px;border-radius:999px;font-size:.78rem;font-weight:700;white-space:nowrap}
+.tag svg{width:13px;height:13px}
+.tag.ok{background:var(--basil-soft);color:var(--basil)}
+.tag.cur{background:var(--pen-soft);color:var(--pen)}
+.tag.rip{background:var(--tomato-soft);color:var(--tomato)}
+.tag.new{background:var(--sunk);color:var(--muted)}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--R);padding:24px}
+.panel.flush{padding:0;overflow:hidden}
+.grid{display:grid;gap:20px;margin-bottom:20px}
+.two{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+@media (max-width:1060px){.two{grid-template-columns:minmax(0,1fr)}}
+.sheet{position:relative;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:5mm 5mm;background-position:-1px -1px;border:1px solid var(--line);border-radius:var(--R);overflow:hidden}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:52px;width:2px;background:var(--margin);opacity:.7}
+
+/* Ma */
+.cont{padding:26px 28px 28px 80px;display:flex;flex-direction:column}
+.cont .ptitle{margin-bottom:18px}
+.cont .big{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.4rem);line-height:1.08;letter-spacing:-.015em;margin:0;font-variation-settings:"opsz" 72}
+.cont .hut{margin:6px 0 18px;color:var(--muted)}
+.preview{margin:0 0 18px;font-family:var(--display);font-style:italic;font-size:1.12rem;line-height:1.6}
+.preview p{margin:0}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 20px;font-variant-numeric:tabular-nums}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.review{display:flex;flex-direction:column}
+.figure{font-family:var(--display);font-weight:600;font-size:3.2rem;line-height:1;margin:18px 0 6px;font-variant-numeric:lining-nums;font-variation-settings:"opsz" 96}
+.stack{display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--sunk);margin:20px 0 12px;gap:2px}
+.stack i{display:block;height:100%}
+.legend{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:.88rem;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend li b{margin-left:auto;color:var(--ink);font-variant-numeric:tabular-nums}
+.legend i,.dotk{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.l0{background:var(--line-2)} .l1{background:color-mix(in srgb,var(--pen) 35%,var(--paper))} .l2{background:color-mix(in srgb,var(--pen) 65%,var(--paper))} .l3{background:var(--pen)}
+.review .btn{margin-top:auto;align-self:flex-start}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0}
+.kpis>div{padding:20px 24px;border-left:1px solid var(--line)}
+.kpis>div:first-child{border-left:0}
+.kpis dt{font-size:.86rem;color:var(--muted)}
+.kpis dd{margin:6px 0 0;font-size:1.65rem;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpis dd small{font-size:.95rem;font-weight:400;color:var(--muted)}
+.wk+.wk{margin-top:18px}
+.wk-l{display:flex;justify-content:space-between;font-size:.86rem;color:var(--muted);margin-bottom:8px}
+.cells{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.cell{position:relative;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1/.92;padding:8px 9px;border-radius:10px;background:var(--sunk);text-decoration:none;color:var(--muted);transition:transform .15s var(--ease),background-color .15s}
+.cell:hover{transform:translateY(-2px);color:var(--ink)}
+.cell b{font-family:var(--display);font-size:1.45rem;font-weight:600;line-height:1;color:var(--ink)}
+.cell small{font-size:.72rem;line-height:1.1}
+.cell.ok{background:var(--basil-soft);color:var(--basil)}
+.cell.ok b{color:var(--basil)}
+.cell.cur{box-shadow:inset 0 0 0 2px var(--pen);background:var(--paper)}
+.cell.rip small{color:var(--tomato)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal span{font-size:.74rem;color:var(--muted);text-align:center}
+.cal i{display:block;aspect-ratio:1;border-radius:5px;background:var(--sunk)}
+.cal i.on{background:var(--pen)}
+.cal i.today{box-shadow:inset 0 0 0 2px var(--tomato)}
+.cal i.fut{background:none;box-shadow:inset 0 0 0 1px var(--line)}
+.cal-note{margin:16px 0 0;font-size:.9rem;color:var(--muted)}
+.cal-note b{color:var(--ink)}
+/* Számok a Bodoni-ban (az Atkinson áthúzott nullája helyett) */
+.kpis dd,.legend b,.rows dd,.cal-note b,.side-prog b,.phead span,.wk-l span:last-child,.week-h div span:first-child,.deckbar span,.count-line,.meta,.lrow .m .n{font-family:var(--display);font-variant-numeric:lining-nums tabular-nums}
+.kpis dd{font-weight:600;font-size:1.85rem}
+
+/* Leckék */
+.week{margin:0 0 36px}
+.week-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px}
+.week-h h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:0;letter-spacing:-.01em}
+.week-h div{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.88rem;font-variant-numeric:tabular-nums}
+.week-h .meter{width:120px}
+.list{background:var(--paper);border:1px solid var(--line);border-radius:var(--R);overflow:hidden}
+.lrow{display:grid;grid-template-columns:52px minmax(0,1fr) auto 18px;align-items:center;gap:18px;padding:16px 22px 16px 18px;border-top:1px solid var(--line);text-decoration:none;transition:background-color .15s}
+.lrow:first-child{border-top:0}
+.lrow:hover{background:var(--sunk)}
+.lrow:hover .chev{transform:translateX(3px);color:var(--ink)}
+.lrow .no{font-family:var(--display);font-size:1.8rem;font-weight:500;color:var(--tomato);text-align:center;line-height:1;font-variant-numeric:lining-nums}
+.lrow .t{font-family:var(--display);font-size:1.2rem;font-weight:600;line-height:1.25;letter-spacing:-.005em}
+.lrow .s{color:var(--muted);font-size:.92rem;margin-top:2px}
+.lrow .m{display:flex;gap:14px;align-items:center;color:var(--muted);font-size:.86rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.chev{color:var(--muted);transition:transform .15s var(--ease)}
+
+/* Lecke */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:0 0 24px;overflow-x:auto;scrollbar-width:none}
+.tabs a{padding:10px 14px;margin-bottom:-1px;border-bottom:2px solid transparent;color:var(--muted);text-decoration:none;font-weight:700;white-space:nowrap;transition:color .15s}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--tomato)}
+.tabs .c{font-weight:400;margin-left:6px;font-variant-numeric:tabular-nums}
+.lesson-grid{display:grid;gap:24px;align-items:start}
+@media (min-width:1200px){
+  .lesson-grid.has-notes{grid-template-columns:minmax(0,1fr) 360px}
+  .lesson-grid .notes{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto}
+}
+.dlg{list-style:none;margin:0;padding:14px 0}
+.dlg li{display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:30px;padding:11px 26px 11px 0}
+.dlg .num{font-family:var(--hand);color:var(--tomato);font-size:1.05rem;text-align:right;line-height:1.75}
+.dlg .it{margin:0;font-family:var(--display);font-weight:500;font-size:1.32rem;line-height:1.45;font-variation-settings:"opsz" 28}
+.dlg .hu{grid-column:2;margin:3px 0 0;color:var(--muted);font-size:1rem}
+.dlg .hu i{opacity:.85}
+.dlg .hu.hidden{color:transparent;background:var(--pen-soft);border-radius:4px;cursor:pointer;user-select:none;transition:background-color .15s}
+.dlg .hu.hidden:hover{background:color-mix(in srgb,var(--pen) 22%,var(--paper))}
+.ref{font-family:var(--hand);font-weight:700;font-size:.6em;color:var(--tomato);background:none;border:0;padding:0 2px 0 1px;margin:0;cursor:pointer;vertical-align:super;line-height:0;border-radius:3px}
+.ref:hover{background:var(--tomato-soft)}
+.notes{background:var(--paper);border:1px solid var(--line);border-radius:var(--R);padding:22px 22px 22px 24px;border-left:3px solid var(--tomato)}
+.notes h2{font-family:var(--hand);color:var(--tomato);font-size:1.4rem;font-weight:700;margin:0 0 12px}
+.notes ol{margin:0;padding-left:1.4rem;display:grid;gap:10px}
+.notes li{padding:4px 8px;margin-left:-8px;border-radius:6px;transition:background-color .4s}
+.notes li.hl{background:var(--tomato-soft)}
+.notes li::marker{color:var(--tomato);font-family:var(--hand);font-weight:700}
 .notes b{color:var(--tomato)}
-.card{background:var(--paper);border:1.5px solid var(--line);border-radius:4px;padding:18px 20px;margin-bottom:18px;box-shadow:var(--lift)}
-.ex1 ol{padding-left:1.5rem}
-.ex1 li{margin-bottom:12px}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.pager a{display:block;padding:16px 20px;border:1px solid var(--line);border-radius:var(--R);background:var(--paper);text-decoration:none;transition:border-color .15s}
+.pager a:hover{border-color:var(--ink)}
+.pager small{display:block;color:var(--muted);font-size:.84rem;margin-bottom:2px}
+.pager b{font-family:var(--display);font-size:1.1rem;font-weight:600}
+.pager .next{grid-column:2;text-align:right}
+.ex h2,.rip h2{font-family:var(--hand);color:var(--tomato);font-size:1.35rem;font-weight:700;margin:0 0 14px}
+.ex+.ex{margin-top:20px}
+.ex1 ol{margin:0;padding-left:1.5rem;display:grid;gap:12px}
 .ex1 li::marker{color:var(--tomato);font-family:var(--hand);font-weight:700}
-.ex1 li>span:first-child{font-family:var(--display);font-size:1.12rem;font-weight:500}
+.ex1 .q1{font-family:var(--display);font-size:1.15rem;font-weight:500;margin-right:8px}
 .ex1 .ans{display:block;color:var(--basil);font-weight:700;margin-top:2px}
-.ex2 .row{padding:12px 0;border-top:1px dashed var(--line)}
+.ex2 .row{padding:14px 0;border-top:1px solid var(--line)}
 .ex2 .row:first-of-type{border-top:0}
-.ex2 .q{font-weight:700;margin-bottom:6px}
-.ex2 .line{line-height:2.5;font-family:var(--display);font-size:1.1rem}
+.ex2 .q{font-weight:700;margin-bottom:4px}
+.ex2 .line{line-height:2.5;font-family:var(--display);font-size:1.15rem}
 .ex2 input{font:inherit;font-family:var(--hand);font-size:1.05rem;font-weight:700;border:0;border-bottom:2px dotted var(--pen);background:transparent;color:var(--pen);padding:0 6px;border-radius:0;width:auto}
-.ex2 input:focus{background:var(--pen-soft)}
+.ex2 input:focus{background:var(--pen-soft);outline:none}
 .ex2 input.ok{border-bottom:2px solid var(--basil);color:var(--basil);background:var(--basil-soft)}
 .ex2 input.no{border-bottom:2px solid var(--tomato);color:var(--tomato);background:var(--tomato-soft)}
 .fb{font-family:var(--hand);font-size:.95rem;color:var(--tomato);margin-left:6px}
-.flash{display:grid;gap:16px;justify-items:center}
-.fcard{width:min(100%,480px);min-height:240px;background-color:var(--paper);background-image:linear-gradient(var(--margin),var(--margin)),repeating-linear-gradient(transparent 0 31px,var(--grid) 31px 32px);background-size:100% 2px,100% 100%;background-position:0 46px,0 14px;background-repeat:no-repeat,repeat;border:1.5px solid var(--line);border-radius:4px;box-shadow:var(--lift);display:grid;place-items:center;text-align:center;padding:56px 24px 28px;cursor:pointer;position:relative}
-.fcard .w{font-family:var(--display);font-weight:500;font-size:2.2rem;line-height:1.15;font-variation-settings:"opsz" 72}
-.fcard .a{margin-top:12px;font-family:var(--hand);font-size:1.45rem;color:var(--tomato);font-weight:700}
-.fcard .tag{position:absolute;top:12px;left:16px;font-size:1rem;color:var(--muted);font-family:var(--hand)}
-.fbtns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.boxes{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
-.boxes span{background:var(--paper);border:1.5px solid var(--line);border-radius:4px;padding:2px 10px;font-variant-numeric:tabular-nums}
-.rip h4{margin:18px 0 6px;font-family:var(--hand);font-size:1.2rem;color:var(--tomato)}
-.rip h4:first-child{margin-top:0}
-.rip p{margin:0 0 8px;font-size:1rem}
-.tablewrap{overflow-x:auto}
-table.conj{border-collapse:collapse;font-size:.92rem;min-width:420px}
-table.conj td,table.conj th{border:1px solid var(--line);padding:5px 10px;text-align:left}
+.ex2 .actions{margin-top:18px}
+.rip h2{margin-top:26px}
+.rip h2:first-child{margin-top:0}
+.rip p{margin:0 0 10px}
+.tablewrap{overflow-x:auto;margin:4px 0 6px}
+table.conj{border-collapse:collapse;font-size:.94rem;min-width:440px}
+table.conj td,table.conj th{border:1px solid var(--line);padding:6px 12px;text-align:left}
 table.conj th{color:var(--pen);background:var(--pen-soft)}
-.muted{color:var(--muted);font-size:.92rem}
-.opts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;font-size:.92rem}
-@media (max-width:520px){
-  body{font-size:16px}
-  .wrap{padding:20px 14px 56px 40px}
-  .wrap::before{left:26px}
-  .dlg li{grid-template-columns:1.6rem 1fr auto;padding:11px 12px 11px 8px}
-  .dlg .it{font-size:1.12rem}
-  .card{padding:16px 14px}
-  .fcard .w{font-size:1.9rem}
-}
-@media (prefers-reduced-motion:no-preference){ .fcard{transition:transform .15s} .fcard:hover{transform:rotate(-.4deg)} .fcard:active{transform:scale(.98)} }
-</style>
 
+/* Táblázatok: szavak, szótár */
+table.words{width:100%;border-collapse:collapse}
+.words th{font-size:.84rem;font-weight:400;color:var(--muted);text-align:left;padding:12px 22px;border-bottom:1px solid var(--line)}
+.words td{padding:12px 22px;border-bottom:1px solid var(--line);vertical-align:middle}
+.words tr:last-child td{border-bottom:0}
+.words td.it{font-family:var(--display);font-size:1.12rem;font-weight:600}
+.words td.ln a{text-decoration:none;color:var(--muted);font-variant-numeric:tabular-nums}
+.words td.ln a:hover{color:var(--ink);text-decoration:underline}
+.words th.r,.words td.lv,.words td.ln{text-align:right;white-space:nowrap}
+.words .empty{text-align:center;color:var(--muted);padding:40px 20px}
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}
+.search{position:relative;flex:1 1 320px}
+.search svg{position:absolute;left:14px;top:13px;color:var(--muted)}
+.search input,.select select{width:100%;height:46px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--paper);color:var(--ink);font:inherit}
+.search input{padding:0 14px 0 42px}
+.select{flex:0 1 280px}
+.select select{padding:0 12px;cursor:pointer}
+.search input:focus,.select select:focus{outline:2.5px solid var(--pen);outline-offset:0;border-color:transparent}
+.count-line{margin:0 0 12px;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Szókártyák */
+.cards-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+.stage{display:grid;gap:18px;justify-items:center}
+.deckbar{width:100%;max-width:580px;display:flex;align-items:center;gap:14px;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.deckbar .meter{flex:1}
+.fcard{width:100%;max-width:580px;min-height:320px;background-color:var(--paper);background-image:linear-gradient(var(--margin),var(--margin)),repeating-linear-gradient(transparent 0 31px,var(--grid) 31px 32px);background-size:100% 2px,100% 100%;background-position:0 52px,0 20px;background-repeat:no-repeat,repeat;border:1px solid var(--line);border-radius:var(--R);display:grid;place-items:center;text-align:center;padding:68px 28px 36px;cursor:pointer;position:relative;transition:transform .2s var(--ease),border-color .15s}
+.fcard:hover{border-color:var(--line-2)}
+.fcard .w{font-family:var(--display);font-weight:500;font-size:clamp(2rem,5vw,2.7rem);line-height:1.12;font-variation-settings:"opsz" 72}
+.fcard .a{margin-top:14px;font-family:var(--hand);font-size:1.55rem;color:var(--tomato);font-weight:700}
+.fcard .hintf{margin-top:14px;font-size:.9rem}
+.fcard .lab{position:absolute;top:16px;left:20px;font-family:var(--hand);font-size:1rem;color:var(--muted)}
+.fcard .lvl{position:absolute;top:16px;right:18px}
+.fbtns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.fbtns .btn{min-width:160px;height:48px}
+.rows{margin:14px 0 0}
+.rows div{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:.94rem}
+.rows div:first-child{border-top:0}
+.rows dt{display:flex;align-items:center;gap:9px;color:var(--muted)}
+.rows dd{margin:0;font-weight:700;font-variant-numeric:tabular-nums}
+.sum .muted{font-size:.88rem;margin:16px 0 0}
+
+/* Belépő mozgás (csak oldalváltáskor) */
+@media (prefers-reduced-motion:no-preference){
+  main.enter>*{animation:rise .45s var(--ease) both}
+  main.enter>*:nth-child(2){animation-delay:.05s} main.enter>*:nth-child(3){animation-delay:.1s} main.enter>*:nth-child(4){animation-delay:.15s} main.enter>*:nth-child(n+5){animation-delay:.2s}
+  @keyframes rise{from{transform:translateY(12px)}to{transform:none}}
+  .fcard:active{transform:scale(.985)}
+  .fcard.flip{animation:flip .28s var(--ease)}
+  @keyframes flip{from{transform:rotateX(14deg) scale(.98)}to{transform:none}}
+}
+
+/* Tablet és mobil */
+@media (max-width:1060px){ .cards-layout{grid-template-columns:minmax(0,1fr)} .sum{max-width:580px;width:100%;justify-self:center} }
+@media (max-width:860px){
+  .app{display:block}
+  .side{display:none}
+  .topbar{display:flex;position:sticky;top:0;z-index:5;height:56px;align-items:center;justify-content:space-between;padding:0 8px 0 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .topbar .brand{font-size:1.55rem;padding:0}
+  .topbar .theme-btn{width:44px;height:44px;justify-content:center;padding:0}
+  .topbar .theme-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;z-index:5;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+  .tabbar a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:58px;font-size:.74rem;color:var(--muted);text-decoration:none}
+  .tabbar a svg{width:22px;height:22px}
+  .tabbar a[aria-current="page"]{color:var(--ink);font-weight:700}
+  .tabbar a[aria-current="page"] svg{color:var(--tomato)}
+  .tabbar .count{position:absolute;top:5px;left:calc(50% + 6px);margin:0;min-width:0;padding:0 6px;font-size:.68rem}
+  main{padding:22px 16px calc(100px + env(safe-area-inset-bottom))}
+  .ph{margin-bottom:22px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis>div:nth-child(3){border-left:0}
+  .kpis>div:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .panel{padding:20px 18px}
+  .cont{padding:22px 18px 22px 64px}
+  .sheet::before{left:42px}
+  .dlg li{grid-template-columns:28px minmax(0,1fr);column-gap:24px;padding-right:16px}
+  .dlg .it{font-size:1.18rem}
+  .lrow{grid-template-columns:38px minmax(0,1fr) 16px;gap:12px;padding:14px 14px 14px 10px}
+  .lrow .no{font-size:1.5rem}
+  .lrow .m{grid-column:2;grid-row:2;margin-top:-4px}
+  .lrow .m .n{display:none}
+  .lrow .chev{grid-column:3;grid-row:1/3}
+  .week-h .meter{width:64px}
+  .kpis>div{padding:16px 18px}
+  .kpis dd{font-size:1.4rem}
+  .cells{gap:6px}
+  .cell{padding:6px;border-radius:8px}
+  .cell b{font-size:1.15rem}
+  .cell small{display:none}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1}
+  .words thead{display:none}
+  .words tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .words tr:last-child{border-bottom:0}
+  .words td{padding:0;border:0}
+  .words td.it{grid-column:1;grid-row:1}
+  .words td.hu{grid-column:1;grid-row:2;color:var(--muted)}
+  .words td.lv{grid-column:2;grid-row:1/3;align-self:center}
+  .words td.ln{grid-column:2;grid-row:2;font-size:.85rem}
+  .words td.ln+td.lv{grid-row:1}
+  .words .empty{grid-column:1/-1}
+  .fbtns .btn{min-width:0;flex:1}
+  .fcard{min-height:280px}
+}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div>
-      <h1>Olaszóra<span class="flag" aria-hidden="true"><i style="background:#009246"></i><i style="background:#f4f5f0"></i><i style="background:#ce2b37"></i></span></h1>
-      <p class="sub">Olasz leckék Assimil-módszerrel – magyar anyanyelvűeknek</p>
+<div class="app">
+  <aside class="side" aria-label="Oldalsáv">
+    <a class="brand" href="#ma">Olaszóra<span class="flag" aria-hidden="true"><i style="background:#009246"></i><i style="background:#f4f5f0"></i><i style="background:#ce2b37"></i></span></a>
+    <nav class="nav" id="nav" aria-label="Fő navigáció"></nav>
+    <div class="side-foot">
+      <div class="side-prog" id="side-prog"></div>
+      <button class="theme-btn" type="button"></button>
     </div>
-    <div class="stats" id="stats"></div>
+  </aside>
+  <header class="topbar">
+    <a class="brand" href="#ma">Olaszóra<span class="flag" aria-hidden="true"><i style="background:#009246"></i><i style="background:#f4f5f0"></i><i style="background:#ce2b37"></i></span></a>
+    <button class="theme-btn" type="button"></button>
   </header>
-  <nav class="tabs" role="tablist">
-    <button role="tab" id="t-lecke" aria-selected="true">Leckék</button>
-    <button role="tab" id="t-gyak" aria-selected="false">Gyakorlás</button>
-    <button role="tab" id="t-kartya" aria-selected="false">Szókártyák</button>
-  </nav>
-  <div class="chips" id="chips"></div>
-  <main id="view"></main>
+  <main id="view" tabindex="-1"></main>
+  <nav class="tabbar" id="tabbar" aria-label="Fő navigáció (mobil)"></nav>
 </div>
 <script id="data" type="application/json">[{"n": 1, "it": "Prima lezione", "hu": "Első lecke", "title_it": "Che mi racconti? Niente", "title_hu": "Mi újság (Mit nekem mesélsz)? Semmi", "dlg": [["Pronto? Buongiorno^1. Sono Giovanni Rossi^2. Chi parla?", "Halló (Kész)? Jó napot (Jó nap). Rossi Giovanni vagyok (Vagyok Giovanni Rossi). Ki beszél?"], ["Pronto! Sono Pietro.", "Halló! Péter vagyok (Vagyok Pietro)."], ["Ciao, Pietro.", "Szia, Péter."], ["Ciao, Giovanni.", "Szia, János."], ["Come stai^3?", "Hogy vagy (Hogyan állsz)?"], ["Bene, grazie^4. E tu?", "Jól, köszönöm. És te?"], ["Bene, grazie. Anch'io^5 sto bene.", "Jól, köszönöm. Én is jól vagyok (Én-is állok jól)."], ["Che mi racconti?", "Mi újság (Mit nekem mesélsz)?"], ["Niente. Fa bel tempo^6. E lì che mi racconti?", "Semmi. Szép idő van (Csinál szép idő). És ott mi újság (És ott mit nekem mesélsz)?"], ["Niente di particolare. Anche qui fa bel tempo.", "Semmi különös (Semmi -ból különös). Itt is szép idő van (Is itt csinál szép idő)."]], "notes": ["<b>Buongiorno<\/b> = <b>buon<\/b> (jó) + <b>giorno<\/b> (nap). Telefonban: <b>Pronto?<\/b> (szó szerint <i>kész<\/i>).", "A keresztnév <i>megelőzi<\/i> a vezetéknevet: <b>Giovanni Rossi<\/b>. <b>Sono<\/b> = (én) vagyok; a személyes névmás általában elmarad.", "Hogylét: <b>stare<\/b>, nem <b>essere<\/b>: <b>Come stai? – Sto bene.<\/b>", "<b>Grazie<\/b> = köszönöm; nem ige, nem ragozzuk.", "<b>Anche<\/b> (is) a szó <i>elé<\/i> kerül: <b>anche qui<\/b> = itt is; <b>anche io → anch'io<\/b>.", "<b>Fa bel tempo<\/b> = „csinál szép időt” (<b>fare<\/b>). Nyelvtani nem: <b>bello / bella<\/b>; <b>bel<\/b> mássalhangzó előtt."], "ex1": [["Come parla Anna?", "Hogy beszél Anna?"], ["Anna parla bene.", "Anna jól beszél."], ["Anche tu sei bello.", "Te is szép vagy."], ["Anch'io sono bella.", "Én is szép vagyok."], ["Buongiorno, sono qui.", "Jó napot, itt vagyok."], ["Tu sei lì.", "Te ott vagy."]], "ex2": [{"hu": "Hogy vagy?", "gap": ". . . . stai?", "ans": ["Come"]}, {"hu": "Köszönöm, itt szép idő van.", "gap": ". . . . . . , qui fa . . . . . . . . .", "ans": ["Grazie", "bel tempo"]}, {"hu": "Semmi különös.", "gap": "Niente di . . . . . . . . . . .", "ans": ["particolare"]}, {"hu": "Péter beszél?", "gap": "Pietro . . . . . ?", "ans": ["parla"]}, {"hu": "Te is jól vagy.", "gap": ". . . . . . . stai bene.", "ans": ["Anche tu"]}, {"hu": "Mi újság?", "gap": "Che mi . . . . . . . . ?", "ans": ["racconti"]}], "voc": [["pronto", "halló"], ["buongiorno", "jó napot"], ["ciao", "szia"], ["Come stai?", "Hogy vagy?"], ["bene", "jól"], ["grazie", "köszönöm"], ["anche", "is"], ["niente", "semmi"], ["qui", "itt"], ["lì", "ott"], ["il tempo", "az idő"], ["particolare", "különös"]]}, {"n": 2, "it": "Seconda lezione", "hu": "Második lecke", "title_it": "L'Ungheria, l'Italia", "title_hu": "Magyarország, Olaszország", "dlg": [["Questa è^1 l'Europa^2.", "Ez Európa (Ez van az Európa)."], ["Qui c'è^3 l'Ungheria.", "Itt van Magyarország."], ["Lì c'è l'Italia.", "Ott van Olaszország."], ["L'Ungheria è un paese grande^4.", "Magyarország nagy ország (Az Magyarország van egy ország nagy)."], ["Professore^5, anche l'Italia è un paese grande?", "Tanár úr, Olaszország is nagy ország?"], ["Sì, Pierino^6, anche l'Italia è un paese grande.", "Igen, Petike, Olaszország is nagy ország."], ["In Ungheria^7 ci sono gli ungheresi^8 e parlano ungherese^9.", "Magyarországon magyarok vannak és magyarul beszélnek."], ["In Italia ci sono gli italiani e parlano italiano.", "Olaszországban olaszok vannak és olaszul beszélnek."], ["Qui c'è Budapest e lì c'è Roma.", "Itt van Budapest és ott van Róma."], ["Budapest è una bella città.", "Budapest szép város."], ["Professore, anche Roma è una bella città?", "Tanár úr, Róma is szép város?"], ["Sì, Pierino, anche Roma è una città bella e grande.", "Igen, Petike, Róma is szép és nagy város."], ["Noi non siamo^10 italiani. Noi siamo ungheresi e parliamo ungherese.", "Mi nem vagyunk olaszok. Mi magyarok vagyunk és magyarul beszélünk."]], "notes": ["<b>Questa<\/b> (ez) nőnemű, mert <b>Europa<\/b> nőnemű. A létige (<b>è<\/b>) <i>sosem marad el<\/i>. <b>è<\/b> (van) ≠ <b>e<\/b> (és).", "Az olaszban <i>van névelő<\/i>: <b>il<\/b> (hímnem), <b>la<\/b> (nőnem), <b>l'<\/b> magánhangzó előtt; <b>un / una<\/b>. Országnév névelővel: <b>l'Italia<\/b>, de <b>in Italia<\/b>.", "<b>C'è<\/b> = van, található; többes: <b>ci sono<\/b>.", "A melléknév általában a főnév <i>után<\/i> áll és egyezik vele: <b>paese grande<\/b>, <b>città bella<\/b>.", "<b>Professore<\/b> megszólításként = <i>tanár úr<\/i>; nőnem: <b>professoressa<\/b>.", "<b>Pierino<\/b> = Pietro becézője (<b>-ino<\/b> ≈ <i>-ke<\/i>).", "Ragok helyett <i>elöljárószók<\/i>: <b>in Ungheria<\/b> = Magyarországon.", "<b>italiano / italiana / italiani / italiane<\/b>, de <b>ungherese / ungheresi<\/b>. Többes: -o→-i, -a→-e, -e→-i.", "<b>Parlano ungherese<\/b> = magyarul beszélnek (névelő nélkül).", "<b>Siamo, parliamo<\/b>: többes 1. személy mindig <b>-iamo<\/b>. Tagadás: <b>non<\/b> + ige."], "ex1": [["Anche Budapest è una città grande.", "Budapest is nagy város."], ["Qui c'è l'Italia.", "Itt van Olaszország."], ["Gli italiani parlano italiano.", "Az olaszok olaszul beszélnek."], ["Noi siamo ungheresi.", "Mi magyarok vagyunk."], ["Professore, l'Italia è bella?", "Tanár úr, Olaszország szép?"], ["In Ungheria ci sono gli ungheresi.", "Magyarországon magyarok vannak."]], "ex2": [{"hu": "Itt van Róma.", "gap": "Qui . . . Roma.", "ans": ["c'è"]}, {"hu": "Az olaszok olaszul beszélnek.", "gap": ". . . italiani . . . . . . . italiano.", "ans": ["Gli", "parlano"]}, {"hu": "Olaszország szép ország.", "gap": "L'Italia . un . . . . . bello.", "ans": ["è", "paese"]}, {"hu": "Mi magyarok vagyunk.", "gap": "Noi . . . . . ungheresi.", "ans": ["siamo"]}, {"hu": "Róma is nagy város?", "gap": ". . . . . Roma è una . . . . . grande?", "ans": ["Anche", "città"]}, {"hu": "Nem vagyunk olaszok.", "gap": "Non . . . . . italiani.", "ans": ["siamo"]}], "voc": [["l'Europa", "Európa"], ["il paese", "az ország"], ["grande", "nagy"], ["bello / bella", "szép"], ["la città", "a város"], ["il professore", "a tanár"], ["sì", "igen"], ["parlare", "beszélni"], ["noi", "mi"], ["italiano", "olasz"], ["ungherese", "magyar"]]}, {"n": 3, "it": "Terza lezione", "hu": "Harmadik lecke", "title_it": "Una strana famiglia", "title_hu": "Egy különös család", "dlg": [["La famiglia Rossi vive a Roma^1", "A Rossi család Rómában él (A család Rossi él -ra Róma)"], ["in un appartamento moderno^2.", "egy modern lakásban (-ban egy lakás modern)."], ["I Rossi^3 sono a casa.", "Rossiék otthon vannak (A Rossi[k] vannak -ra ház)."], ["Dov'è^4 Giovanni Rossi?", "Hol van Rossi Giovanni?"], ["È in cucina^5.", "A konyhában van (Van -ban konyha)."], ["Dov'è la signora Rossi^6?", "Hol van Rossiné?"], ["In camera.", "A szobában."], ["Un marito in cucina?", "Egy férj a konyhában?"], ["Una moglie in camera?", "Egy feleség a szobában?"], ["Non^7 è strano?", "Nem különös (Nem van különös)?"], ["No.", "Nem."]], "notes": ["<b>A Roma<\/b> = Rómában; városnevek előtt <b>a<\/b>, országnevek előtt <b>in<\/b>. <b>Vive<\/b> a <b>vivere<\/b> (élni) 3. személye.", "<b>Un<\/b> hímnemű, <b>una<\/b> nőnemű határozatlan névelő. <b>appartamento moderno<\/b>: melléknév a főnév után.", "<b>I Rossi<\/b> = Rossiék (a család). <b>A casa<\/b> = otthon.", "<b>Dov'è<\/b> = dove + è. Kérdésben a szórend nem változik, csak a hanglejtés.", "<b>In cucina, in camera<\/b>: helyiségek előtt névelő nélkül.", "A <b>-né<\/b> olasz megfelelője: <b>la signora Rossi<\/b>.", "<b>Non<\/b> az ige előtt (<b>non è<\/b>), önálló válaszként <b>no<\/b>."], "ex1": [["Dov'è la moglie?", "Hol van a feleség?"], ["L'appartamento non è moderno.", "A lakás nem modern."], ["Il marito, la moglie e Pierino sono una famiglia.", "A férj, a feleség és Petike egy család."], ["Le famiglie sono a casa.", "A családok otthon vannak."], ["Viviamo a Budapest.", "Budapesten élünk."], ["Questo non è un bel paese.", "Ez nem szép ország."]], "ex2": [{"hu": "Én otthon vagyok.", "gap": "Io . . . . a casa.", "ans": ["sono"]}, {"hu": "A lakás modern.", "gap": "L'appartamento . moderno.", "ans": ["è"]}, {"hu": "Rómában szép idő van.", "gap": ". Roma fa bel tempo.", "ans": ["A"]}, {"hu": "Hol vannak Rossiék?", "gap": ". . . . sono . Rossi?", "ans": ["Dove", "i"]}, {"hu": "Nem a szobában vannak.", "gap": ". . . sono in . . . . . .", "ans": ["Non", "camera"]}, {"hu": "Te modern férj vagy?", "gap": "Tu . . . un . . . . . . moderno?", "ans": ["sei", "marito"]}], "voc": [["la famiglia", "a család"], ["vivere", "élni"], ["l'appartamento", "a lakás"], ["moderno", "modern"], ["a casa", "otthon"], ["la cucina", "a konyha"], ["la camera", "a szoba"], ["il marito", "a férj"], ["la moglie", "a feleség"], ["strano", "különös, furcsa"], ["la signora", "a hölgy, asszony"]]}, {"n": 4, "it": "Quarta lezione", "hu": "Negyedik lecke", "title_it": "Un poliziotto curioso", "title_hu": "Egy kíváncsi rendőr (Egy rendőr kíváncsi)", "dlg": [["Lei^1 è straniero? Cosa fa in Italia?", "Ön külföldi (Ön van külföldi)? Mit csinál Olaszországban (Mit csinál -ban Olaszország)?"], ["Studio l'italiano^2.", "Olaszul tanulok (Tanulom az olaszt)."], ["È difficile la lingua italiana?", "Nehéz az olasz nyelv (Van nehéz a nyelv olasz)?"], ["No, è facile.", "Nem, könnyű (Nem, van könnyű)."], ["Dove vive? A Budapest?", "Hol él? Budapesten (-ban Budapest)?"], ["Non vivo a Budapest, ma^3 in una cittadina^4 ungherese.", "Nem Budapesten élek, hanem egy magyar kisvárosban (Nem élek -ban Budapest, hanem -ban egy kisváros magyar)."], ["E adesso dove^5 va?", "És most hova megy (És most hol megy)?"], ["Vado in albergo^6.", "A szállodába megyek (Megyek -ba szálloda)."], ["Arrivederci. Buona giornata.", "Viszontlátásra. Minden jót (Jó napot)."]], "notes": ["<b>Lei<\/b> = <i>Ön<\/i>. Az udvarias megszólítás az olaszban a harmadik személyű, nőnemű <b>lei<\/b> névmás (gyakran nagy L-lel írva), az ige egyes szám 3. személyben áll: <b>Lei è<\/b> = Ön van. Férfinak is <b>Lei<\/b>-t mondunk! A melléknév viszont a valódi nemhez igazodik: <b>Lei è straniero<\/b> (férfinak) / <b>straniera<\/b> (nőnek).", "<b>Studiare l'italiano<\/b>: tanulni egy nyelvet – névelővel; de beszélni egy nyelven névelő nélkül: <b>parlare italiano<\/b> (2. lecke). Az egyes szám 1. személy végződése mindig <b>-o<\/b>: <b>studio<\/b> (tanulok), <b>vivo<\/b> (élek), <b>vado<\/b> (megyek).", "<b>Non… ma…<\/b> = <i>nem… hanem…<\/i>. Választékosabban: <b>non… bensì…<\/b>.", "<b>Cittadina<\/b> = kisváros. Az <b>-ina / -ino<\/b> kicsinyítő képző: <b>città → cittadina<\/b>, vö. <b>Pietro → Pierino<\/b> (2. lecke).", "<b>Dove?<\/b> = <i>hol?<\/i> és <i>hová?<\/i> egyaránt. Az olasz nem választja szét a helyet és az irányt: <b>Dove vive?<\/b> (Hol él?), <b>Dove va?<\/b> (Hová megy?). Honnan? = <b>Da dove?<\/b>", "<b>In albergo<\/b> = a szállodában és a szállodába is: az <b>in<\/b> elöljárószó helyet és irányt is jelöl. Néhány gyakori helynél nincs névelő: <b>in albergo, in banca, in cucina, a casa<\/b>. <b>Vado<\/b> az <b>andare<\/b> (menni) rendhagyó alakja: <b>vado, vai, va<\/b>."], "ex1": [["La signora Rossi vive in una grande città.", "Rossiné egy nagyvárosban él."], ["Studia l'ungherese?", "Magyarul tanul?"], ["Dove va la moglie?", "Hova megy a feleség?"], ["Siete a Roma?", "Rómában vagytok?"], ["Adesso non vado in cucina.", "Most nem megyek a konyhába."], ["Noi studiamo a casa.", "Mi otthon tanulunk."]], "ex2": [{"hu": "Budapestre megyek.", "gap": "Vado a . . . . . . . . .", "ans": ["Budapest"]}, {"hu": "Van konyha a szállodában?", "gap": "C'è una . . . . . . in . . . . . . . ?", "ans": ["cucina", "albergo"]}, {"hu": "Viszontlátásra Olaszországban.", "gap": ". . . . . . . . . . . in Italia.", "ans": ["Arrivederci"]}, {"hu": "Hol él Rossiné?", "gap": ". . . . vive la signora Rossi?", "ans": ["Dove"]}, {"hu": "Hova megy a külföldi?", "gap": "Dove . . lo . . . . . . . . . ?", "ans": ["va", "straniero"]}, {"hu": "A tanár is tanul.", "gap": ". . . . . il professore studia.", "ans": ["Anche"]}], "voc": [["straniero", "külföldi"], ["studiare", "tanulni"], ["difficile", "nehéz"], ["facile", "könnyű"], ["la lingua", "a nyelv"], ["dove?", "hol? hová?"], ["adesso", "most"], ["l'albergo", "a szálloda"], ["andare", "menni"], ["arrivederci", "viszontlátásra"], ["la cittadina", "a kisváros"]]}, {"n": 5, "it": "Quinta lezione", "hu": "Ötödik lecke", "title_it": "Al ristorante «Da Mario»", "title_hu": "A „Da Mario” étteremben (-nál étterem „Mariónál”)", "dlg": [["Cameriere! Il menù, per favore^1!", "Pincér! Az étlapot, legyen szíves (Az étlap, kérem)!"], ["Arrivo subito… Ecco a Lei^2.", "Azonnal jövök (Érkezem azonnal)… Tessék (Íme Önnek)."], ["Grazie.", "Köszönöm."], ["Cosa prendete^3 da bere?", "Mit kérnek inni (Mit vesztek -ból inni)?"], ["Un litro di^4 vino rosso.", "Egy liter vörösbort (Egy liter -ból bor vörös)."], ["Abbiamo^5 solo vino bianco.", "Csak fehérbor van (Van-nekünk csak bor fehér)."], ["Va bene. Ma vogliamo anche dell'acqua^6. Avete le lasagne?", "Jó (Megy jól). De vizet is kérünk (De akarunk is -ból-a víz). Van lasagne (Van-nektek a lasagne)?"], ["Sì, signore. Le abbiamo^7. E abbiamo anche il pollo arrosto.", "Igen, uram (úr). Van (Azokat van-nekünk). És sült csirke is van (És van-nekünk is a csirke sült)."], ["Prendiamo due lasagne e un pollo arrosto.", "Két lasagnét és egy sült csirkét kérünk (Veszünk két lasagne és egy csirke sült)."], ["Porto anche un'insalata.", "Hozok salátát is (Hozok is egy saláta)."], ["No, l'insalata non la vogliamo^7.", "Nem, salátát nem kérünk (Nem, a saláta nem azt akarjuk)."], ["Buon appetito!", "Jó étvágyat!"]], "notes": ["<b>Per favore<\/b> = <i>kérem, legyen szíves<\/i>. A <b>grazie<\/b>-re adott válasz: <b>prego<\/b> (<i>szívesen<\/i>).", "<b>Ecco<\/b> = <i>íme, tessék<\/i>, amikor átadunk vagy megmutatunk valamit: <b>Ecco il menù<\/b> = Itt az étlap. <b>Ecco a Lei<\/b> = Tessék (Önnek).", "<b>Prendere<\/b> = venni, fogni; étteremben „kérni, rendelni”. <b>Prendete<\/b> többes szám 2. személy: a pincér a társaságot <b>voi<\/b>-jal szólítja meg, ez étteremben is teljesen udvarias.", "Mennyiség után <b>di<\/b> áll: <b>un litro di vino<\/b>, <b>un chilo di pane<\/b>. Fontos: az olaszban <i>nincs tárgyrag<\/i> (-t)! A tárgy ugyanúgy néz ki, mint az alany; a szórend mutatja: <b>prendo il vino<\/b> (alany – ige – tárgy).", "<b>Avere<\/b> = birtokolni. Az olasznak – a magyarral ellentétben – van külön igéje a birtoklásra: <b>ho, hai, ha, abbiamo, avete, hanno<\/b>. „Van nekünk” = <b>abbiamo<\/b>; „Van gulyás?” étteremben = <b>Avete…?<\/b> (Önöknek van…?).", "<b>Dell'acqua, del vino<\/b>: részelő névelő (<b>di<\/b> + határozott névelő) = „egy kis, valamennyi”. A magyarban ilyenkor egyszerűen nincs névelő: <i>vizet kérünk<\/i>.", "<b>Le abbiamo / la vogliamo<\/b>: hangsúlytalan tárgyi névmások – <b>lo<\/b> (őt/azt, hímnem), <b>la<\/b> (nőnem), <b>li<\/b> (hímnem többes), <b>le<\/b> (nőnem többes). Az ige <i>elé<\/i> kerülnek. Ez a magyar tárgyas ragozás egyik megfelelője: <b>la vogliamo<\/b> = akarjuk (azt)."], "ex1": [["Il cameriere va in albergo.", "A pincér a szállodába megy."], ["Porto dell'acqua e del vino.", "Hozok vizet és bort."], ["Lo straniero prende anche l'insalata.", "A külföldi salátát is kér."], ["Adesso le lasagne non sono buone.", "Most nem jó a lasagne."], ["Ecco il menù.", "Itt az étlap."], ["Perché prendiamo il pollo?", "Miért kérünk csirkét?"]], "ex2": [{"hu": "A rendőrök nem kérnek italt.", "gap": "I poliziotti non . . . . . . . . da bere.", "ans": ["prendono"]}, {"hu": "A saláta jó.", "gap": "L'. . . . . . . . è . . . . .", "ans": ["insalata", "buona"]}, {"hu": "Rossiék vizet hoznak.", "gap": "I Rossi portano dell'. . . . . .", "ans": ["acqua"]}, {"hu": "Tanár úr, legyen szíves, hol van Európa?", "gap": "Professore, per . . . . . . , dov'è l'Europa?", "ans": ["favore"]}, {"hu": "Pierino nem kér csirkét.", "gap": "Pierino non vuole il . . . . .", "ans": ["pollo"]}, {"hu": "Van jó bor Magyarországon?", "gap": "C'è del . . . . vino in . . . . . . . . ?", "ans": ["buon", "Ungheria"]}], "voc": [["il cameriere", "a pincér"], ["il menù", "az étlap"], ["per favore", "legyen szíves"], ["subito", "azonnal"], ["ecco", "íme, tessék"], ["bere", "inni"], ["il vino rosso", "a vörösbor"], ["bianco", "fehér"], ["l'acqua", "a víz"], ["il pollo", "a csirke"], ["l'insalata", "a saláta"], ["portare", "hozni, vinni"], ["Buon appetito!", "Jó étvágyat!"], ["prego", "szívesen"]]}, {"n": 6, "it": "Sesta lezione", "hu": "Hatodik lecke", "title_it": "Libri interessanti", "title_hu": "Érdekes könyvek (Könyvek érdekesek)", "dlg": [["Gigi^1, vieni a fare^2 una passeggiata?", "Gigi, jössz sétálni (jössz -ni csinál egy séta)?"], ["No, adesso non ho tempo^3.", "Nem, most nincs időm (most nem van-nekem idő)."], ["Perché? Cosa fai?", "Miért? Mit csinálsz?"], ["Studio l'ungherese.", "Magyarul tanulok (Tanulom a magyart)."], ["È bello il libro?", "Jó a könyv (Van szép a könyv)?"], ["Molto interessante. Il suo titolo^4 è: «Il rosso e il nero».", "Nagyon érdekes. A címe (Az ő címe van): „Vörös és fekete” (A vörös és a fekete)."], ["Bene, allora non facciamo la passeggiata, leggo anch'io. Dov'è il mio libro^4?", "Jó, akkor nem sétálunk (nem csináljuk a sétát), én is olvasok. Hol a könyvem (Hol van a az-én könyv)?"], ["Eccolo^5, è sul^6 tavolo. Il titolo è interessante:", "Tessék (Íme-az), itt van az asztalon (van -on-a asztal). Érdekes a címe (A cím van érdekes):"], ["«Il poliziotto, sua moglie e il basilico».", "„A rendőr, a felesége és a bazsalikom” (A rendőr, övé feleség és a bazsalikom)."]], "notes": ["<b>Gigi<\/b> a <b>Luigi<\/b> becézője (mint a magyar <i>Laci<\/i> a <i>László<\/i>-é).", "Mozgást jelentő igék után <b>a<\/b> + főnévi igenév: <b>vieni a fare<\/b> (jössz csinálni), <b>vado a mangiare<\/b> (megyek enni). A főnévi igenév végződése <b>-are, -ere, -ire<\/b>: <b>parlare, leggere, venire<\/b>. <b>Vieni<\/b> a <b>venire<\/b> (jönni) alakja: <b>vengo, vieni, viene<\/b>.", "<b>Non ho tempo<\/b> = nincs időm (szó szerint: nem birtoklok időt). Az olaszban <i>nincs külön „nincs” szó<\/i>: <b>non c'è<\/b> = nincs (ott), <b>non ho<\/b> = nincs nekem. A tagadás mindig <b>non<\/b> + ige.", "Birtokos névmás <i>névelővel<\/i>: <b>il mio libro<\/b> (a könyvem), <b>il tuo<\/b>, <b>il suo<\/b>; nőnem: <b>la mia, la tua, la sua<\/b>. A névmás a birtok neméhez igazodik, nem a birtokoséhoz: <b>il suo titolo<\/b> = az ő (a könyv) címe. Kivétel: egyes számú rokonsági szavak névelő nélkül: <b>sua moglie<\/b> (9. mondat).", "<b>Eccolo<\/b> = <b>ecco<\/b> + <b>lo<\/b>: itt van (az). A hangsúlytalan névmás az <b>ecco<\/b> végéhez tapad: <b>eccola, eccoli<\/b>.", "Az elöljárószók összeolvadnak a határozott névelővel: <b>su + il = sul<\/b>, <b>in + il = nel<\/b>, <b>a + il = al<\/b>, <b>di + il = del<\/b>, <b>da + il = dal<\/b>. Ami a magyarban rag (<i>asztal-on<\/i>), az olaszban elöljárószó + névelő (<b>sul tavolo<\/b>)."], "ex1": [["Vado a passeggiare.", "Megyek sétálni."], ["Maria è molto bella.", "Mari nagyon szép."], ["Studio in una piccola città.", "Egy kis városban tanulok."], ["Il mio vino è sul tavolo.", "A borom az asztalon van."], ["Leggo solo in italiano.", "Csak olaszul olvasok."], ["Vorrei tre libri interessanti.", "Kérek három érdekes könyvet."]], "ex2": [{"hu": "Olvasok egy érdekes könyvet.", "gap": "Leggo un . . . . . interessante.", "ans": ["libro"]}, {"hu": "A férjem nincs otthon.", "gap": "Mio . . . . . . non è a . . . . .", "ans": ["marito", "casa"]}, {"hu": "Mit csinál Pierino a szobában?", "gap": "Cosa . . Pierino in . . . . . . ?", "ans": ["fa", "camera"]}, {"hu": "Egy különös nyelvet tanulunk.", "gap": ". . . . . . . . una lingua particolare.", "ans": ["Studiamo"]}, {"hu": "Miért nem sétálsz?", "gap": ". . . . . . non passeggi?", "ans": ["Perché"]}, {"hu": "Önök is olvasnak?", "gap": "Anche . . . leggete?", "ans": ["voi"]}], "voc": [["la passeggiata", "a séta"], ["perché", "miért; mert"], ["fare", "csinálni"], ["il libro", "a könyv"], ["interessante", "érdekes"], ["il titolo", "a cím"], ["leggere", "olvasni"], ["il tavolo", "az asztal"], ["allora", "akkor"], ["rosso", "vörös, piros"], ["nero", "fekete"], ["venire", "jönni"]]}, {"n": 7, "it": "Settima lezione", "hu": "Hetedik lecke", "title_it": "Ripasso", "title_hu": "Ismétlés", "ripasso": true, "sections": [["1 Az ige", ["<b>1.1 Jelen idő.<\/b> Az eddigi igealakok mind kijelentő mód jelen időben állnak.", "<b>1.2 Főnévi igenév.<\/b> Három végződés, három ragozási csoport: <b>-are<\/b> (parlare), <b>-ere<\/b> (leggere), <b>-ire<\/b> (venire, dormire).", "<b>1.3 Szabályos ragozás.<\/b> <b>parlare<\/b>: parlo, parli, parla, parliamo, parlate, parlano · <b>leggere<\/b>: leggo, leggi, legge, leggiamo, leggete, leggono. Az 1. személy mindig <b>-o<\/b>, a 2. mindig <b>-i<\/b>, a többes 1. mindig <b>-iamo<\/b>.", "<b>1.4 Rendhagyó igék<\/b> (táblázat a következő oldalon).", "<b>1.5 A létige.<\/b> Az olaszban az <b>è / sono<\/b> <i>soha nem marad el<\/i>: <b>Maria è bella<\/b> (Mari Ø szép), <b>Budapest è una città<\/b>. Létezés: <b>c'è / ci sono<\/b> (van / vannak). Birtoklás: <b>avere<\/b> (<b>ho tempo<\/b> = van időm). Hogylét: <b>stare<\/b> (<b>sto bene<\/b>)."]], ["TABLE", [["", "essere", "avere", "andare", "venire", "fare"], ["io", "sono", "ho", "vado", "vengo", "faccio"], ["tu", "sei", "hai", "vai", "vieni", "fai"], ["lui/lei", "è", "ha", "va", "viene", "fa"], ["noi", "siamo", "abbiamo", "andiamo", "veniamo", "facciamo"], ["voi", "siete", "avete", "andate", "venite", "fate"], ["loro", "sono", "hanno", "vanno", "vengono", "fanno"]]], ["2 Személyes névmások", ["<b>io, tu, lui/lei, noi, voi, loro<\/b>. Mint a magyarban, általában elmaradnak, mert az igevégződés mutatja a személyt: <b>parlo<\/b> = beszélek. Csak nyomatékként használjuk: <b>io parlo<\/b> = <i>én<\/i> beszélek. Udvarias forma: <b>Lei<\/b> (+ egyes szám 3. személy)."]], ["3 Nem és névelő", ["Minden főnévnek van nyelvtani neme. <b>-o<\/b> → többnyire hímnem (libro), <b>-a<\/b> → többnyire nőnem (casa), <b>-e<\/b> → mindkettő lehet (paese hím., moglie nőn.).", "Határozott névelő: hímnem <b>il<\/b> (il libro), <b>lo<\/b> (s+mássalhangzó, z előtt: lo straniero), <b>l'<\/b> (magánhangzó előtt); nőnem <b>la<\/b>, <b>l'<\/b>. Többes szám: <b>i / gli<\/b> (hím.), <b>le<\/b> (nőn.). Határozatlan: <b>un, uno<\/b> / <b>una, un'<\/b>.", "A melléknév nemben és számban egyezik: <b>il libro rosso, la casa rossa, i libri rossi, le case rosse<\/b>."]], ["4 Elöljárószók a ragok helyett", ["<b>in<\/b> = -ban/-ben és -ba/-be (országok, helyiségek: in Italia, in cucina) · <b>a<\/b> = városnév előtt -ban/-ba (a Roma), és <b>a casa<\/b> · <b>su<\/b> = -on/-en/-ön, -ra/-re · <b>di<\/b> = -ból (anyag, mennyiség), birtok („-é”) · <b>da<\/b> = -tól/-től, -nál/-nél, -hoz/-hez (személyeknél).", "Névelővel összeolvadnak: <b>in + il = nel<\/b>, <b>su + la = sulla<\/b>, <b>a + il = al<\/b>, <b>di + il = del<\/b>, <b>da + il = dal<\/b>."]]], "dlg": [["Cosa fa Pietro in camera?", "Mit csinál Péter a szobában?"], ["Legge un libro interessante.", "Egy érdekes könyvet olvas."], ["E Maria in cucina?", "És Mari a konyhában?"], ["Fa il pollo arrosto.", "Sült csirkét csinál."], ["Dove vive lo straniero?", "Hol él a külföldi?"], ["In Ungheria.", "Magyarországon."], ["E la famiglia Rossi?", "És a Rossi család?"], ["A Roma.", "Rómában."], ["Dove va Giovanni?", "Hova megy János?"], ["In albergo.", "A szállodába."]], "voc": [["essere", "lenni"], ["avere", "birtokolni (van neki)"], ["stare bene", "jól lenni"], ["c'è / ci sono", "van / vannak"], ["io vado", "megyek"], ["io vengo", "jövök"], ["io faccio", "csinálok"]]}, {"n": 8, "it": "Ottava lezione", "hu": "Nyolcadik lecke", "title_it": "Una visita in banca", "title_hu": "Látogatás a bankban (Egy látogatás -ban bank)", "dlg": [["Stamattina^1 il signor Bianchi va in banca.", "Bianchi úr ma délelőtt a bankba megy (Ma-reggel a úr Bianchi megy -ba bank)."], ["La banca è in via^2 Garibaldi.", "A bank a Garibaldi utcában van (A bank van -ban utca Garibaldi)."], ["Buongiorno. Dov'è la cassa?", "Jó napot kívánok. Hol van a pénztár?"], ["È lì a sinistra, vicino alla^3 finestra.", "Ott van balra, az ablak mellett (Van ott -ra bal, közel -hoz-az ablak)."], ["Grazie mille^4.", "Köszönöm szépen (Köszönet ezer)."], ["Ecco due assegni^5, vorrei dei contanti.", "Itt van két csekk, készpénzt kérek (Íme két csekkek, szeretnék -ból-a készpénz)."], ["Signore, questi^6 assegni sono falsi.", "Uram, ezek a csekkek hamisak (Úr, ezek csekkek vannak hamisak)."], ["Se non mi dà cento milioni di euro, sparo!", "Ha nem ad százmillió eurót, lövök! (Ha nem nekem ad száz milliók -ból euró, lövök!)"], ["Ecco i soldi. Prego, cento milioni di euro.", "Itt a pénz. Tessék, százmillió euró (Íme a pénzek. Tessék, száz milliók -ból euró)."], ["Va bene. Non sparo.", "Rendben van. Nem lövök (Megy jól. Nem lövök)."], ["Il signor Bianchi esce dalla^7 banca e torna a casa. La polizia lo^8 aspetta già.", "Bianchi úr kijön a bankból és hazamegy. A rendőrség már várja (A rendőrség őt várja már)."]], "notes": ["<b>Stamattina<\/b> = <b>questa mattina<\/b> (ma reggel, ma délelőtt). Ugyanígy: <b>stasera<\/b> (ma este), <b>stanotte<\/b> (ma éjjel).", "Utcanév: <b>via<\/b> + név, névelő nélkül: <b>in via Garibaldi<\/b> = a Garibaldi utcában. Tér: <b>piazza<\/b> (<b>in piazza Navona<\/b>).", "A magyar névutók helyett az olaszban elöljárós kifejezések állnak: <b>vicino a<\/b> (mellett, közel), <b>davanti a<\/b> (előtt), <b>dietro<\/b> (mögött). <b>a + la = alla<\/b>.", "<b>Grazie mille<\/b> = köszönöm szépen („ezer köszönet”). Melléknévből határozószó a <b>-mente<\/b> képzővel: <b>certo → certamente<\/b> (biztosan), <b>particolare → particolarmente<\/b> (különösen).", "Fontos különbség: az olaszban számnév után <i>többes szám<\/i> áll: <b>due assegni<\/b> (két csekk), <b>tre libri<\/b> (három könyv). Az <b>euro<\/b> nem változik: <b>un euro, cento euro<\/b>.", "<b>questo / questa / questi / queste<\/b> + főnév, <i>névelő nélkül<\/i>: <b>questo libro<\/b> = ez a könyv, <b>questi assegni<\/b> = ezek a csekkek. A magyar „ez <i>a<\/i>” névelője elmarad!", "Honnan? = <b>Da dove?<\/b> A <b>da<\/b> = -ból/-ből, -tól/-től: <b>esco dalla banca<\/b> (kijövök a bankból), <b>vengo da Roma<\/b> (Rómából jövök). Összefoglalva: <b>sono in banca<\/b> (bankban vagyok) / <b>vado in banca<\/b> (bankba megyek) / <b>esco dalla banca<\/b> (bankból jövök ki).", "<b>lo<\/b> = őt (hímnem), <b>la<\/b> = őt (nőnem); az ige <i>elé<\/i> kerül: <b>lo aspetta<\/b> = várja (őt). Vö. a magyar tárgyas ragozással: <b>várja<\/b>."], "ex1": [["Queste finestre sono belle.", "Ezek az ablakok szépek."], ["L'assegno è alla cassa.", "A csekk a pénztárban van."], ["Pierino torna a casa stamattina.", "Petike ma délelőtt hazamegy."], ["Se non studia, va a passeggiare.", "Ha nem tanul, sétálni megy."], ["L'albergo è vicino al ristorante.", "A szálloda az étterem mellett van."], ["La famiglia non viene dall'Ungheria.", "A család nem Magyarországról jön."]], "ex2": [{"hu": "Ezek a csekkek nem hamisak.", "gap": ". . . . . . assegni non sono . . . . . .", "ans": ["Questi", "falsi"]}, {"hu": "A konyha balra van.", "gap": "La . . . . . . è a . . . . . . . .", "ans": ["cucina", "sinistra"]}, {"hu": "A tanár pénzt ad.", "gap": "Il professore dà dei . . . . .", "ans": ["soldi"]}, {"hu": "Hogy van, uram?", "gap": "Come sta, . . . . . . . ?", "ans": ["signore"]}, {"hu": "Otthon van százmillió eurom.", "gap": "A casa . . cento milioni di euro", "ans": ["ho"]}, {"hu": "Nem Pietro jön a városból.", "gap": "Non è Pietro che viene . . . . . città", "ans": ["dalla"]}], "voc": [["la banca", "a bank"], ["la cassa", "a pénztár"], ["la finestra", "az ablak"], ["a sinistra", "balra"], ["a destra", "jobbra"], ["vicino a", "mellett, közel"], ["l'assegno", "a csekk"], ["i soldi", "a pénz"], ["falso", "hamis"], ["se", "ha"], ["stamattina", "ma délelőtt"], ["tornare a casa", "hazamenni"]]}, {"n": 9, "it": "Nona lezione", "hu": "Kilencedik lecke", "title_it": "È tardi", "title_hu": "Késő van (Van késő)", "dlg": [["Sono le otto^1 di mattina.", "Reggel nyolc óra van (Vannak a nyolc -ból reggel)."], ["La signora Neri va al lavoro.", "Neriné munkába megy (A asszony Neri megy -hoz-a munka)."], ["In piazza Venezia sale sul^2 tram.", "A Venezia téren felszáll a villamosra (-ban tér Venezia felszáll -ra-a villamos)."], ["Sul tram si siede^3 e legge il giornale.", "A villamoson leül és újságot olvas (-on-a villamos magát leülteti és olvas a újság)."], ["Scende dal tram vicino alla banca.", "A bank mellett leszáll a villamosról (Leszáll -ról-a villamos közel -hoz-a bank)."], ["Poi cammina a piedi per cinquecento metri.", "Aztán gyalog sétál ötszáz métert (Aztán gyalogol -on lábak -ért ötszáz méterek)."], ["Si ferma davanti a un grande palazzo. È il suo^4 posto di lavoro.", "Egy nagy ház előtt megáll. Ez a munkahelye (Magát megállítja előtt -hoz egy nagy palota. Van a ő helye -ból munka)."], ["Sale in ascensore al terzo piano.", "Felmegy lifttel a harmadik emeletre (Felmegy -ban lift -ra-a harmadik emelet)."], ["La signora Neri è nervosa perché sono già le nove.", "Neriné ideges, mert már kilenc óra van."], ["Buongiorno, signora Neri. Perché arriva solo adesso?", "Jó reggelt kívánok, Neriné. Miért csak most jön (Miért érkezik csak most)?"], ["Il nostro bambino è malato^5, direttore. Domani arrivo puntuale.", "Beteg a gyerekünk, igazgató úr. Holnap pontosan jövök (Holnap érkezem pontos)."]], "notes": ["Az idő: <b>Che ore sono?<\/b> (Hány óra van?) – <b>Sono le otto<\/b> (többes szám!), de: <b>È l'una<\/b> (egy óra van), <b>è mezzogiorno<\/b> (dél van). A létige itt sem marad el.", "Elöljárószó + névelő: <b>su + il = sul<\/b>, <b>da + il = dal<\/b>, <b>a + la = alla<\/b>. <b>salire su<\/b> = felszállni -ra, <b>scendere da<\/b> = leszállni -ról. Az irányt az ige mutatja (<b>salire<\/b> = fel, <b>scendere<\/b> = le), nem igekötő.", "Visszaható igék: <b>si siede<\/b> (leül), <b>si ferma<\/b> (megáll): <b>mi siedo, ti siedi, si siede…<\/b> A magyar igekötős ige (<i>le<\/i>ül, <i>meg<\/i>áll) gyakran olasz visszaható ige.", "Birtokos: névelő + birtokos névmás + főnév: <b>il suo posto<\/b> (az ő helye), <b>il mio, il tuo, il nostro<\/b>. Részletesen a 14. leckében.", "A melléknév egyezik: <b>il bambino è malato<\/b> / <b>la bambina è malata<\/b>. Megszólítás: <b>direttore<\/b> = igazgató úr („úr” nélkül)."], "ex1": [["Sul tram non leggo il giornale.", "A villamoson nem olvasok újságot."], ["Il nostro professore è malato.", "A tanárunk beteg."], ["Anche tu sali al terzo piano?", "Te is felmész a harmadik emeletre?"], ["A Budapest sono le sette, anche a Roma.", "Budapesten hét óra van, Rómában is."], ["Il mio posto di lavoro è vicino al ristorante.", "A munkahelyem az étterem mellett van."], ["Se non è nervosa, studia l'italiano.", "Ha nem ideges, olaszul tanul."]], "ex2": [{"hu": "Megállunk a bank előtt.", "gap": "Ci . . . . . . . . davanti alla banca", "ans": ["fermiamo"]}, {"hu": "Már öt óra van.", "gap": ". . . . già le cinque", "ans": ["Sono"]}, {"hu": "Ma a tanárok idegesek.", "gap": "Oggi i professori sono . . . . . . . .", "ans": ["nervosi"]}, {"hu": "Felmegyek a negyedik emeletre.", "gap": ". . . . . al quarto piano", "ans": ["Salgo"]}, {"hu": "A gyerekek leszállnak a buszról.", "gap": "I bambini . . . . . . . . dall'autobus", "ans": ["scendono"]}, {"hu": "Leülök, mert van időm.", "gap": "Mi . . . . . perché ho tempo", "ans": ["siedo"]}], "voc": [["le otto", "nyolc óra"], ["il lavoro", "a munka"], ["salire", "felszállni, felmenni"], ["scendere", "leszállni, lemenni"], ["il tram", "a villamos"], ["sedersi", "leülni"], ["il giornale", "az újság"], ["a piedi", "gyalog"], ["fermarsi", "megállni"], ["l'ascensore", "a lift"], ["il piano", "az emelet"], ["nervoso", "ideges"], ["malato", "beteg"], ["domani", "holnap"]]}, {"n": 10, "it": "Decima lezione", "hu": "Tizedik lecke", "title_it": "Dal dentista", "title_hu": "A fogorvosnál (-nál-a fogorvos)", "dlg": [["Il professore di ungherese^1 va dal^2 dentista.", "A magyartanár fogorvoshoz megy (A tanár -ból magyar megy -hoz-a fogorvos)."], ["Dal dentista aspettano in molti.", "A fogorvosnál sokan várnak (-nál-a fogorvos várnak -ban sokan)."], ["Si siede. Gli fa molto male il dente^3, ma bisogna^4 aspettare.", "Leül. Nagyon fáj a foga, de várni kell (Neki csinál nagyon rosszat a fog, de kell várni)."], ["Finalmente entra nello studio del medico.", "Végre bemegy az orvos szobájába (Végre bemegy -ba-a rendelő -ból-a orvos)."], ["Che cosa le fa male? Dove le fa male? A sinistra? A destra?", "Mi fáj? Hol fáj? Balra? Jobbra? (Mi önnek csinál rosszat? Hol önnek csinál rosszat?)"], ["Mi fa male sia a sinistra che a destra. Sto molto male.", "Bal oldalon is fáj, jobb oldalon is fáj. Nagyon beteg vagyok (Nekem csinál rosszat is -ra bal, mint -ra jobb. Állok nagyon rosszul)."], ["Non abbia paura^5. Le faccio un'iniezione. Va tutto bene?", "Nem kell félni. Adok egy injekciót. Minden rendben van? (Ne legyen félelme. Önnek csinálok egy injekciót. Megy minden jól?)"], ["Il dente non mi fa più male. Grazie. Quanto pago?", "Már nem fáj a fogam. Köszönöm. Mennyit fizetek? (A fog nem nekem csinál többé rosszat.)"], ["Sono cento euro. Arrivederci, a domani alle^6 cinque del pomeriggio.", "Száz eurót kérek. Viszontlátásra holnap délután ötkor (Vannak száz euró. Viszontlátásra, -ra holnap -ra-a öt -ból-a délután)."], ["Dal dentista il professore va in una pasticceria.", "A tanár a fogorvostól egy cukrászdába megy."], ["Ha molta fame^7 e vuole mangiare qualcosa.", "Nagyon éhes és enni akar valamit (Van neki sok éhség és akar enni valamit)."]], "notes": ["<b>Professore di ungherese<\/b>: a <b>di<\/b> köti össze a két főnevet: <b>libro di storia<\/b> (történelemkönyv), <b>insegnante di italiano<\/b> (olasztanár). A magyarban ez egyetlen összetett szó.", "Személyeknél a <b>da<\/b> mindhárom irányt jelöli: <b>vado dal dentista<\/b> (fogorvoshoz megyek), <b>sono dal dentista<\/b> (a fogorvosnál vagyok), <b>vengo dal dentista<\/b> (a fogorvostól jövök). Egy szó – három magyar rag!", "Fájdalom: <b>mi fa male la testa<\/b> = fáj a fejem („nekem rosszat csinál a fej”). Birtokos rag helyett részes névmás: <b>mi<\/b> (nekem), <b>ti<\/b> (neked), <b>gli<\/b> (neki, férfi), <b>le<\/b> (neki, nő; Önnek).", "<b>Bisogna<\/b> + főnévi igenév = kell: <b>bisogna aspettare<\/b> = várni kell. Személyhez kötve: <b>devo aspettare<\/b> (várnom kell).", "<b>Non abbia paura<\/b> = ne féljen (Lei-forma). <b>Avere paura<\/b> = félni („félelmet birtokolni”). Tegezve: <b>Non avere paura!<\/b>", "Időpont: <b>alle cinque<\/b> = ötkor (<b>a + le<\/b>); <b>all'una<\/b> = egykor. Mikor? = <b>A che ora?<\/b>", "<b>Avere fame<\/b> = éhesnek lenni („éhséget birtokolni”). Ugyanígy: <b>avere sete<\/b> (szomjas), <b>avere freddo<\/b> (fázik), <b>avere paura<\/b> (fél)."], "ex1": [["Non ti fa male il dente?", "Nem fáj a fogad?"], ["Non bisogna avere paura in ascensore.", "Nem kell félni a liftben."], ["I malati sono dal medico.", "A betegek az orvosnál vannak."], ["Il dentista fa un'iniezione.", "A fogorvos injekciót ad."], ["Arrivederci, a domani.", "Viszontlátásra holnap."], ["Dai Rossi andate da Pietro?", "Rossiéktól Péterhez mentek?"]], "ex2": [{"hu": "Nagyon betegek vagyunk.", "gap": "Siamo molto . . . . . . .", "ans": ["malati"]}, {"hu": "A fogorvos a cukrászdába megy.", "gap": "Il dentista va in . . . . . . . . . . . .", "ans": ["pasticceria"]}, {"hu": "Itt olaszul kell beszélni.", "gap": "Qui . . . . . . . parlare italiano", "ans": ["bisogna"]}, {"hu": "Mennyit fizetek?", "gap": ". . . . . . pago?", "ans": ["Quanto"]}, {"hu": "A férjem nem éhes.", "gap": "Mio marito non ha . . . . .", "ans": ["fame"]}, {"hu": "Nem akarnak a szállodában enni.", "gap": "Non . . . . . . . . mangiare in albergo", "ans": ["vogliono"]}], "voc": [["il dentista", "a fogorvos"], ["aspettare", "várni"], ["il dente", "a fog"], ["mi fa male", "fáj (nekem)"], ["bisogna", "kell"], ["finalmente", "végre"], ["il medico", "az orvos"], ["avere paura", "félni"], ["pagare", "fizetni"], ["il pomeriggio", "a délután"], ["la pasticceria", "a cukrászda"], ["avere fame", "éhesnek lenni"], ["mangiare", "enni"], ["qualcosa", "valami"]]}, {"n": 11, "it": "Undicesima lezione", "hu": "Tizenegyedik lecke", "title_it": "Oggi abbiamo un esame", "title_hu": "Ma vizsgázunk (Ma van-nekünk egy vizsga)", "dlg": [["Non avete paura dell'^1esame di oggi?", "Nem féltek a mai vizsgától? (Nem van-nektek félelem -tól-a vizsga -ból ma?)"], ["Sì che^2 abbiamo paura, perché il professore è molto severo.", "De félünk, mert nagyon szigorú a tanár (Igen hogy van-nekünk félelem…)."], ["A che ora avete l'esame?", "Hány órakor van a vizsgátok? (-ra melyik óra van-nektek a vizsga?)"], ["Alle quattro del pomeriggio.", "Délután négy órakor."], ["Noi l'abbiamo alle cinque, ma non di fisica^3, bensì di matematica.", "Mi öt órakor vizsgázunk, de nem fizikából, hanem matematikából (Mi azt birtokoljuk -ra-a öt…)."], ["Buongiorno, signori. Chi vuole fare l'esame di fisica? Prego, entrate e sedetevi^4.", "Jó napot, uraim. Ki akar vizsgázni fizikából? Tessék bejönni és leülni (Tessék, gyertek be és üljetek le)."], ["Professore, sono molto nervoso e mi fa male la testa.", "Tanár úr, nagyon ideges vagyok és fáj a fejem (nekem csinál rosszat a fej)."], ["Non fa niente^5, figliolo. Tutti^6 hanno paura degli esami.", "Nem baj, fiam. A vizsgáktól mindenki fél (Nem csinál semmit, fiacskám. Mindenki van-nekik félelem -tól-a vizsgák)."], ["Ma io non so niente. Torno a casa. Arrivederci.", "De én nem tudok semmit. Hazamegyek. Viszontlátásra."], ["Chi altro vuole fare l'esame di fisica?", "Ki akar még vizsgázni fizikából? (Ki más akar csinálni a vizsga -ból fizika?)"]], "notes": ["<b>Avere paura di<\/b> = félni valamitől: <b>paura dell'esame<\/b> (<b>di + l'<\/b>), <b>paura degli esami<\/b> (<b>di + gli<\/b>).", "Tagadó kérdésre ellentmondó válasz: <b>Sì che…<\/b> / <b>Certo che…<\/b> – vö. a magyar „<i>De<\/i> félünk!”", "<b>Fare l'esame di fisica<\/b> = fizikából vizsgázni. A tantárgyat a <b>di<\/b> vezeti be.", "Felszólító mód, <b>voi<\/b> (ti) alak: <b>entrate!<\/b> (gyertek be), <b>sedetevi!<\/b> (üljetek le – a visszaható névmás az ige végére tapad). Tegezve: <b>entra!<\/b>, <b>siediti!<\/b> A magyar „Tessék + főnévi igenév” helyett: <b>Prego<\/b> + felszólító mód.", "Kettős tagadás, mint a magyarban: <b>non<\/b> + ige + <b>niente<\/b>: <b>non so niente<\/b> (nem tudok semmit), <b>non fa niente<\/b> (nem baj). Ugyanígy: <b>non… mai<\/b> (soha), <b>non… nessuno<\/b> (senki).", "<b>Tutti<\/b> = mindenki, de az ige <i>többes számban<\/i> áll: <b>tutti hanno paura<\/b>."], "ex1": [["I professori oggi non fanno esami.", "A tanárok ma nem vizsgáztatnak."], ["Chi vuole sedersi?", "Ki akar leülni?"], ["L'esame non è difficile.", "A vizsga nem nehéz."], ["Il poliziotto non ha paura di niente.", "A rendőr semmitől nem fél."], ["Prego, entrate in camera.", "Tessék bejönni a szobába."], ["Torniamo a casa di mattina?", "Reggel hazamegyünk?"]], "ex2": [{"hu": "Ki akar matematikából vizsgázni?", "gap": "Chi . . . . . fare l'esame di . . . . . . . . . . ?", "ans": ["vuole", "matematica"]}, {"hu": "Tanár úr, nem fáj a fejem.", "gap": "Professore, non mi fa male la . . . . .", "ans": ["testa"]}, {"hu": "Ti is féltek az orvostól?", "gap": "Anche voi avete . . . . . del medico?", "ans": ["paura"]}, {"hu": "Délután nem akarok sétálni.", "gap": "Il . . . . . . . . . . non voglio passeggiare", "ans": ["pomeriggio"]}, {"hu": "Hány órakor megy a feleséged a bankba?", "gap": "A che . . . va in banca tua moglie?", "ans": ["ora"]}, {"hu": "Nem tudok semmit.", "gap": "Non so . . . . . .", "ans": ["niente"]}], "voc": [["l'esame", "a vizsga"], ["oggi", "ma"], ["severo", "szigorú"], ["A che ora?", "Hány órakor?"], ["la fisica", "a fizika"], ["la matematica", "a matematika"], ["entrare", "bemenni, bejönni"], ["la testa", "a fej"], ["Non fa niente.", "Nem baj."], ["tutti", "mindenki"], ["sapere (so)", "tudni (tudok)"], ["niente", "semmi"]]}, {"n": 12, "it": "Dodicesima lezione", "hu": "Tizenkettedik lecke", "title_it": "Visita guidata a Roma", "title_hu": "Városnézés Rómában (Látogatás vezetett -ra Róma)", "dlg": [["Cari turisti, siamo sul Tevere^1.", "Kedves turisták, a Tiberisnél vagyunk (Kedves turisták, vagyunk -on-a Tiberis)."], ["Questo è Ponte Sisto. Sulle due rive del Tevere, a Trastevere e in centro, passano autobus arancioni e tram verdi.", "Ez a Sisto-híd. A Tiberis két partján, Trasteverében is, a belvárosban is narancssárga buszok és zöld villamosok járnak."], ["Adesso saliamo al Campidoglio. Lì ci sono i grandi musei.", "Most felmegyünk a Capitoliumra. Ott vannak a nagy múzeumok."], ["Questa è la chiesa di Santa Maria in Aracoeli. È molto antica. Le finestre sono particolarmente belle.", "Ez az Aracoeli Szűz Mária-templom. Nagyon régi. Az ablakok különösen szépek."], ["Adesso scendiamo di nuovo verso il fiume.", "Most megint lemegyünk a folyóhoz (Most lemegyünk újra felé a folyó)."], ["Questo palazzo^2 a destra è Montecitorio, la Camera dei Deputati. È barocco.", "Ez az épület jobbra a Montecitorio, a Képviselőház. Barokk."], ["In alto a sinistra, quelli sono l'albergo Hassler e la chiesa di Trinità dei Monti.", "Balra fent az a Hassler szálloda és a Trinità dei Monti-templom (Fent -ra bal, azok vannak…)."], ["Scusi^3, perché ci sono palazzi moderni in un quartiere antico?", "Elnézést kérek, miért vannak modern épületek egy régi városrészben?"], ["Perché anche qui la gente^4 vive e lavora. Nella capitale italiana non ci sono solo monumenti.", "Mert itt is emberek élnek és dolgoznak (Mert itt is a nép él és dolgozik). Az olasz fővárosban nemcsak műemlékek vannak."], ["Quanti abitanti ha Roma?", "Hányan laknak Rómában? (Hány lakost birtokol Róma?)"], ["Roma ha quasi tre milioni di^5 abitanti. L'Italia ne ha^6 sessanta milioni.", "Rómának majdnem hárommillió lakosa van. Olaszországnak hatvanmillió (Olaszország abból birtokol hatvan milliót)."], ["Signore e signori, la visita è finita.", "Hölgyeim és uraim, a városnézésnek vége (a látogatás van befejezve)."]], "notes": ["<b>sul Tevere<\/b> = <b>su + il<\/b>. A folyónevek hímneműek és névelővel állnak: <b>il Tevere<\/b> (Tiberis), <b>il Danubio<\/b> (Duna), <b>il Po<\/b>.", "<b>questo<\/b> (közeli) / <b>quello<\/b> (távoli), mint <b>ez / az<\/b>: <b>questo palazzo<\/b> (ez az épület), <b>quel palazzo<\/b> (az az épület), <b>quelli<\/b> (azok). Névelő nem kell!", "<b>Scusi<\/b> = elnézést (Lei-forma); tegezve <b>scusa<\/b>.", "<b>La gente<\/b> = az emberek, de nyelvtanilag <i>egyes számú nőnem<\/i>: <b>la gente vive<\/b> (élnek az emberek).", "<b>milione<\/b> után <b>di<\/b>: <b>tre milioni di abitanti<\/b>. A <b>cento<\/b> és <b>mille<\/b> után nincs <b>di<\/b>: <b>cento euro<\/b>, <b>mille persone<\/b>.", "Birtoklás: <b>Roma ha…<\/b> („Róma birtokol”) – a magyar <i>-nak van<\/i> helyett <b>avere<\/b>. A <b>ne<\/b> = abból, belőle: <b>ne ha sessanta milioni<\/b> = (lakosból) hatvanmillió van neki."], "ex1": [["Quello a destra non è il Senato.", "Az ott jobbra nem a Szenátus."], ["Nella capitale ungherese ci sono i tram.", "A magyar fővárosban vannak villamosok."], ["Quante persone lavorano al ristorante?", "Hányan dolgoznak az étteremben?"], ["Anche voi scendete al fiume?", "Ti is lementek a folyóhoz?"], ["Scusi, dov'è l'albergo?", "Elnézést kérek, hol van a szálloda?"], ["Questo libro è particolarmente interessante.", "Ez a könyv különösen érdekes."]], "ex2": [{"hu": "Ez az épület jobbra a bank.", "gap": ". . . . . . palazzo a destra è la banca", "ans": ["Questo"]}, {"hu": "A fővárosnak tízmillió lakosa van.", "gap": "La capitale ha dieci . . . . . . . di abitanti", "ans": ["milioni"]}, {"hu": "A templom messze van?", "gap": "La chiesa è . . . . . . . ?", "ans": ["lontana"]}, {"hu": "A műemlékek fent vannak.", "gap": "I . . . . . . . . . sono in alto", "ans": ["monumenti"]}, {"hu": "Elnézést, hova megy ez a busz?", "gap": ". . . . . , dove va questo autobus?", "ans": ["Scusi"]}, {"hu": "A rendőr felmegy a harmadik emeletre.", "gap": "Il poliziotto . . . . al terzo piano", "ans": ["sale"]}], "voc": [["il turista", "a turista"], ["il fiume", "a folyó"], ["il ponte", "a híd"], ["la riva", "a part"], ["il museo", "a múzeum"], ["la chiesa", "a templom"], ["antico", "régi"], ["il palazzo", "az épület, a palota"], ["in alto", "fent"], ["Scusi!", "Elnézést!"], ["la gente", "az emberek"], ["la capitale", "a főváros"], ["l'abitante", "a lakos"], ["il monumento", "a műemlék"]]}, {"n": 13, "it": "Tredicesima lezione", "hu": "Tizenharmadik lecke", "title_it": "Fatti suoi", "title_hu": "Magánügy (Tények az övéi)", "dlg": [["Che cosa fa Giuseppe Fiore dalla mattina alla sera^1?", "Mit csinál Fiore József reggeltől estig?"], ["La mattina si alza alle sette. Si lava, si veste^2, fa colazione e legge il giornale.", "Reggel hétkor felkel. Mosakszik, felöltözik, reggelizik és újságot olvas (Magát felemeli… magát mossa, magát öltözteti, csinál reggelit…)."], ["Poi scende in strada. Sale sull'autobus e scende davanti alla fabbrica.", "Aztán lemegy az utcára. Felszáll a buszra és leszáll a gyár előtt."], ["Dalle otto alle cinque lavora in fabbrica accanto a una macchina.", "Nyolctól ötig dolgozik a gyárban egy gép mellett."], ["A mezzogiorno, alle dodici in punto, pranza, poi beve un caffè al bar^3.", "Délben, pontosan tizenkét órakor ebédel, majd iszik egy kávét a büfében."], ["Il pomeriggio è già molto stanco e nervoso.", "Délután már nagyon fáradt és ideges."], ["Alle otto di sera torna a casa, cena, guarda la tv, si spoglia e va a letto.", "Este nyolckor hazamegy, vacsorázik, tévét néz, levetkőzik, lefekszik (…megy -ba ágy)."], ["Di notte dorme^4 a casa.", "Éjjel otthon alszik."], ["Ma che cosa fa Giuseppe Fiore dalle cinque del pomeriggio alle otto di sera?", "De mit csinál Fiore József délután öttől este nyolcig?"], ["Sono fatti suoi^5.", "Ez magánügy (Vannak tények az övéi)."]], "notes": ["<b>da… a…<\/b> = -tól/-től …-ig: <b>dalla mattina alla sera<\/b> (reggeltől estig), <b>dalle otto alle cinque<\/b> (nyolctól ötig: <b>da + le<\/b>, <b>a + le<\/b>).", "Visszaható igék (vö. 9. lecke): <b>alzarsi<\/b> (felkelni) – <b>mi alzo, ti alzi, si alza…<\/b>; <b>lavarsi<\/b> (mosakodni), <b>vestirsi<\/b> (felöltözni), <b>spogliarsi<\/b> (levetkőzni). A magyar <i>-kodik / -kőzik<\/i> ige gyakran olasz visszaható ige.", "<b>Il bar<\/b> = kávézó-büfé, ahol az olaszok gyakran állva isszák a kávét. <b>Un caffè<\/b> = egy eszpresszó! <b>Bere<\/b> (inni) rendhagyó: <b>bevo, bevi, beve…<\/b>", "<b>-ire<\/b> igék: <b>dormire<\/b> – <b>dormo, dormi, dorme, dormiamo, dormite, dormono<\/b>.", "<b>Sono fatti suoi<\/b> = ez az ő dolga („az ő ügyei”); <b>fatti miei<\/b> = az én dolgom. Gyakori, kicsit nyers kifejezés."], "ex1": [["Quest'uomo non si lava.", "Ez az ember nem mosakszik."], ["Il caffè è particolarmente buono.", "A kávé különösen jó."], ["Dal medico il professore si spoglia.", "A tanár levetkőzik az orvosnál."], ["In fabbrica non c'è il bar.", "Nincs büfé a gyárban."], ["Dalle tre alle sei sono in chiesa.", "Háromtól hatig a templomban vagyok."], ["Bambini, chi vuole guardare la tv?", "Gyerekek, ki akar tévét nézni?"]], "ex2": [{"hu": "A család nem alszik.", "gap": "La famiglia non . . . . .", "ans": ["dorme"]}, {"hu": "Itt sokan beszélnek olaszul.", "gap": "Qui in . . . . . parlano italiano", "ans": ["molti"]}, {"hu": "A férjek nagyon fáradtak.", "gap": "I mariti sono molto . . . . . . .", "ans": ["stanchi"]}, {"hu": "Petike nem akar kilenctől tízig dolgozni.", "gap": "Pierino non vuole lavorare . . . . . nove . . . . dieci", "ans": ["dalle", "alle"]}, {"hu": "Ez az ő dolga.", "gap": "Sono fatti . . . . .", "ans": ["suoi"]}, {"hu": "A feleségem nem ebédel és nem vacsorázik.", "gap": "Mia moglie non . . . . . . e non . . . . .", "ans": ["pranza", "cena"]}], "voc": [["alzarsi", "felkelni"], ["lavarsi", "mosakodni"], ["vestirsi", "felöltözni"], ["fare colazione", "reggelizni"], ["la fabbrica", "a gyár"], ["la macchina", "a gép"], ["mezzogiorno", "dél"], ["pranzare", "ebédelni"], ["il caffè", "a kávé"], ["stanco", "fáradt"], ["cenare", "vacsorázni"], ["andare a letto", "lefeküdni"], ["dormire", "aludni"], ["la notte", "az éjszaka"]]}, {"n": 14, "it": "Quattordicesima lezione", "hu": "Tizennegyedik lecke", "title_it": "Ripasso", "title_hu": "Ismétlés", "ripasso": true, "sections": [["1 Az ige", ["<b>1.1 Visszaható igék.<\/b> <b>alzarsi, sedersi, fermarsi, lavarsi, vestirsi, spogliarsi<\/b>: a visszaható névmás (<b>mi, ti, si, ci, vi, si<\/b>) az ige <i>előtt<\/i> áll: <b>mi alzo<\/b> (felkelek). Felszólító módban az ige végére tapad: <b>sedetevi!<\/b>", "<b>1.2 Igekötők helyett.<\/b> Ahol a magyar igekötőt használ (<i>fel<\/i>megy, <i>le<\/i>megy, <i>be<\/i>megy, <i>ki<\/i>megy), az olasz többnyire külön igét: <b>salire, scendere, entrare, uscire<\/b>; vagy visszaható igét: <b>sedersi<\/b> (leül), <b>fermarsi<\/b> (megáll).", "<b>1.3 Három igecsoport.<\/b> <b>-are<\/b> (parlare), <b>-ere<\/b> (leggere), <b>-ire<\/b> (dormire). Néhány új rendhagyó ige a táblázatban."]], ["TABLE", [["", "alzarsi", "dormire", "uscire", "volere"], ["io", "mi alzo", "dormo", "esco", "voglio"], ["tu", "ti alzi", "dormi", "esci", "vuoi"], ["lui/lei", "si alza", "dorme", "esce", "vuole"], ["noi", "ci alziamo", "dormiamo", "usciamo", "vogliamo"], ["voi", "vi alzate", "dormite", "uscite", "volete"], ["loro", "si alzano", "dormono", "escono", "vogliono"]], "Igeragozás"], ["2 Hol? Hová? Honnan?", ["A magyarban kilenc helyhatározó rag van; az olasz nem választja szét a helyet és az irányt (<b>dove?<\/b> = hol? és hová?). Csak a „honnan?” kap külön elöljárót: <b>da<\/b>."]], ["TABLE", [["", "Hová? / Hol?", "Honnan?"], ["ország, helyiség", "in Italia, in banca", "dall'Italia, dalla banca"], ["város", "a Roma", "da Roma"], ["felület", "sul tram", "dal tram"], ["személy", "dal medico", "dal medico"]], "Helyhatározók"], ["3 Birtokos névmások", ["Névelő + birtokos névmás + főnév; a névmás a <i>birtokhoz<\/i> igazodik, nem a birtokoshoz: <b>la sua casa<\/b> = az ő háza (férfié vagy nőé egyaránt). Családtagnál egyes számban nincs névelő: <b>mia moglie, suo marito<\/b>; de: <b>il loro figlio<\/b>."]], ["TABLE", [["", "libro (hímn.)", "casa (nőn.)"], ["az enyém", "il mio libro", "la mia casa"], ["a tiéd", "il tuo libro", "la tua casa"], ["az övé", "il suo libro", "la sua casa"], ["a miénk", "il nostro libro", "la nostra casa"], ["a tiétek", "il vostro libro", "la vostra casa"], ["az övék", "il loro libro", "la loro casa"]], "Birtokos névmás"], ["4 Számnév után", ["A magyarral ellentétben számnév után <i>többes szám<\/i>: <b>due assegni<\/b> (két csekk), <b>tre milioni di abitanti<\/b>. Az <b>euro<\/b> változatlan: <b>cento euro<\/b>."]]], "dlg": [["In banca chiediamo dei contanti.", "A bankban készpénzt kérünk."], ["I turisti non fanno esami.", "A turisták nem vizsgáznak."], ["Già in pasticceria mi fa male il dente.", "Már a cukrászdában fáj a fogam."], ["Passeggio a piedi sul ponte.", "Gyalog sétálok a hídon."], ["Alle quattro del pomeriggio il professore di ungherese ha già molta fame.", "Délután négy órakor már nagyon éhes a magyartanár."], ["Che fai stasera? – Fatti miei.", "Mit csinálsz ma este? – Ez magánügy."], ["Sono stanco perché lavoro molto.", "Fáradt vagyok, mert sokat dolgozom."], ["Oggi il medico è nervoso.", "Az orvos ma ideges."], ["Mi fermo davanti al palazzo.", "Megállok az épület előtt."], ["La mattina andiamo al fiume.", "Délelőtt a folyóhoz megyünk."]], "voc": [["mi alzo", "felkelek"], ["esco", "kimegyek"], ["dormo", "alszom"], ["voglio", "akarok"], ["il mio / la mia", "az enyém"], ["da (+ személy)", "-nál, -hoz, -tól"]]}]</script>
 <script>
 const DATA=JSON.parse(document.getElementById('data').textContent);
 const store={get(k,d){try{const v=localStorage.getItem('olaszora:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('olaszora:'+k,JSON.stringify(v))}catch(e){}}};
-let st={tab:store.get('tab','lecke'),n:store.get('n',4),done:store.get('done',[]),boxes:store.get('boxes',{}),showHu:false};
-const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-const sup=s=>s.replace(/\^(\d+)/g,'<sup>$1</sup>');
+const st={n:store.get('n',DATA[0].n),done:store.get('done',[]),boxes:store.get('boxes',{}),due:store.get('due',{}),days:store.get('days',[]),showHu:false};
+let dir=store.get('dir','it'),scope=store.get('scope','learned'),theme=store.get('theme','');
+let deck=[],cur=0,flipped=false,deckKey='',q='',qn=0;
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const escA=s=>esc(s).replace(/"/g,'&quot;');
 const calc=s=>s.replace(/\(([^)]*)\)/g,'<i>($1)</i>');
 const clean=s=>s.replace(/\^\d+/g,'');
-const lesson=()=>DATA.find(d=>d.n===st.n);
-const canSpeak=false;
-function speak(t){ if(!canSpeak) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(clean(t)); u.lang='it-IT'; u.rate=.85; const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.startsWith('it')); if(v) u.voice=v; speechSynthesis.speak(u);}catch(e){} }
-function save(){store.set('tab',st.tab);store.set('n',st.n);store.set('done',st.done);store.set('boxes',st.boxes)}
-function allCards(){ const c=[]; DATA.forEach(d=>d.voc.forEach(([it,hu])=>c.push({id:d.n+':'+it,it,hu,n:d.n}))); return c }
-function stats(){
-  const cards=allCards(); const known=cards.filter(c=>(st.boxes[c.id]||0)>=3).length;
-  document.getElementById('stats').innerHTML=`<span class="pill">Leckék: <b>${st.done.length}</b> / ${DATA.length}</span><span class="pill">Szavak (tudom): <b>${known}</b> / ${cards.length}</span>`;
-}
-function chips(){
-  const el=document.getElementById('chips');
-  if(st.tab==='kartya'){el.innerHTML='';return}
-  el.innerHTML=DATA.map(d=>`<button class="chip ${st.done.includes(d.n)?'done':''}" aria-pressed="${d.n===st.n}" data-n="${d.n}"><span class="dot"></span>${d.n}. ${d.ripasso?'Ismétlés':esc(d.title_it)}</button>`).join('');
-  el.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{st.n=+b.dataset.n;st.showHu=false;render()});
-}
-function viewLesson(){
-  const d=lesson(); let h=`<div class="lesson-head"><div><div class="kicker">${d.it} · ${d.hu}</div><h2>${esc(d.title_it)}</h2></div></div><p class="hu-title">${calc(d.title_hu)}</p>`;
-  if(d.ripasso){
-    h+='<div class="card rip">'+d.sections.map(([t,it,tt])=>{
-      if(t==='TABLE') return `<h4>${tt||'Rendhagyó igék'}</h4><div class="tablewrap"><table class="conj">${it.map((r,i)=>'<tr>'+r.map((c,j)=>i===0||j===0?`<th>${c}</th>`:`<td>${c}</td>`).join('')+'</tr>').join('')}</table></div>`;
-      return `<h4>${t}</h4>`+it.map(p=>`<p>${p}</p>`).join('')}).join('')+'</div>';
-    h+=`<h3 class="kicker" style="margin:18px 0 8px">Ismétlő gyakorlat</h3>`;
-  }
-  h+=`<div class="toolbar"><button class="btn" id="tgl">${st.showHu?'Fordítás elrejtése':'Fordítás mutatása'}</button>${canSpeak?'<button class="btn ghost" id="all">▶ Teljes párbeszéd</button>':''}<button class="btn ${st.done.includes(d.n)?'':'primary'}" id="dn">${st.done.includes(d.n)?'✓ Kész – visszavonás':'Megjelölöm késznek'}</button></div>`;
-  h+='<ol class="dlg">'+d.dlg.map(([it,hu],i)=>`<li><span class="num">${i+1}</span><span class="it">${sup(esc(it))}</span>${canSpeak?`<button class="say" data-i="${i}" aria-label="Meghallgatás">▶</button>`:''}<span class="hu ${st.showHu?'':'hidden'}" title="Koppints a fordításért">${calc(esc(hu))}</span></li>`).join('')+'</ol>';
-  if(!st.showHu) h+='<p class="muted">Tipp: próbálja meg előbb megérteni az olasz mondatot, aztán koppintson a szürke sávra a fordításért.</p>';
-  if(d.notes) h+='<section class="notes"><h3>Jegyzetek</h3><ol>'+d.notes.map(n=>`<li>${n}</li>`).join('')+'</ol></section>';
-  const v=document.getElementById('view'); v.innerHTML=h;
-  v.querySelector('#tgl').onclick=()=>{st.showHu=!st.showHu;render()};
-  v.querySelector('#dn').onclick=()=>{st.done=st.done.includes(d.n)?st.done.filter(x=>x!==d.n):[...st.done,d.n];render()};
-  v.querySelectorAll('.hu.hidden').forEach(e=>e.onclick=()=>e.classList.remove('hidden'));
-  v.querySelectorAll('.say').forEach(b=>b.onclick=()=>speak(d.dlg[+b.dataset.i][0]));
-  const a=v.querySelector('#all'); if(a) a.onclick=()=>speak(d.dlg.map(x=>x[0]).join(' … '));
-}
+const refs=s=>s.replace(/\^(\d+)/g,'<button class="ref" type="button" data-note="$1" aria-label="$1. jegyzet">$1</button>');
 const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[’`]/g,"'").replace(/\s+/g,' ').trim();
 const accentOk=(a,b)=>a.toLowerCase().replace(/[’`]/g,"'").replace(/\s+/g,' ').trim()===b.toLowerCase();
-function viewEx(){
-  const d=lesson(); const v=document.getElementById('view');
-  if(d.ripasso){ v.innerHTML=`<div class="card"><h3>Ismétlés</h3><p>Ennél a leckénél a gyakorlat maga a párbeszéd: nyissa meg a <b>Leckék</b> fület, takarja le a fordítást, és fordítsa le fejben mind a tíz mondatot.</p></div>`; return }
-  let h=`<div class="lesson-head"><div><div class="kicker">${d.it} · Gyakorlatok</div><h2>${esc(d.title_it)}</h2></div></div>`;
-  h+=`<section class="card ex1"><h3>1. gyakorlat – Fordítsa le</h3><ol>`+d.ex1.map(([it,hu],i)=>`<li><span>${esc(it)}</span> <button class="btn ghost" style="padding:2px 10px;font-size:.8rem" data-r="${i}">Megoldás</button><span class="ans" id="a${i}" hidden>${esc(hu)}</span></li>`).join('')+'</ol></section>';
-  h+=`<section class="card ex2"><h3>2. gyakorlat – Egészítse ki</h3><p class="muted">Írja be a hiányzó olasz szavakat. Minden pont egy betű.</p>`;
-  d.ex2.forEach((r,ri)=>{ let k=0; const line=esc(r.gap).replace(/(?:^|(?<=[\s']))\.(?: \.)*/g,m=>{const len=(m.match(/\./g)||[]).length;const id=`g${ri}_${k++}`;return `<input id="${id}" size="${Math.max(3,len+1)}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="hiányzó szó">`});
-    h+=`<div class="row"><div class="q">${ri+1}. ${esc(r.hu)}</div><div class="line">${line}<span class="fb" id="fb${ri}"></span></div></div>`});
-  h+=`<div class="toolbar"><button class="btn primary" id="chk">Ellenőrzés</button><button class="btn" id="shw">Megoldások</button></div></section>`;
+const byN=n=>DATA.find(d=>d.n===n);
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const name=d=>d.ripasso?'Ismétlés':d.title_it;
+
+/* Idő: napok sorszáma (helyi naptár szerint) */
+const dayNum=(d=new Date())=>Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
+const iso=k=>new Date(k*864e5).toISOString().slice(0,10);
+function mark(){const t=iso(dayNum());if(!st.days.includes(t))st.days=[...st.days,t].slice(-400)}
+function streak(){const s=new Set(st.days);let k=dayNum();if(!s.has(iso(k)))k--;let c=0;while(s.has(iso(k))){c++;k--}return c}
+function save(){store.set('n',st.n);store.set('done',st.done);store.set('boxes',st.boxes);store.set('due',st.due);store.set('days',st.days);store.set('dir',dir);store.set('scope',scope);store.set('theme',theme)}
+
+/* Kártyák: azonosító "<lecke>:<olasz szó>" */
+function allCards(){const c=[];DATA.forEach(d=>d.voc.forEach(([it,hu])=>c.push({id:d.n+':'+it,it,hu,n:d.n})));return c}
+const learnedMax=()=>Math.max(st.n,...st.done,DATA[0].n);
+const learnedCards=()=>{const m=learnedMax();return allCards().filter(c=>c.n<=m)};
+const box=c=>Math.min(3,st.boxes[c.id]||0);
+const isDue=c=>(st.due[c.id]??0)<=dayNum();
+function scopeCards(){if(scope==='lesson')return allCards().filter(c=>c.n===st.n);if(scope==='all')return allCards();return learnedCards()}
+function nextLesson(){const d=byN(st.n);if(d&&!st.done.includes(d.n))return d;return DATA.find(x=>x.n>st.n&&!st.done.includes(x.n))||DATA.find(x=>!st.done.includes(x.n))||null}
+const LV=['új','1×','2×','tudom'];
+const lvTag=b=>b>=3?`<span class="tag ok">${ico('check')}tudom</span>`:b>0?`<span class="tag cur">${b}× tudtam</span>`:'<span class="tag new">új</span>';
+
+/* Ikonok (körvonalas, 24-es rács) */
+const P={
+  ma:'<path d="M3.5 10.5 12 3.5l8.5 7"/><path d="M5.5 9v11.5h13V9"/><path d="M10 20.5v-6h4v6"/>',
+  leckek:'<path d="M4 5.5A2 2 0 0 1 6 3.5h14v14H6a2 2 0 0 0-2 2z"/><path d="M4 19.5a2 2 0 0 0 2 2h14v-4"/><path d="M8.5 8h7M8.5 11.5h5"/>',
+  kartyak:'<rect x="3" y="7" width="13.5" height="14" rx="2"/><path d="M7.5 3.5H19a2 2 0 0 1 2 2V17"/>',
+  szotar:'<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>',
+  moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
+  chev:'<path d="m9 6 6 6-6 6"/>',
+  check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>'
+};
+const ico=k=>`<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k]}</svg>`;
+
+/* Téma */
+const mq=matchMedia('(prefers-color-scheme: dark)');
+const isDark=()=>theme?theme==='dark':mq.matches;
+function applyTheme(){
+  if(theme)document.documentElement.dataset.theme=theme;else delete document.documentElement.dataset.theme;
+  document.querySelector('meta[name="theme-color"]').content=isDark()?'#141517':'#f6f5f0';
+  document.querySelectorAll('.theme-btn').forEach(b=>{b.innerHTML=ico(isDark()?'sun':'moon')+`<span>${isDark()?'Világos mód':'Sötét mód'}</span>`;b.setAttribute('aria-label',isDark()?'Váltás világos módra':'Váltás sötét módra')});
+}
+document.querySelectorAll('.theme-btn').forEach(b=>b.onclick=()=>{theme=isDark()?'light':'dark';save();applyTheme()});
+mq.addEventListener&&mq.addEventListener('change',applyTheme);
+
+/* Váz: navigáció és haladás */
+const NAV=[['ma','Ma'],['leckek','Leckék'],['kartyak','Szókártyák'],['szotar','Szótár']];
+function shell(page){
+  const due=learnedCards().filter(isDue).length;
+  const links=NAV.map(([k,l])=>`<a href="#${k}"${page===k?' aria-current="page"':''}>${ico(k)}<span>${l}</span>${k==='kartyak'&&due?`<span class="count" title="${due} kártya esedékes">${due}</span>`:''}</a>`).join('');
+  document.getElementById('nav').innerHTML=links;
+  document.getElementById('tabbar').innerHTML=links;
+  const p=Math.round(st.done.length/DATA.length*100);
+  document.getElementById('side-prog').innerHTML=`<div><span>Haladás</span><b>${st.done.length} / ${DATA.length} lecke</b></div><div class="meter" role="progressbar" aria-label="Elvégzett leckék" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><i style="width:${p}%"></i></div><div><span>Napi sorozat</span><b>${streak()} nap</b></div>`;
+}
+
+/* Útvonalak: #ma #leckek #lecke-N[/gyakorlatok|/szavak|/parbeszed] #kartyak #szotar */
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  const m=h.match(/^lecke-(\d+)(?:\/([a-z]+))?$/);
+  if(m&&byN(+m[1]))return{page:'lecke',n:+m[1],sub:m[2]||''};
+  return{page:['leckek','kartyak','szotar'].includes(h)?h:'ma'};
+}
+const VIEWS={ma:viewToday,leckek:viewLessons,lecke:viewLesson,kartyak:viewCards,szotar:viewDict};
+const TITLES={ma:'Ma',leckek:'Leckék',kartyak:'Szókártyák',szotar:'Szótár'};
+function render(nav){
+  const r=route(),v=document.getElementById('view');
+  if(r.page==='lecke'&&st.n!==r.n){st.n=r.n;st.showHu=false}
+  if(nav&&r.page==='kartyak')deckKey='';
+  shell(r.page==='lecke'?'leckek':r.page);
+  VIEWS[r.page](v,r);
+  save();
+  if(nav){
+    document.title=(r.page==='lecke'?`${r.n}. lecke – ${name(byN(r.n))}`:TITLES[r.page])+' · Olaszóra';
+    window.scrollTo(0,0);v.classList.remove('enter');void v.offsetWidth;v.classList.add('enter');
+    v.focus({preventScroll:true});
+  }
+}
+
+/* Ma */
+function viewToday(v){
+  const d=nextLesson(),cards=learnedCards(),due=cards.filter(isDue).length,all=allCards();
+  const known=all.filter(c=>box(c)>=3).length,cnt=[0,1,2,3].map(b=>cards.filter(c=>box(c)===b).length);
+  const date=cap(new Date().toLocaleDateString('hu-HU',{weekday:'long',month:'long',day:'numeric'}));
+  let h=`<header class="ph"><div><h1>Mai tanulás</h1><p class="lead">${date}</p></div></header><div class="grid two">`;
+  if(d){
+    h+=`<section class="sheet cont" aria-labelledby="h-next"><h2 class="ptitle" id="h-next">${st.done.length?'Következő lecke':'Kezdje itt'}</h2>
+    <p class="kicker">${d.n}. lecke · ${d.it}</p><p class="big" lang="it">${esc(d.title_it)}</p><p class="hut">${d.ripasso?esc(d.title_hu):calc(esc(d.title_hu))}</p>
+    <div class="preview" lang="it">${d.dlg.slice(0,2).map(x=>`<p>${esc(clean(x[0]))}</p>`).join('')}</div>
+    <p class="meta">${d.dlg.length} mondat · ${d.notes?d.notes.length+' jegyzet':'nyelvtani összefoglaló'} · ${d.voc.length} szó</p>
+    <div class="actions"><a class="btn primary" href="#lecke-${d.n}">Lecke megnyitása</a>${d.ex1?`<a class="btn" href="#lecke-${d.n}/gyakorlatok">Gyakorlatok</a>`:''}</div></section>`;
+  }else{
+    h+=`<section class="sheet cont" aria-labelledby="h-next"><h2 class="ptitle" id="h-next">Minden lecke kész</h2><p class="big">Bravissima!</p><p class="hut">Mind a ${DATA.length} leckét elvégezte. A szókártyákkal tarthatja frissen a szavakat.</p><div class="actions"><a class="btn primary" href="#kartyak">Szókártyák</a><a class="btn" href="#leckek">Leckék</a></div></section>`;
+  }
+  h+=`<section class="panel review" aria-labelledby="h-rev"><h2 class="ptitle" id="h-rev">Szókártyák</h2>
+    <p class="figure">${due}</p><p class="muted" style="margin:0">kártya esedékes ma, ${learnedMax()>DATA[0].n?`az 1–${learnedMax()}.`:'az 1.'} leckéből</p>
+    <div class="stack" aria-hidden="true">${cnt.map((c,i)=>c?`<i class="l${i}" style="flex:${c}"></i>`:'').join('')}</div>
+    <ul class="legend">${cnt.map((c,i)=>`<li><i class="l${i}"></i>${cap(LV[i])}<b>${c}</b></li>`).join('')}</ul>
+    <a class="btn" href="#kartyak">Ismétlés indítása</a></section></div>`;
+  h+=`<dl class="panel kpis grid" aria-label="Összesítés">
+    <div><dt>Kész leckék</dt><dd>${st.done.length} <small>/ ${DATA.length}</small></dd></div>
+    <div><dt>Megtanult szavak</dt><dd>${known} <small>/ ${all.length}</small></dd></div>
+    <div><dt>Napi sorozat</dt><dd>${streak()} <small>nap</small></dd></div>
+    <div><dt>Tanulási napok</dt><dd>${st.days.length} <small>összesen</small></dd></div></dl>`;
+  const weeks=[];for(let i=0;i<DATA.length;i+=7)weeks.push(DATA.slice(i,i+7));
+  h+=`<div class="grid two"><section class="panel" aria-labelledby="h-course"><div class="phead"><h2 class="ptitle" id="h-course">A kurzus</h2><span>${st.done.length} / ${DATA.length} kész</span></div>`+
+    weeks.map((w,i)=>`<div class="wk"><div class="wk-l"><span>${i+1}. hét</span><span>${w.filter(d=>st.done.includes(d.n)).length} / ${w.length}</span></div><div class="cells">${w.map(d=>{const ok=st.done.includes(d.n);return `<a class="cell${ok?' ok':''}${d.n===st.n?' cur':''}${d.ripasso?' rip':''}" href="#lecke-${d.n}" aria-label="${d.n}. lecke: ${escA(name(d))}${ok?', kész':''}"><b>${d.n}</b><small>${d.ripasso?'ismétlés':ok?'kész':''}</small></a>`}).join('')}</div></div>`).join('')+`</section>`;
+  const t=dayNum(),wd=(new Date().getDay()+6)%7,start=t-wd-21,ds=new Set(st.days);let n4=0;
+  const cells=Array.from({length:28},(_,i)=>{const k=start+i;const on=ds.has(iso(k));if(on&&k<=t)n4++;return `<i class="${k>t?'fut':on?'on':''}${k===t?' today':''}" title="${iso(k)}"></i>`}).join('');
+  h+=`<section class="panel" aria-labelledby="h-cal"><div class="phead"><h2 class="ptitle" id="h-cal">Az elmúlt négy hét</h2></div><div class="cal" aria-hidden="true">${['H','K','Sze','Cs','P','Szo','V'].map(x=>`<span>${x}</span>`).join('')}${cells}</div><p class="cal-note"><b>${n4}</b> tanulási nap az elmúlt négy hétben. A mai nap piros keretet kap.</p></section></div>`;
   v.innerHTML=h;
+}
+
+/* Leckék */
+function viewLessons(v){
+  let h=`<header class="ph"><div><h1>Leckék</h1><p class="lead">${DATA.length} lecke, hetente hat új lecke és egy ismétlés</p></div></header>`;
+  for(let i=0;i<DATA.length;i+=7){
+    const w=DATA.slice(i,i+7),dn=w.filter(d=>st.done.includes(d.n)).length;
+    h+=`<section class="week" aria-labelledby="w${i}"><div class="week-h"><h2 id="w${i}">${i/7+1}. hét</h2><div><span>${dn} / ${w.length} kész</span><span class="meter" aria-hidden="true"><i style="width:${dn/w.length*100}%"></i></span></div></div><div class="list">`+
+    w.map(d=>{const ok=st.done.includes(d.n);return `<a class="lrow" href="#lecke-${d.n}"><span class="no">${d.n}</span><span><span class="t" lang="it">${esc(name(d))}</span><span class="s" style="display:block">${d.ripasso?esc(d.title_it):calc(esc(d.title_hu))}</span></span><span class="m"><span class="n">${d.dlg.length} mondat · ${d.voc.length} szó</span>${ok?`<span class="tag ok">${ico('check')}Kész</span>`:d.n===st.n?'<span class="tag cur">Folyamatban</span>':d.ripasso?'<span class="tag rip">Ismétlés</span>':''}</span><span class="chev">${ico('chev')}</span></a>`}).join('')+`</div></section>`;
+  }
+  v.innerHTML=h;
+}
+
+/* Egy lecke */
+function viewLesson(v,r){
+  const d=byN(r.n),rip=!!d.ripasso,done=st.done.includes(d.n),idx=DATA.indexOf(d);
+  const subs=rip?[['','Összefoglaló'],['parbeszed','Párbeszéd'],['szavak','Szavak']]:[['','Párbeszéd'],['gyakorlatok','Gyakorlatok'],['szavak','Szavak']];
+  const sub=subs.some(s=>s[0]===r.sub)?r.sub:'';
+  let h=`<nav class="crumbs" aria-label="Hely"><a href="#leckek">Leckék</a><span aria-hidden="true">/</span><span>${d.n}. lecke</span></nav>
+  <header class="ph"><div><p class="kicker">${d.it} · ${d.hu}</p><h1 lang="it">${esc(d.title_it)}</h1><p class="lead">${calc(esc(d.title_hu))}</p></div>
+  <button class="btn${done?' done':''}" id="dn" type="button" aria-pressed="${done}">${done?ico('check')+'Kész':'Megjelölöm késznek'}</button></header>
+  <nav class="tabs" aria-label="A lecke részei">${subs.map(([k,l])=>`<a href="#lecke-${d.n}${k?'/'+k:''}"${k===sub?' aria-current="page"':''}>${l}${k==='szavak'?`<span class="c">${d.voc.length}</span>`:k==='gyakorlatok'?`<span class="c">${d.ex1.length+d.ex2.length}</span>`:''}</a>`).join('')}</nav>`;
+  if(sub==='szavak')h+=wordsHTML(d);
+  else if(sub==='gyakorlatok')h+=exHTML(d);
+  else if(rip&&sub==='')h+=ripHTML(d);
+  else h+=dlgHTML(d,rip);
+  const pv=DATA[idx-1],nx=DATA[idx+1];
+  h+=`<nav class="pager" aria-label="Leckék lapozása">${pv?`<a href="#lecke-${pv.n}"><small>← Előző: ${pv.n}. lecke</small><b lang="it">${esc(name(pv))}</b></a>`:''}${nx?`<a class="next" href="#lecke-${nx.n}"><small>Következő: ${nx.n}. lecke →</small><b lang="it">${esc(name(nx))}</b></a>`:''}</nav>`;
+  v.innerHTML=h;
+  v.querySelector('#dn').onclick=()=>{st.done=done?st.done.filter(x=>x!==d.n):[...st.done,d.n];mark();render()};
+  v.querySelectorAll('[data-hu]').forEach(b=>b.onclick=()=>{st.showHu=b.dataset.hu==='1';render()});
+  v.querySelectorAll('.hu.hidden').forEach(e=>{const show=()=>{e.classList.remove('hidden');e.removeAttribute('role');e.removeAttribute('tabindex');e.removeAttribute('aria-label')};e.onclick=show;e.onkeydown=k=>{if(k.key==='Enter'||k.key===' '){k.preventDefault();show()}}});
+  v.querySelectorAll('.ref').forEach(b=>b.onclick=()=>{const li=v.querySelector('#note-'+b.dataset.note);if(!li)return;li.classList.add('hl');li.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});setTimeout(()=>li.classList.remove('hl'),1800)});
+  const wk=v.querySelector('#wk');if(wk)wk.onclick=()=>{scope='lesson';save();location.hash='#kartyak'};
+  if(sub==='gyakorlatok')bindEx(v,d);
+}
+function dlgHTML(d,rip){
+  let h=`<div class="bar"><div class="seg" role="group" aria-label="Fordítás"><button type="button" data-hu="1" aria-pressed="${st.showHu}">Fordítással</button><button type="button" data-hu="0" aria-pressed="${!st.showHu}">Fordítás nélkül</button></div><span class="muted">${rip?'Ismétlő gyakorlat: fordítsa le fejben mind a '+d.dlg.length+' mondatot, aztán ellenőrizze.':st.showHu?'A zárójeles dőlt rész szó szerinti fordítás.':'Koppintson a kék sávra egy mondat fordításáért.'}</span></div>`;
+  h+=`<div class="lesson-grid${d.notes?' has-notes':''}"><div class="sheet"><ol class="dlg">${d.dlg.map(([it,hu],i)=>`<li><span class="num">${i+1}</span><p class="it" lang="it">${refs(esc(it))}</p><p class="hu${st.showHu?'':' hidden'}"${st.showHu?'':' role="button" tabindex="0" aria-label="Fordítás megjelenítése"'}>${calc(esc(hu))}</p></li>`).join('')}</ol></div>`;
+  if(d.notes)h+=`<aside class="notes" aria-labelledby="h-notes"><h2 id="h-notes">Jegyzetek</h2><ol>${d.notes.map((n,i)=>`<li id="note-${i+1}">${n}</li>`).join('')}</ol></aside>`;
+  return h+'</div>';
+}
+function ripHTML(d){
+  return '<section class="panel rip">'+d.sections.map(([t,it,tt])=>{
+    if(t==='TABLE')return `<h2>${tt||'Rendhagyó igék'}</h2><div class="tablewrap"><table class="conj">${it.map((r,i)=>'<tr>'+r.map((c,j)=>i===0||j===0?`<th>${c}</th>`:`<td>${c}</td>`).join('')+'</tr>').join('')}</table></div>`;
+    return `<h2>${t}</h2>`+it.map(p=>`<p>${p}</p>`).join('')}).join('')+'</section>';
+}
+function wordsHTML(d){
+  return `<div class="bar"><span class="muted">${d.voc.length} szó ebből a leckéből</span><button class="btn sm" id="wk" type="button">${ico('kartyak')}Gyakorlás szókártyákkal</button></div>
+  <div class="panel flush"><table class="words"><thead><tr><th>Olasz</th><th>Magyar</th><th class="r">Szint</th></tr></thead><tbody>${d.voc.map(([it,hu])=>`<tr><td class="it" lang="it">${esc(it)}</td><td class="hu">${esc(hu)}</td><td class="lv">${lvTag(box({id:d.n+':'+it}))}</td></tr>`).join('')}</tbody></table></div>`;
+}
+function exHTML(d){
+  let h=`<section class="panel ex ex1"><h2>1. gyakorlat – Fordítsa le</h2><ol>`+d.ex1.map(([it,hu],i)=>`<li><span class="q1" lang="it">${esc(it)}</span><button class="btn sm" type="button" data-r="${i}">Megoldás</button><span class="ans" id="a${i}" hidden>${esc(hu)}</span></li>`).join('')+'</ol></section>';
+  h+=`<section class="panel ex ex2"><h2>2. gyakorlat – Egészítse ki</h2><p class="muted" style="margin:0 0 6px">Írja be a hiányzó olasz szavakat. Minden pont egy betű.</p>`;
+  d.ex2.forEach((r,ri)=>{let k=0;const line=esc(r.gap).replace(/(?:^|(?<=[\s']))\.(?: \.)*/g,m=>{const len=(m.match(/\./g)||[]).length;const id=`g${ri}_${k++}`;return `<input id="${id}" size="${Math.max(3,len+1)}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="hiányzó szó (${len} betű)">`});
+    h+=`<div class="row"><div class="q">${ri+1}. ${esc(r.hu)}</div><div class="line" lang="it">${line}<span class="fb" id="fb${ri}"></span></div></div>`});
+  return h+`<div class="actions"><button class="btn primary" id="chk" type="button">Ellenőrzés</button><button class="btn" id="shw" type="button">Megoldások</button></div></section>`;
+}
+function bindEx(v,d){
   v.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{document.getElementById('a'+b.dataset.r).hidden=false;b.remove()});
-  v.querySelector('#chk').onclick=()=>{ let ok=0,tot=0; d.ex2.forEach((r,ri)=>{ let good=true; r.ans.forEach((a,k)=>{const el=document.getElementById(`g${ri}_${k}`);tot++;const val=el.value; const exact=accentOk(val,a); const loose=norm(val)===norm(a); el.className=exact?'ok':(loose?'ok':'no'); if(exact||loose) ok++; else good=false; if(loose&&!exact) document.getElementById('fb'+ri).textContent='ékezet: '+a;}); if(good&&!document.getElementById('fb'+ri).textContent) document.getElementById('fb'+ri).textContent='✓'; }); v.querySelector('#chk').textContent=`Ellenőrzés (${ok}/${tot})`; };
+  v.querySelector('#chk').onclick=()=>{ let ok=0,tot=0; d.ex2.forEach((r,ri)=>{ let good=true; const fb=document.getElementById('fb'+ri); fb.textContent=''; r.ans.forEach((a,k)=>{const el=document.getElementById(`g${ri}_${k}`);tot++;const val=el.value; const exact=accentOk(val,a); const loose=norm(val)===norm(a); el.className=exact?'ok':(loose?'ok':'no'); if(exact||loose) ok++; else good=false; if(loose&&!exact) fb.textContent='ékezet: '+a;}); if(good&&!fb.textContent) fb.textContent='✓'; }); v.querySelector('#chk').textContent=`Ellenőrzés (${ok}/${tot})`; mark(); save(); shell('leckek'); };
   v.querySelector('#shw').onclick=()=>d.ex2.forEach((r,ri)=>r.ans.forEach((a,k)=>{const el=document.getElementById(`g${ri}_${k}`);el.value=a;el.className=''}));
 }
-let deck=[],cur=0,flipped=false,dir=store.get('dir','it');
-function buildDeck(){ const learned=DATA.filter(d=>d.n<=Math.max(st.n,...st.done,1)).map(d=>d.n); deck=allCards().filter(c=>learned.includes(c.n)).sort((a,b)=>(st.boxes[a.id]||0)-(st.boxes[b.id]||0)||Math.random()-.5); cur=0; flipped=false }
-function viewCards(){
-  if(!deck.length) buildDeck();
-  const v=document.getElementById('view'); const c=deck[cur];
-  const cnt=[0,1,2,3].map(b=>deck.filter(x=>Math.min(3,st.boxes[x.id]||0)===b).length);
-  const q=dir==='it'?c.it:c.hu, a=dir==='it'?c.hu:c.it;
-  v.innerHTML=`<div class="opts"><span>Irány:</span><button class="chip" aria-pressed="${dir==='it'}" id="d-it">olasz → magyar</button><button class="chip" aria-pressed="${dir==='hu'}" id="d-hu">magyar → olasz</button><span class="muted">A kártyák az eddig megnyitott leckékből jönnek.</span></div>
-  <div class="flash"><div class="fcard" id="fc" tabindex="0" role="button" aria-label="Kártya megfordítása"><span class="tag">${c.n}. lecke · ${cur+1}/${deck.length}</span><div><div class="w">${esc(q)}</div>${flipped?`<div class="a">${esc(a)}</div>`:'<div class="muted" style="margin-top:10px">koppintson a megfordításhoz</div>'}</div></div>
-  <div class="fbtns">${flipped?'<button class="btn" id="no">Még nem tudom</button><button class="btn primary" id="yes">Tudom</button>':''}${canSpeak?'<button class="btn ghost" id="sp">▶ Kiejtés</button>':''}</div>
-  <div class="boxes"><span>új: ${cnt[0]}</span><span>1×: ${cnt[1]}</span><span>2×: ${cnt[2]}</span><span>tudom: ${cnt[3]}</span></div></div>`;
-  const fc=v.querySelector('#fc'); fc.onclick=()=>{flipped=!flipped;viewCards()}; fc.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();fc.click()}};
-  const next=()=>{cur=(cur+1)%deck.length;flipped=false;save();stats();viewCards()};
-  const y=v.querySelector('#yes'); if(y) y.onclick=()=>{st.boxes[c.id]=Math.min(3,(st.boxes[c.id]||0)+1);next()};
-  const n=v.querySelector('#no'); if(n) n.onclick=()=>{st.boxes[c.id]=0;next()};
-  const sp=v.querySelector('#sp'); if(sp) sp.onclick=()=>speak(c.it);
-  v.querySelector('#d-it').onclick=()=>{dir='it';store.set('dir',dir);flipped=false;viewCards()};
-  v.querySelector('#d-hu').onclick=()=>{dir='hu';store.set('dir',dir);flipped=false;viewCards()};
-}
-function render(){
-  save(); stats(); chips();
-  ['lecke','gyak','kartya'].forEach(t=>document.getElementById('t-'+t).setAttribute('aria-selected',st.tab===t));
-  if(st.tab==='lecke') viewLesson(); else if(st.tab==='gyak') viewEx(); else { deck=[]; viewCards(); }
-}
-['lecke','gyak','kartya'].forEach(t=>document.getElementById('t-'+t).onclick=()=>{st.tab=t;render()});
-if(!DATA.some(d=>d.n===st.n)) st.n=DATA[0].n;
-render();
 
+/* Szókártyák: Leitner-dobozok 0–3, esedékesség: 0, 1, 3, 7 nap */
+const GAP=[0,1,3,7];
+function buildDeck(){const t=dayNum();deck=scopeCards().map(c=>({c,r:Math.random()})).sort((a,b)=>{const ad=(st.due[a.c.id]??0)<=t?0:1,bd=(st.due[b.c.id]??0)<=t?0:1;return ad-bd||box(a.c)-box(b.c)||(st.due[a.c.id]??0)-(st.due[b.c.id]??0)||a.r-b.r}).map(x=>x.c);cur=0;flipped=false}
+function flip(){flipped=!flipped;render();const fc=document.getElementById('fc');if(fc){fc.classList.add('flip')}}
+function answer(ok){const c=deck[cur];if(!c)return;const b=ok?Math.min(3,(st.boxes[c.id]||0)+1):0;st.boxes[c.id]=b;st.due[c.id]=dayNum()+GAP[b];cur=(cur+1)%deck.length;flipped=false;mark();render();const fc=document.getElementById('fc');if(fc)fc.focus({preventScroll:true})}
+function viewCards(v){
+  const key=scope+'|'+st.n+'|'+dir;if(key!==deckKey||!deck.length){buildDeck();deckKey=key}
+  const c=deck[cur],qx=dir==='it'?c.it:c.hu,ax=dir==='it'?c.hu:c.it;
+  const cnt=[0,1,2,3].map(b=>deck.filter(x=>box(x)===b).length),dueN=deck.filter(isDue).length;
+  const sc=[['learned',`Eddigi leckék (1–${learnedMax()}.)`],['lesson',`Csak a ${st.n}. lecke`],['all','Mind']];
+  v.innerHTML=`<header class="ph"><div><h1>Szókártyák</h1><p class="lead">Amit tud, egyre ritkábban jön elő: 1, 3, majd 7 nap múlva.</p></div></header>
+  <div class="bar"><div class="seg" role="group" aria-label="Melyik szavak">${sc.map(([k,l])=>`<button type="button" data-sc="${k}" aria-pressed="${scope===k}">${l}</button>`).join('')}</div>
+  <div class="seg" role="group" aria-label="Irány"><button type="button" data-dir="it" aria-pressed="${dir==='it'}">olasz → magyar</button><button type="button" data-dir="hu" aria-pressed="${dir==='hu'}">magyar → olasz</button></div></div>
+  <div class="cards-layout"><div class="stage">
+    <div class="deckbar"><span>${cur+1} / ${deck.length}</span><div class="meter" aria-hidden="true"><i style="width:${(cur+1)/deck.length*100}%"></i></div></div>
+    <div class="fcard" id="fc" tabindex="0" role="button" aria-label="${flipped?'Kártya visszafordítása':'Kártya megfordítása'}"><span class="lab">${c.n}. lecke</span><span class="lvl">${lvTag(box(c))}</span><div><div class="w" lang="${dir}">${esc(qx)}</div>${flipped?`<div class="a" lang="${dir==='it'?'hu':'it'}">${esc(ax)}</div>`:'<div class="muted hintf">Gondolja végig, aztán fordítsa meg</div>'}</div></div>
+    <div class="fbtns">${flipped?'<button class="btn" id="no" type="button">Még nem tudom <kbd>1</kbd></button><button class="btn primary" id="yes" type="button">Tudom <kbd>2</kbd></button>':'<button class="btn primary" id="flip" type="button">Megfordítom <kbd>Szóköz</kbd></button>'}</div>
+  </div>
+  <aside class="panel sum" aria-labelledby="h-sum"><h2 class="ptitle" id="h-sum">Ebben a pakliban</h2><dl class="rows">
+    <div><dt>Esedékes ma</dt><dd>${dueN}</dd></div>${cnt.map((n,i)=>`<div><dt><span class="dotk l${i}"></span>${cap(LV[i])}</dt><dd>${n}</dd></div>`).join('')}<div><dt>Összesen</dt><dd>${deck.length}</dd></div></dl>
+    <p class="muted">Ha egy szót nem tud, visszakerül az elejére, és ma újra előjön.</p></aside></div>`;
+  v.querySelector('#fc').onclick=flip;
+  v.querySelector('#fc').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();flip()}};
+  const fb=v.querySelector('#flip');if(fb)fb.onclick=flip;
+  const y=v.querySelector('#yes');if(y)y.onclick=()=>answer(true);
+  const n=v.querySelector('#no');if(n)n.onclick=()=>answer(false);
+  v.querySelectorAll('[data-sc]').forEach(b=>b.onclick=()=>{scope=b.dataset.sc;render()});
+  v.querySelectorAll('[data-dir]').forEach(b=>b.onclick=()=>{dir=b.dataset.dir;render()});
+}
+addEventListener('keydown',e=>{
+  const t=e.target instanceof Element?e.target:document.body;
+  if(route().page!=='kartyak'||e.metaKey||e.ctrlKey||e.altKey||t.closest('input,select,textarea'))return;
+  if(e.key===' '&&!t.closest('button,a')){e.preventDefault();flip()}
+  else if(flipped&&e.key==='1')answer(false);
+  else if(flipped&&e.key==='2')answer(true);
+});
+
+/* Szótár */
+const ART=/^(il|lo|la|i|gli|le|un|uno|una)\s+|^(l|un)'/i;
+function viewDict(v){
+  const all=allCards();
+  v.innerHTML=`<header class="ph"><div><h1>Szótár</h1><p class="lead">${all.length} szó a ${DATA.length} leckéből, olasz ábécérendben</p></div></header>
+  <div class="filters"><label class="search">${ico('szotar')}<span class="sr">Keresés</span><input id="q" type="search" placeholder="Keresés olaszul vagy magyarul" value="${escA(q)}" autocomplete="off" spellcheck="false"></label>
+  <label class="select"><span class="sr">Lecke</span><select id="qn"><option value="0">Minden lecke</option>${DATA.map(d=>`<option value="${d.n}"${qn===d.n?' selected':''}>${d.n}. ${esc(name(d))}</option>`).join('')}</select></label></div>
+  <p class="count-line" id="cnt" aria-live="polite"></p>
+  <div class="panel flush"><table class="words dict"><thead><tr><th>Olasz</th><th>Magyar</th><th class="r">Lecke</th><th class="r">Szint</th></tr></thead><tbody id="rows"></tbody></table></div>`;
+  const rows=()=>{
+    const nq=norm(q);
+    const list=all.filter(c=>(!qn||c.n===qn)&&(!nq||norm(c.it).includes(nq)||norm(c.hu).includes(nq))).sort((a,b)=>a.it.replace(ART,'').localeCompare(b.it.replace(ART,''),'it')||a.n-b.n);
+    document.getElementById('cnt').textContent=`${list.length} találat`;
+    document.getElementById('rows').innerHTML=list.length?list.map(c=>`<tr><td class="it" lang="it">${esc(c.it)}</td><td class="hu">${esc(c.hu)}</td><td class="ln"><a href="#lecke-${c.n}/szavak">${c.n}. lecke</a></td><td class="lv">${lvTag(box(c))}</td></tr>`).join(''):`<tr><td class="empty" colspan="4">Nincs találat erre: „${esc(q)}”.</td></tr>`;
+  };
+  const qi=v.querySelector('#q');qi.oninput=()=>{q=qi.value;rows()};
+  v.querySelector('#qn').onchange=e=>{qn=+e.target.value;rows()};
+  rows();
+}
+
+addEventListener('hashchange',()=>render(true));
+if(!byN(st.n))st.n=DATA[0].n;
+applyTheme();
+render(true);
 </script>
 
 </body>
