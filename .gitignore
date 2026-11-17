@@ -1,2 +1,12 @@
+node_modules/
+dist/
 .DS_Store
 .vercel
+*.local
+.env*
+!.env.example
+.vite/
+coverage/
+.taste-skill/
+.claude/settings.local.json
+.audio-samples/

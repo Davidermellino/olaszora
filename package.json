@@ -1,0 +1,36 @@
+{
+  "name": "olaszora",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "vocab": "tsx scripts/lessons-to-vocab.ts",
+    "validate": "tsx scripts/validate-content.ts",
+    "content": "npm run vocab && npm run validate",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "audio": "tsx scripts/tts-elevenlabs.ts"
+  },
+  "dependencies": {
+    "@fontsource/geist": "^5.3.0",
+    "dexie": "^4.4.7",
+    "dexie-react-hooks": "^4.4.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "fake-indexeddb": "^6.2.7",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,65 @@
+name: Deploy su GitHub Pages
+
+# Ogni push ripubblica l'app. Le carte vengono rigenerate dalle lezioni anche qui,
+# al momento della build: il sito pubblicato non è mai indietro rispetto a content/lessons/.
+# Gli mp3 dei dialoghi sono già nel repo (scripts/tts-elevenlabs.ts gira in locale): qui non serve la chiave.
+# rebuild-vite: finché Vercel pubblica ancora la vecchia Olaszóra da main.
+on:
+  push:
+    branches: [main, rebuild-vite]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Rigenera le carte, valida content/arena, typecheck e test:
+      # se un file è sbagliato, il deploy si ferma qui e l'app online resta quella di prima.
+      - name: Contenuti e test
+        run: |
+          npm ci
+          npm run content
+          npm run typecheck
+          npm test
+
+      - name: Build dell'app
+        if: hashFiles('index.html') != ''
+        run: npm run build
+
+      - name: Pagina segnaposto (interfaccia non ancora presente)
+        if: hashFiles('index.html') == ''
+        run: |
+          mkdir -p dist
+          printf '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Arena</title><body style="font-family:system-ui;padding:2rem"><h1>Arena</h1><p>Deploy configurato. L&#39;app arriva presto.</p></body>' > dist/index.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

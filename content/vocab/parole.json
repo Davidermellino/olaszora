@@ -1,0 +1,1153 @@
+{
+  "source": "content/lessons/L01.md, content/lessons/L02.md, content/lessons/L03.md, content/lessons/L04.md, content/lessons/L05.md, content/lessons/L06.md, content/lessons/L07.md, content/lessons/L08.md, content/lessons/L09.md, content/lessons/L10.md, content/lessons/L11.md, content/lessons/L12.md, content/lessons/L13.md, content/lessons/L14.md",
+  "cards": [
+    {
+      "id": "L01-001",
+      "it": "pronto",
+      "hu": "halló",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-002",
+      "it": "buongiorno",
+      "hu": "jó napot",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-003",
+      "it": "ciao",
+      "hu": "szia",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-004",
+      "it": "Come stai?",
+      "hu": "Hogy vagy?",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-005",
+      "it": "bene",
+      "hu": "jól",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-006",
+      "it": "grazie",
+      "hu": "köszönöm",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-007",
+      "it": "anche",
+      "hu": "is",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-008",
+      "it": "niente",
+      "hu": "semmi",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-009",
+      "it": "qui",
+      "hu": "itt",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-010",
+      "it": "lì",
+      "hu": "ott",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-011",
+      "it": "il tempo",
+      "hu": "az idő",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L01-012",
+      "it": "particolare",
+      "hu": "különös",
+      "tag": "szavak",
+      "lesson": "L01"
+    },
+    {
+      "id": "L02-001",
+      "it": "l'Europa",
+      "hu": "Európa",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-002",
+      "it": "il paese",
+      "hu": "az ország",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-003",
+      "it": "grande",
+      "hu": "nagy",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-004",
+      "it": "bello / bella",
+      "hu": "szép",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-005",
+      "it": "la città",
+      "hu": "a város",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-006",
+      "it": "il professore",
+      "hu": "a tanár",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-007",
+      "it": "sì",
+      "hu": "igen",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-008",
+      "it": "parlare",
+      "hu": "beszélni",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-009",
+      "it": "noi",
+      "hu": "mi",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-010",
+      "it": "italiano",
+      "hu": "olasz",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L02-011",
+      "it": "ungherese",
+      "hu": "magyar",
+      "tag": "szavak",
+      "lesson": "L02"
+    },
+    {
+      "id": "L03-001",
+      "it": "la famiglia",
+      "hu": "a család",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-002",
+      "it": "vivere",
+      "hu": "élni",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-003",
+      "it": "l'appartamento",
+      "hu": "a lakás",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-004",
+      "it": "moderno",
+      "hu": "modern",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-005",
+      "it": "a casa",
+      "hu": "otthon",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-006",
+      "it": "la cucina",
+      "hu": "a konyha",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-007",
+      "it": "la camera",
+      "hu": "a szoba",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-008",
+      "it": "il marito",
+      "hu": "a férj",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-009",
+      "it": "la moglie",
+      "hu": "a feleség",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-010",
+      "it": "strano",
+      "hu": "különös, furcsa",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L03-011",
+      "it": "la signora",
+      "hu": "a hölgy, asszony",
+      "tag": "szavak",
+      "lesson": "L03"
+    },
+    {
+      "id": "L04-001",
+      "it": "straniero",
+      "hu": "külföldi",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-002",
+      "it": "studiare",
+      "hu": "tanulni",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-003",
+      "it": "difficile",
+      "hu": "nehéz",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-004",
+      "it": "facile",
+      "hu": "könnyű",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-005",
+      "it": "la lingua",
+      "hu": "a nyelv",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-006",
+      "it": "dove?",
+      "hu": "hol? hová?",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-007",
+      "it": "adesso",
+      "hu": "most",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-008",
+      "it": "l'albergo",
+      "hu": "a szálloda",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-009",
+      "it": "andare",
+      "hu": "menni",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-010",
+      "it": "arrivederci",
+      "hu": "viszontlátásra",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L04-011",
+      "it": "la cittadina",
+      "hu": "a kisváros",
+      "tag": "szavak",
+      "lesson": "L04"
+    },
+    {
+      "id": "L05-001",
+      "it": "il cameriere",
+      "hu": "a pincér",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-002",
+      "it": "il menù",
+      "hu": "az étlap",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-003",
+      "it": "per favore",
+      "hu": "legyen szíves",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-004",
+      "it": "subito",
+      "hu": "azonnal",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-005",
+      "it": "ecco",
+      "hu": "íme, tessék",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-006",
+      "it": "bere",
+      "hu": "inni",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-007",
+      "it": "il vino rosso",
+      "hu": "a vörösbor",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-008",
+      "it": "bianco",
+      "hu": "fehér",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-009",
+      "it": "l'acqua",
+      "hu": "a víz",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-010",
+      "it": "il pollo",
+      "hu": "a csirke",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-011",
+      "it": "l'insalata",
+      "hu": "a saláta",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-012",
+      "it": "portare",
+      "hu": "hozni, vinni",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-013",
+      "it": "Buon appetito!",
+      "hu": "Jó étvágyat!",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L05-014",
+      "it": "prego",
+      "hu": "szívesen",
+      "tag": "szavak",
+      "lesson": "L05"
+    },
+    {
+      "id": "L06-001",
+      "it": "la passeggiata",
+      "hu": "a séta",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-002",
+      "it": "perché",
+      "hu": "miért; mert",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-003",
+      "it": "fare",
+      "hu": "csinálni",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-004",
+      "it": "il libro",
+      "hu": "a könyv",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-005",
+      "it": "interessante",
+      "hu": "érdekes",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-006",
+      "it": "il titolo",
+      "hu": "a cím",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-007",
+      "it": "leggere",
+      "hu": "olvasni",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-008",
+      "it": "il tavolo",
+      "hu": "az asztal",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-009",
+      "it": "allora",
+      "hu": "akkor",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-010",
+      "it": "rosso",
+      "hu": "vörös, piros",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-011",
+      "it": "nero",
+      "hu": "fekete",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L06-012",
+      "it": "venire",
+      "hu": "jönni",
+      "tag": "szavak",
+      "lesson": "L06"
+    },
+    {
+      "id": "L07-001",
+      "it": "essere",
+      "hu": "lenni",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-002",
+      "it": "avere",
+      "hu": "birtokolni (van neki)",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-003",
+      "it": "stare bene",
+      "hu": "jól lenni",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-004",
+      "it": "c'è / ci sono",
+      "hu": "van / vannak",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-005",
+      "it": "io vado",
+      "hu": "megyek",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-006",
+      "it": "io vengo",
+      "hu": "jövök",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L07-007",
+      "it": "io faccio",
+      "hu": "csinálok",
+      "tag": "szavak",
+      "lesson": "L07"
+    },
+    {
+      "id": "L08-001",
+      "it": "la banca",
+      "hu": "a bank",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-002",
+      "it": "la cassa",
+      "hu": "a pénztár",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-003",
+      "it": "la finestra",
+      "hu": "az ablak",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-004",
+      "it": "a sinistra",
+      "hu": "balra",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-005",
+      "it": "a destra",
+      "hu": "jobbra",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-006",
+      "it": "vicino a",
+      "hu": "mellett, közel",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-007",
+      "it": "l'assegno",
+      "hu": "a csekk",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-008",
+      "it": "i soldi",
+      "hu": "a pénz",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-009",
+      "it": "falso",
+      "hu": "hamis",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-010",
+      "it": "se",
+      "hu": "ha",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-011",
+      "it": "stamattina",
+      "hu": "ma délelőtt",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L08-012",
+      "it": "tornare a casa",
+      "hu": "hazamenni",
+      "tag": "szavak",
+      "lesson": "L08"
+    },
+    {
+      "id": "L09-001",
+      "it": "le otto",
+      "hu": "nyolc óra",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-002",
+      "it": "il lavoro",
+      "hu": "a munka",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-003",
+      "it": "salire",
+      "hu": "felszállni, felmenni",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-004",
+      "it": "scendere",
+      "hu": "leszállni, lemenni",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-005",
+      "it": "il tram",
+      "hu": "a villamos",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-006",
+      "it": "sedersi",
+      "hu": "leülni",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-007",
+      "it": "il giornale",
+      "hu": "az újság",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-008",
+      "it": "a piedi",
+      "hu": "gyalog",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-009",
+      "it": "fermarsi",
+      "hu": "megállni",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-010",
+      "it": "l'ascensore",
+      "hu": "a lift",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-011",
+      "it": "il piano",
+      "hu": "az emelet",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-012",
+      "it": "nervoso",
+      "hu": "ideges",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-013",
+      "it": "malato",
+      "hu": "beteg",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L09-014",
+      "it": "domani",
+      "hu": "holnap",
+      "tag": "szavak",
+      "lesson": "L09"
+    },
+    {
+      "id": "L10-001",
+      "it": "il dentista",
+      "hu": "a fogorvos",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-002",
+      "it": "aspettare",
+      "hu": "várni",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-003",
+      "it": "il dente",
+      "hu": "a fog",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-004",
+      "it": "mi fa male",
+      "hu": "fáj (nekem)",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-005",
+      "it": "bisogna",
+      "hu": "kell",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-006",
+      "it": "finalmente",
+      "hu": "végre",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-007",
+      "it": "il medico",
+      "hu": "az orvos",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-008",
+      "it": "avere paura",
+      "hu": "félni",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-009",
+      "it": "pagare",
+      "hu": "fizetni",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-010",
+      "it": "il pomeriggio",
+      "hu": "a délután",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-011",
+      "it": "la pasticceria",
+      "hu": "a cukrászda",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-012",
+      "it": "avere fame",
+      "hu": "éhesnek lenni",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-013",
+      "it": "mangiare",
+      "hu": "enni",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L10-014",
+      "it": "qualcosa",
+      "hu": "valami",
+      "tag": "szavak",
+      "lesson": "L10"
+    },
+    {
+      "id": "L11-001",
+      "it": "l'esame",
+      "hu": "a vizsga",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-002",
+      "it": "oggi",
+      "hu": "ma",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-003",
+      "it": "severo",
+      "hu": "szigorú",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-004",
+      "it": "A che ora?",
+      "hu": "Hány órakor?",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-005",
+      "it": "la fisica",
+      "hu": "a fizika",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-006",
+      "it": "la matematica",
+      "hu": "a matematika",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-007",
+      "it": "entrare",
+      "hu": "bemenni, bejönni",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-008",
+      "it": "la testa",
+      "hu": "a fej",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-009",
+      "it": "Non fa niente.",
+      "hu": "Nem baj.",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-010",
+      "it": "tutti",
+      "hu": "mindenki",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-011",
+      "it": "sapere (so)",
+      "hu": "tudni (tudok)",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L11-012",
+      "it": "niente",
+      "hu": "semmi",
+      "tag": "szavak",
+      "lesson": "L11"
+    },
+    {
+      "id": "L12-001",
+      "it": "il turista",
+      "hu": "a turista",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-002",
+      "it": "il fiume",
+      "hu": "a folyó",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-003",
+      "it": "il ponte",
+      "hu": "a híd",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-004",
+      "it": "la riva",
+      "hu": "a part",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-005",
+      "it": "il museo",
+      "hu": "a múzeum",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-006",
+      "it": "la chiesa",
+      "hu": "a templom",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-007",
+      "it": "antico",
+      "hu": "régi",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-008",
+      "it": "il palazzo",
+      "hu": "az épület, a palota",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-009",
+      "it": "in alto",
+      "hu": "fent",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-010",
+      "it": "Scusi!",
+      "hu": "Elnézést!",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-011",
+      "it": "la gente",
+      "hu": "az emberek",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-012",
+      "it": "la capitale",
+      "hu": "a főváros",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-013",
+      "it": "l'abitante",
+      "hu": "a lakos",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L12-014",
+      "it": "il monumento",
+      "hu": "a műemlék",
+      "tag": "szavak",
+      "lesson": "L12"
+    },
+    {
+      "id": "L13-001",
+      "it": "alzarsi",
+      "hu": "felkelni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-002",
+      "it": "lavarsi",
+      "hu": "mosakodni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-003",
+      "it": "vestirsi",
+      "hu": "felöltözni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-004",
+      "it": "fare colazione",
+      "hu": "reggelizni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-005",
+      "it": "la fabbrica",
+      "hu": "a gyár",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-006",
+      "it": "la macchina",
+      "hu": "a gép",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-007",
+      "it": "mezzogiorno",
+      "hu": "dél",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-008",
+      "it": "pranzare",
+      "hu": "ebédelni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-009",
+      "it": "il caffè",
+      "hu": "a kávé",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-010",
+      "it": "stanco",
+      "hu": "fáradt",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-011",
+      "it": "cenare",
+      "hu": "vacsorázni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-012",
+      "it": "andare a letto",
+      "hu": "lefeküdni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-013",
+      "it": "dormire",
+      "hu": "aludni",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L13-014",
+      "it": "la notte",
+      "hu": "az éjszaka",
+      "tag": "szavak",
+      "lesson": "L13"
+    },
+    {
+      "id": "L14-001",
+      "it": "mi alzo",
+      "hu": "felkelek",
+      "tag": "szavak",
+      "lesson": "L14"
+    },
+    {
+      "id": "L14-002",
+      "it": "esco",
+      "hu": "kimegyek",
+      "tag": "szavak",
+      "lesson": "L14"
+    },
+    {
+      "id": "L14-003",
+      "it": "dormo",
+      "hu": "alszom",
+      "tag": "szavak",
+      "lesson": "L14"
+    },
+    {
+      "id": "L14-004",
+      "it": "voglio",
+      "hu": "akarok",
+      "tag": "szavak",
+      "lesson": "L14"
+    },
+    {
+      "id": "L14-005",
+      "it": "il mio / la mia",
+      "hu": "az enyém",
+      "tag": "szavak",
+      "lesson": "L14"
+    },
+    {
+      "id": "L14-006",
+      "it": "da (+ személy)",
+      "hu": "-nál, -hoz, -tól",
+      "tag": "szavak",
+      "lesson": "L14"
+    }
+  ]
+}
