@@ -1,0 +1,86 @@
+{
+  "id": "A09",
+  "title": "Névelős elöljárószók: nel, sul, al, del, dal",
+  "rule": "Az a, da, di, in, su összeolvad a határozott névelővel: a + il = al, da + la = dalla, di + l' = dell', in + il = nel, su + il = sul. Órák: alle cinque (a + le), all'una. A magyar rag helyén az olaszban elöljárószó + névelő áll.",
+  "exercises": [
+    {
+      "id": "A09-001",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Il libro è ___ tavolo. (su + il)",
+      "answers": [
+        "sul"
+      ],
+      "hu": "A könyv az asztalon van.",
+      "rule": "A09: su + il = sul",
+      "explanation": "Az asztalon = sul tavolo. Su il nincs, mindig összeolvad."
+    },
+    {
+      "id": "A09-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Il signor Bianchi esce ___ banca. (da + la)",
+      "answers": [
+        "dalla"
+      ],
+      "hu": "Bianchi úr kijön a bankból.",
+      "rule": "A09: da + la = dalla",
+      "explanation": "Honnan? = da. da + la = dalla (8. lecke: esce dalla banca)."
+    },
+    {
+      "id": "A09-003",
+      "type": "mc",
+      "prompt": "Válaszd ki: Vado ___ dentista.",
+      "options": [
+        "dal",
+        "sul",
+        "nel",
+        "di"
+      ],
+      "answers": [
+        "dal"
+      ],
+      "hu": "Megyek a fogorvoshoz.",
+      "rule": "A09: személyhez: da + névelő",
+      "explanation": "Személynél a da jelöli a hová?, hol? és honnan? irányt: vado dal dentista, sono dal dentista, vengo dal dentista (10. lecke)."
+    },
+    {
+      "id": "A09-004",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Il professore arriva ___ cinque. (a + le)",
+      "answers": [
+        "alle"
+      ],
+      "hu": "A tanár ötkor érkezik.",
+      "rule": "A09: órák: alle + szám (a + le), de all'una",
+      "explanation": "Ötkor = alle cinque; az órák nőneműek és többes számúak (le cinque). Egykor = all'una."
+    },
+    {
+      "id": "A09-005",
+      "type": "mc",
+      "prompt": "Válaszd ki: Avete paura ___?",
+      "options": [
+        "dell'esame",
+        "del esame",
+        "di l'esame",
+        "dello esame"
+      ],
+      "answers": [
+        "dell'esame"
+      ],
+      "hu": "Féltek a vizsgától?",
+      "rule": "A09: di + l' = dell'",
+      "explanation": "avere paura di = félni valamitől; di + l'esame = dell'esame (11. lecke)."
+    },
+    {
+      "id": "A09-006",
+      "type": "translate",
+      "prompt": "Fordítsd le: Felszállok a villamosra.",
+      "answers": [
+        "Salgo sul tram.",
+        "Io salgo sul tram."
+      ],
+      "hu": "Felszállok a villamosra.",
+      "rule": "A09: salire su + névelő: sul tram",
+      "explanation": "Felszállni = salire su; su + il = sul. Leszállni = scendere da: scendo dal tram (9. lecke)."
+    }
+  ]
+}

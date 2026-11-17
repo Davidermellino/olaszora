@@ -1,0 +1,86 @@
+{
+  "id": "A04",
+  "title": "A létige nem marad el: essere · è ≠ e · stare",
+  "rule": "Az olaszban a létige 3. személyben sem marad el: Maria è bella (Mari szép). Az è (van) ige, az e (és) kötőszó. A hogylétet a stare fejezi ki: Come stai? – Sto bene.",
+  "exercises": [
+    {
+      "id": "A04-001",
+      "type": "mc",
+      "prompt": "Válaszd ki: Budapest ___ una bella città.",
+      "options": [
+        "è",
+        "e",
+        "ha",
+        "sta"
+      ],
+      "answers": [
+        "è"
+      ],
+      "hu": "Budapest szép város.",
+      "rule": "A04: a létige 3. személyben sem marad el",
+      "explanation": "A magyarban «Budapest szép város» ige nélkül; az olaszban kell az è. Az e ékezet nélkül = és."
+    },
+    {
+      "id": "A04-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Il professore non ___ a casa.",
+      "answers": [
+        "è"
+      ],
+      "hu": "A tanár nincs otthon.",
+      "rule": "A04: nincs = non è",
+      "explanation": "Az olaszban nincs külön szó a «nincs»-re: non + è. Ha e-t írsz (ékezet nélkül), az «és» lesz."
+    },
+    {
+      "id": "A04-003",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Noi non ___ stanchi.",
+      "answers": [
+        "siamo"
+      ],
+      "hu": "Nem vagyunk fáradtak.",
+      "rule": "A04: essere: sono, sei, è, siamo, siete, sono",
+      "explanation": "noi → siamo. A tagadás: non + ige."
+    },
+    {
+      "id": "A04-004",
+      "type": "fill",
+      "prompt": "Egészítsd ki: ___ le nove.",
+      "answers": [
+        "Sono"
+      ],
+      "hu": "Kilenc óra van.",
+      "rule": "A04: órák: sono le… (többes szám), de è l'una",
+      "explanation": "Kilenc óra van = Sono le nove (szó szerint: «vannak a kilencek»). Egy óra van = È l'una."
+    },
+    {
+      "id": "A04-005",
+      "type": "mc",
+      "prompt": "Válaszd ki: Come ___? – Bene, grazie.",
+      "options": [
+        "stai",
+        "sei",
+        "è",
+        "hai"
+      ],
+      "answers": [
+        "stai"
+      ],
+      "hu": "Hogy vagy? – Jól, köszönöm.",
+      "rule": "A04: hogylét: stare, nem essere",
+      "explanation": "Az egészségre, hogylétre a stare igét használjuk: come stai?, sto bene (1. lecke)."
+    },
+    {
+      "id": "A04-006",
+      "type": "translate",
+      "prompt": "Fordítsd le: Budapest nagy város.",
+      "answers": [
+        "Budapest è una città grande.",
+        "Budapest è una grande città."
+      ],
+      "hu": "Budapest nagy város.",
+      "rule": "A04: a létige kell, és a határozatlan névelő is",
+      "explanation": "Budapest è una città grande: kell az è (van) és az una (egy). A grande a főnév előtt is állhat."
+    }
+  ]
+}

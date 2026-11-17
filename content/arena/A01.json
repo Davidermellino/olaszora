@@ -1,0 +1,102 @@
+{
+  "id": "A01",
+  "title": "Határozott névelő: il, lo, l', la, i, gli, le",
+  "rule": "Hímnem: il (mássalhangzó előtt), lo (s + mássalhangzó, z előtt), l' (magánhangzó előtt); többes szám: i / gli. Nőnem: la, l'; többes szám: le. A magyar a/az nem változik, az olasz névelő igen.",
+  "exercises": [
+    {
+      "id": "A01-001",
+      "type": "mc",
+      "prompt": "Válaszd ki a névelőt: ___ straniero studia l'italiano.",
+      "options": [
+        "il",
+        "lo",
+        "l'",
+        "la"
+      ],
+      "answers": [
+        "lo"
+      ],
+      "hu": "A külföldi olaszul tanul.",
+      "rule": "A01: s + mássalhangzó előtt a hímnemű névelő lo",
+      "explanation": "A straniero s + t betűvel kezdődik: lo straniero, többes számban gli stranieri."
+    },
+    {
+      "id": "A01-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki a névelővel: ___ assegni sono falsi.",
+      "answers": [
+        "gli"
+      ],
+      "hu": "A csekkek hamisak.",
+      "rule": "A01: magánhangzóval kezdődő hímnemű főnév többes száma: gli",
+      "explanation": "Az assegno hímnemű és magánhangzóval kezdődik: l'assegno → gli assegni (nem i assegni)."
+    },
+    {
+      "id": "A01-003",
+      "type": "fill",
+      "prompt": "Egészítsd ki a névelővel: ___ chiesa è molto antica.",
+      "answers": [
+        "la"
+      ],
+      "hu": "A templom nagyon régi.",
+      "rule": "A01: az -a végű főnév többnyire nőnemű: la",
+      "explanation": "A chiesa nőnemű: la chiesa, többes számban le chiese."
+    },
+    {
+      "id": "A01-004",
+      "type": "mc",
+      "prompt": "Válaszd ki a névelőt: ___ italiani parlano italiano.",
+      "options": [
+        "I",
+        "Gli",
+        "Le",
+        "Lo"
+      ],
+      "answers": [
+        "Gli"
+      ],
+      "hu": "Az olaszok olaszul beszélnek.",
+      "rule": "A01: hímnem, többes szám, magánhangzó előtt: gli",
+      "explanation": "Az italiano magánhangzóval kezdődik: l'italiano → gli italiani. Az i csak mássalhangzó előtt áll: i libri."
+    },
+    {
+      "id": "A01-005",
+      "type": "mc",
+      "prompt": "Válaszd ki: Dov'è ___?",
+      "options": [
+        "il albergo",
+        "lo albergo",
+        "l'albergo",
+        "la albergo"
+      ],
+      "answers": [
+        "l'albergo"
+      ],
+      "hu": "Hol van a szálloda?",
+      "rule": "A01: magánhangzó előtt egyes számban l'",
+      "explanation": "Az albergo hímnemű, de magánhangzóval kezdődik, ezért l'albergo (nem il albergo, nem lo albergo)."
+    },
+    {
+      "id": "A01-006",
+      "type": "transform",
+      "prompt": "Tedd többes számba: Il professore è severo.",
+      "answers": [
+        "I professori sono severi."
+      ],
+      "hu": "A tanárok szigorúak.",
+      "rule": "A01: il → i; az ige és a melléknév is többes számba kerül",
+      "explanation": "il professore → i professori; è → sono; severo → severi."
+    },
+    {
+      "id": "A01-007",
+      "type": "translate",
+      "prompt": "Fordítsd le: Az ablakok szépek.",
+      "answers": [
+        "Le finestre sono belle."
+      ],
+      "hu": "Az ablakok szépek.",
+      "rule": "A01: nőnem, többes szám: le",
+      "explanation": "la finestra → le finestre; bella → belle. Az olaszban a sono sem maradhat el."
+    }
+  ]
+}

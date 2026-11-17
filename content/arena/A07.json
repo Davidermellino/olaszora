@@ -1,0 +1,97 @@
+{
+  "id": "A07",
+  "title": "Gyakori rendhagyó igék: avere, andare, venire, fare, stare",
+  "rule": "avere: ho, hai, ha, abbiamo, avete, hanno · andare: vado, vai, va, andiamo, andate, vanno · venire: vengo, vieni, viene, veniamo, venite, vengono · fare: faccio, fai, fa, facciamo, fate, fanno · stare: sto, stai, sta (7. lecke, ismétlés).",
+  "exercises": [
+    {
+      "id": "A07-001",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Noi ___ solo vino bianco. (avere)",
+      "answers": [
+        "abbiamo"
+      ],
+      "hu": "Csak fehérborunk van.",
+      "rule": "A07: avere: ho, hai, ha, abbiamo, avete, hanno",
+      "explanation": "A «van nekünk» olaszul abbiamo (birtokolunk), 5. lecke."
+    },
+    {
+      "id": "A07-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Io ___ in albergo. (andare)",
+      "answers": [
+        "vado"
+      ],
+      "hu": "A szállodába megyek.",
+      "rule": "A07: andare: vado, vai, va, andiamo, andate, vanno",
+      "explanation": "Az andare egyes számban teljesen más tővel ragozódik: vado, vai, va."
+    },
+    {
+      "id": "A07-003",
+      "type": "mc",
+      "prompt": "Válaszd ki: Tu ___ a fare una passeggiata? (venire)",
+      "options": [
+        "vieni",
+        "veni",
+        "viene",
+        "vengo"
+      ],
+      "answers": [
+        "vieni"
+      ],
+      "hu": "Jössz sétálni?",
+      "rule": "A07: venire: vengo, vieni, viene, veniamo, venite, vengono",
+      "explanation": "Egyes szám 2. személy: vieni (6. lecke: «Gigi, vieni a fare una passeggiata?»)."
+    },
+    {
+      "id": "A07-004",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Cosa ___ i turisti? (fare)",
+      "answers": [
+        "fanno"
+      ],
+      "hu": "Mit csinálnak a turisták?",
+      "rule": "A07: fare: faccio, fai, fa, facciamo, fate, fanno",
+      "explanation": "Többes szám 3. személy: fanno, két n-nel."
+    },
+    {
+      "id": "A07-005",
+      "type": "fill",
+      "prompt": "Egészítsd ki: I Rossi ___ un appartamento moderno. (avere)",
+      "answers": [
+        "hanno"
+      ],
+      "hu": "Rossiéknak modern lakásuk van.",
+      "rule": "A07: avere: a h-t nem ejtjük, de írjuk",
+      "explanation": "hanno: a h nem hallatszik, de kötelező. ✱anno (h nélkül) = év, az egy másik szó."
+    },
+    {
+      "id": "A07-006",
+      "type": "mc",
+      "prompt": "Válaszd ki: Io ___ molto male. (stare)",
+      "options": [
+        "sto",
+        "sono",
+        "sta",
+        "stai"
+      ],
+      "answers": [
+        "sto"
+      ],
+      "hu": "Nagyon rosszul vagyok.",
+      "rule": "A07: stare: sto, stai, sta – a hogylétre",
+      "explanation": "Az egészségről a stare szól: sto molto male (10. lecke)."
+    },
+    {
+      "id": "A07-007",
+      "type": "translate",
+      "prompt": "Fordítsd le: Rómából jövök.",
+      "answers": [
+        "Vengo da Roma.",
+        "Io vengo da Roma."
+      ],
+      "hu": "Rómából jövök.",
+      "rule": "A07: venire + da: honnan?",
+      "explanation": "vengo = jövök; Rómából = da Roma (városnév előtt nincs névelő)."
+    }
+  ]
+}

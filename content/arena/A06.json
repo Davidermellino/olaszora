@@ -1,0 +1,92 @@
+{
+  "id": "A06",
+  "title": "Jelen idő: -are, -ere, -ire igék",
+  "rule": "parlare: parlo, parli, parla, parliamo, parlate, parlano · leggere: leggo, leggi, legge, leggiamo, leggete, leggono · dormire: dormo, dormi, dorme, dormiamo, dormite, dormono. Egyes szám 1. személy mindig -o, 2. személy mindig -i, többes 1. személy mindig -iamo.",
+  "exercises": [
+    {
+      "id": "A06-001",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Noi ___ ungherese. (parlare)",
+      "answers": [
+        "parliamo"
+      ],
+      "hu": "Magyarul beszélünk.",
+      "rule": "A06: többes szám 1. személy mindig -iamo",
+      "explanation": "parl- + -iamo = parliamo (nem parlamo)."
+    },
+    {
+      "id": "A06-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Tu ___ il giornale? (leggere)",
+      "answers": [
+        "leggi"
+      ],
+      "hu": "Olvasod az újságot?",
+      "rule": "A06: egyes szám 2. személy mindig -i",
+      "explanation": "legg- + -i = leggi. A tu névmás elmaradhat: Leggi il giornale?"
+    },
+    {
+      "id": "A06-003",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Il bambino ___. (dormire)",
+      "answers": [
+        "dorme"
+      ],
+      "hu": "A gyerek alszik.",
+      "rule": "A06: -ere és -ire igék: egyes szám 3. személy -e",
+      "explanation": "dorm- + -e = dorme. Az -are igéknél -a: parla."
+    },
+    {
+      "id": "A06-004",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Giuseppe e Maria ___ in fabbrica. (lavorare)",
+      "answers": [
+        "lavorano"
+      ],
+      "hu": "Giuseppe és Maria gyárban dolgoznak.",
+      "rule": "A06: -are igék: többes szám 3. személy -ano",
+      "explanation": "lavor- + -ano = lavorano. Az -ere és -ire igéknél -ono: leggono, dormono."
+    },
+    {
+      "id": "A06-005",
+      "type": "mc",
+      "prompt": "Válaszd ki: Noi ___ l'italiano. (studiare)",
+      "options": [
+        "studiamo",
+        "studiiamo",
+        "studiano",
+        "studiate"
+      ],
+      "answers": [
+        "studiamo"
+      ],
+      "hu": "Olaszul tanulunk.",
+      "rule": "A06: -iare végű igék: a két i összeolvad",
+      "explanation": "studi- + -iamo → studiamo, egy i-vel."
+    },
+    {
+      "id": "A06-006",
+      "type": "transform",
+      "prompt": "Tedd többes szám 1. személybe: Leggo un libro interessante. (noi)",
+      "answers": [
+        "Leggiamo un libro interessante.",
+        "Noi leggiamo un libro interessante."
+      ],
+      "hu": "Egy érdekes könyvet olvasunk.",
+      "rule": "A06: többes szám 1. személy mindig -iamo",
+      "explanation": "leggo → leggiamo. A tárgy (un libro interessante) nem változik."
+    },
+    {
+      "id": "A06-007",
+      "type": "translate",
+      "prompt": "Fordítsd le: Beszéltek magyarul?",
+      "answers": [
+        "Parlate ungherese?",
+        "Voi parlate ungherese?"
+      ],
+      "hu": "Beszéltek magyarul?",
+      "rule": "A06: többes szám 2. személy -ate / -ete / -ite",
+      "explanation": "parl- + -ate = parlate. Magyarul beszélni = parlare ungherese, névelő nélkül (2. lecke)."
+    }
+  ]
+}

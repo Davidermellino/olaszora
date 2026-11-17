@@ -1,0 +1,97 @@
+{
+  "id": "A03",
+  "title": "Nem és szám, a melléknév egyeztetése",
+  "rule": "A melléknév nemben és számban egyezik a főnévvel (rosso, rossa, rossi, rosse; grande, grandi), és általában a főnév után áll. Számnév után a főnév többes számban van.",
+  "exercises": [
+    {
+      "id": "A03-001",
+      "type": "mc",
+      "prompt": "Válaszd ki: L'Ungheria è un paese ___.",
+      "options": [
+        "grande",
+        "grandi",
+        "granda",
+        "grando"
+      ],
+      "answers": [
+        "grande"
+      ],
+      "hu": "Magyarország nagy ország.",
+      "rule": "A03: az -e végű melléknév egyes számban -e (hímnem és nőnem is)",
+      "explanation": "A grande hímnemben és nőnemben is grande, többes számban grandi. Granda és grando nincs."
+    },
+    {
+      "id": "A03-002",
+      "type": "fill",
+      "prompt": "Egészítsd ki: Le case sono ___. (rosso)",
+      "answers": [
+        "rosse"
+      ],
+      "hu": "A házak pirosak.",
+      "rule": "A03: a melléknév egyezik a főnévvel nemben és számban",
+      "explanation": "A case nőnemű többes szám → rosse. A magyarban a melléknév nem változik (piros házak), az olaszban igen."
+    },
+    {
+      "id": "A03-003",
+      "type": "fill",
+      "prompt": "Egészítsd ki: La bambina è ___. (malato)",
+      "answers": [
+        "malata"
+      ],
+      "hu": "A kislány beteg.",
+      "rule": "A03: a létige után is egyezik a melléknév",
+      "explanation": "A bambina nőnemű → malata. Fiúnál: il bambino è malato."
+    },
+    {
+      "id": "A03-004",
+      "type": "mc",
+      "prompt": "Válaszd ki: Abbiamo ___.",
+      "options": [
+        "un appartamento moderno",
+        "un appartamento moderna",
+        "una appartamento moderno",
+        "un appartamenti moderni"
+      ],
+      "answers": [
+        "un appartamento moderno"
+      ],
+      "hu": "Van egy modern lakásunk.",
+      "rule": "A03: a melléknév általában a főnév után áll és egyezik vele",
+      "explanation": "Az appartamento hímnemű egyes szám: un appartamento moderno (3. lecke)."
+    },
+    {
+      "id": "A03-005",
+      "type": "transform",
+      "prompt": "Tedd többes számba: L'assegno è falso.",
+      "answers": [
+        "Gli assegni sono falsi."
+      ],
+      "hu": "A csekkek hamisak.",
+      "rule": "A03: l' → gli, -o → -i, è → sono",
+      "explanation": "l'assegno → gli assegni, falso → falsi, è → sono."
+    },
+    {
+      "id": "A03-006",
+      "type": "translate",
+      "prompt": "Fordítsd le: Két csekk hamis.",
+      "answers": [
+        "Due assegni sono falsi."
+      ],
+      "hu": "Két csekk hamis.",
+      "rule": "A03: számnév után többes szám",
+      "explanation": "A magyarban számnév után egyes szám áll (két csekk), az olaszban többes: due assegni. A melléknév is többes számú: falsi."
+    },
+    {
+      "id": "A03-007",
+      "type": "translate",
+      "prompt": "Fordítsd le: A turisták fáradtak.",
+      "answers": [
+        "I turisti sono stanchi.",
+        "Le turiste sono stanche."
+      ],
+      "hu": "A turisták fáradtak.",
+      "rule": "A03: -co végű melléknév többes száma -chi",
+      "explanation": "stanco → stanchi: a h megtartja a k hangot. A turista hímnemű többes száma turisti; ha csak nők: le ✱turiste sono stanche (turiste = turistanők)."
+    }
+  ]
+}
