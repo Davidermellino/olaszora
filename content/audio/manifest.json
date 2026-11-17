@@ -1,0 +1,1241 @@
+{
+  "L01/01.mp3": {
+    "hash": "ae83200e9e7b26b2",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Giovanni",
+    "text": "Pronto? Buongiorno. Sono Giovanni Rossi. Chi parla?",
+    "chars": 51
+  },
+  "L01/02.mp3": {
+    "hash": "ff53fb5f381542f9",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pietro",
+    "text": "Pronto! Sono Pietro.",
+    "chars": 20
+  },
+  "L01/03.mp3": {
+    "hash": "295847cd6aedfc88",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Giovanni",
+    "text": "Ciao, Pietro.",
+    "chars": 13
+  },
+  "L01/04.mp3": {
+    "hash": "f797dceb445bfc80",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pietro",
+    "text": "Ciao, Giovanni.",
+    "chars": 15
+  },
+  "L01/05.mp3": {
+    "hash": "a86d6e3622414c47",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Giovanni",
+    "text": "Come stai?",
+    "chars": 10
+  },
+  "L01/06.mp3": {
+    "hash": "1495d8c0ffa2f697",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pietro",
+    "text": "Bene, grazie. E tu?",
+    "chars": 19
+  },
+  "L01/07.mp3": {
+    "hash": "2aa2553a22914a5a",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Giovanni",
+    "text": "Bene, grazie. Anch'io sto bene.",
+    "chars": 31
+  },
+  "L01/08.mp3": {
+    "hash": "a82deda5eebc36a1",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pietro",
+    "text": "Che mi racconti?",
+    "chars": 16
+  },
+  "L01/09.mp3": {
+    "hash": "1ef407150e12b67f",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Giovanni",
+    "text": "Niente. Fa bel tempo. E lì che mi racconti?",
+    "chars": 43
+  },
+  "L01/10.mp3": {
+    "hash": "a94d0f38e1d58813",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pietro",
+    "text": "Niente di particolare. Anche qui fa bel tempo.",
+    "chars": 46
+  },
+  "L01/lesson.mp3": {
+    "hash": "39155a74fb227673",
+    "voice": "",
+    "who": "",
+    "text": "11 parti",
+    "chars": 0
+  },
+  "L01/title.mp3": {
+    "hash": "808779804886da6a",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione uno. Che mi racconti? Niente.",
+    "chars": 37
+  },
+  "L02/01.mp3": {
+    "hash": "89c3ceef0e8ddee7",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Questa è l'Europa.",
+    "chars": 18
+  },
+  "L02/02.mp3": {
+    "hash": "c0121f16a280a5b9",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Qui c'è l'Ungheria.",
+    "chars": 19
+  },
+  "L02/03.mp3": {
+    "hash": "bfc047a09cd21ac7",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Lì c'è l'Italia.",
+    "chars": 16
+  },
+  "L02/04.mp3": {
+    "hash": "4e9be887ce73cfed",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "L'Ungheria è un paese grande.",
+    "chars": 29
+  },
+  "L02/05.mp3": {
+    "hash": "534a8d4e14f3a897",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pierino",
+    "text": "Professore, anche l'Italia è un paese grande?",
+    "chars": 45
+  },
+  "L02/06.mp3": {
+    "hash": "f2431349265d8439",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Sì, Pierino, anche l'Italia è un paese grande.",
+    "chars": 46
+  },
+  "L02/07.mp3": {
+    "hash": "b4d661762a85f4d0",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "In Ungheria ci sono gli ungheresi e parlano ungherese.",
+    "chars": 54
+  },
+  "L02/08.mp3": {
+    "hash": "63f89ebeda30404a",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "In Italia ci sono gli italiani e parlano italiano.",
+    "chars": 50
+  },
+  "L02/09.mp3": {
+    "hash": "83fbb7693369881c",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Qui c'è Budapest e lì c'è Roma.",
+    "chars": 31
+  },
+  "L02/10.mp3": {
+    "hash": "798255f41d550ac0",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Budapest è una bella città.",
+    "chars": 27
+  },
+  "L02/11.mp3": {
+    "hash": "7facb20088144d60",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Pierino",
+    "text": "Professore, anche Roma è una bella città?",
+    "chars": 41
+  },
+  "L02/12.mp3": {
+    "hash": "55775fbb25b16bf8",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Sì, Pierino, anche Roma è una città bella e grande.",
+    "chars": 51
+  },
+  "L02/13.mp3": {
+    "hash": "5ed6cdbc03a1da8e",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Noi non siamo italiani. Noi siamo ungheresi e parliamo ungherese.",
+    "chars": 65
+  },
+  "L02/lesson.mp3": {
+    "hash": "b8f9454c54dc9e80",
+    "voice": "",
+    "who": "",
+    "text": "14 parti",
+    "chars": 0
+  },
+  "L02/title.mp3": {
+    "hash": "93e66e2eb1cd8e55",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione due. L'Ungheria, l'Italia.",
+    "chars": 34
+  },
+  "L03/01.mp3": {
+    "hash": "5342ae86a93de979",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "La famiglia Rossi vive a Roma",
+    "chars": 29
+  },
+  "L03/02.mp3": {
+    "hash": "76eaecc447027374",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "in un appartamento moderno.",
+    "chars": 27
+  },
+  "L03/03.mp3": {
+    "hash": "406cd3de6cc9a9d8",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "I Rossi sono a casa.",
+    "chars": 20
+  },
+  "L03/04.mp3": {
+    "hash": "30fca933c89f598e",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Dov'è Giovanni Rossi?",
+    "chars": 21
+  },
+  "L03/05.mp3": {
+    "hash": "34a2a153eea0ab98",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "È in cucina.",
+    "chars": 12
+  },
+  "L03/06.mp3": {
+    "hash": "39d26e5c4edaddc7",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Dov'è la signora Rossi?",
+    "chars": 23
+  },
+  "L03/07.mp3": {
+    "hash": "4d8c14e6e320e086",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "In camera.",
+    "chars": 10
+  },
+  "L03/08.mp3": {
+    "hash": "2ad3669a29f2f983",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Un marito in cucina?",
+    "chars": 20
+  },
+  "L03/09.mp3": {
+    "hash": "8d6fb53609580457",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Una moglie in camera?",
+    "chars": 21
+  },
+  "L03/10.mp3": {
+    "hash": "1cffafcb9c054623",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Non è strano?",
+    "chars": 13
+  },
+  "L03/11.mp3": {
+    "hash": "48b198b153c2cc59",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "No.",
+    "chars": 3
+  },
+  "L03/lesson.mp3": {
+    "hash": "f96ce66ab4055ff7",
+    "voice": "",
+    "who": "",
+    "text": "12 parti",
+    "chars": 0
+  },
+  "L03/title.mp3": {
+    "hash": "c0baffb4b20c0cc1",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione tre. Una strana famiglia.",
+    "chars": 33
+  },
+  "L04/01.mp3": {
+    "hash": "24ef64558849b949",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Poliziotto",
+    "text": "Lei è straniero? Cosa fa in Italia?",
+    "chars": 35
+  },
+  "L04/02.mp3": {
+    "hash": "a902b11872b18167",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Straniero",
+    "text": "Studio l'italiano.",
+    "chars": 18
+  },
+  "L04/03.mp3": {
+    "hash": "71b8dcd53cba61c2",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Poliziotto",
+    "text": "È difficile la lingua italiana?",
+    "chars": 31
+  },
+  "L04/04.mp3": {
+    "hash": "cfb1d58dde397e8e",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Straniero",
+    "text": "No, è facile.",
+    "chars": 13
+  },
+  "L04/05.mp3": {
+    "hash": "135051d0715e2e77",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Poliziotto",
+    "text": "Dove vive? A Budapest?",
+    "chars": 22
+  },
+  "L04/06.mp3": {
+    "hash": "7d6a9b225e4cee14",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Straniero",
+    "text": "Non vivo a Budapest, ma in una cittadina ungherese.",
+    "chars": 51
+  },
+  "L04/07.mp3": {
+    "hash": "42fb519d2b47b71e",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Poliziotto",
+    "text": "E adesso dove va?",
+    "chars": 17
+  },
+  "L04/08.mp3": {
+    "hash": "19511103db9706f0",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Straniero",
+    "text": "Vado in albergo.",
+    "chars": 16
+  },
+  "L04/09.mp3": {
+    "hash": "07a96355e44acfa9",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Poliziotto",
+    "text": "Arrivederci. Buona giornata.",
+    "chars": 28
+  },
+  "L04/lesson.mp3": {
+    "hash": "03d44a3eef082868",
+    "voice": "",
+    "who": "",
+    "text": "10 parti",
+    "chars": 0
+  },
+  "L04/title.mp3": {
+    "hash": "eb9d972bce202a30",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione quattro. Un poliziotto curioso.",
+    "chars": 39
+  },
+  "L05/01.mp3": {
+    "hash": "98e59ca085a25d63",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "Cameriere! Il menù, per favore!",
+    "chars": 31
+  },
+  "L05/02.mp3": {
+    "hash": "4df653be688804d7",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Arrivo subito… Ecco a Lei.",
+    "chars": 26
+  },
+  "L05/03.mp3": {
+    "hash": "24827305831f53de",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "Grazie.",
+    "chars": 7
+  },
+  "L05/04.mp3": {
+    "hash": "48eed5b7d9c307ce",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Cosa prendete da bere?",
+    "chars": 22
+  },
+  "L05/05.mp3": {
+    "hash": "9dbd0033ecd5c4f5",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "Un litro di vino rosso.",
+    "chars": 23
+  },
+  "L05/06.mp3": {
+    "hash": "c337db75dcee6e0e",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Abbiamo solo vino bianco.",
+    "chars": 25
+  },
+  "L05/07.mp3": {
+    "hash": "e64dfca37f102d7f",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "Va bene. Ma vogliamo anche dell'acqua. Avete le lasagne?",
+    "chars": 56
+  },
+  "L05/08.mp3": {
+    "hash": "8a1b82175f5d50d1",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Sì, signore. Le abbiamo. E abbiamo anche il pollo arrosto.",
+    "chars": 58
+  },
+  "L05/09.mp3": {
+    "hash": "f1265b210b46350c",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "Prendiamo due lasagne e un pollo arrosto.",
+    "chars": 41
+  },
+  "L05/10.mp3": {
+    "hash": "3169f096f6786dd2",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Porto anche un'insalata.",
+    "chars": 24
+  },
+  "L05/11.mp3": {
+    "hash": "55a2b97ee6a8cd6a",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Cliente",
+    "text": "No, l'insalata non la vogliamo.",
+    "chars": 31
+  },
+  "L05/12.mp3": {
+    "hash": "019cfea738e7bce2",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Cameriere",
+    "text": "Buon appetito!",
+    "chars": 14
+  },
+  "L05/lesson.mp3": {
+    "hash": "e3e44b73a59484a1",
+    "voice": "",
+    "who": "",
+    "text": "13 parti",
+    "chars": 0
+  },
+  "L05/title.mp3": {
+    "hash": "8936525eb4736c8e",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione cinque. Al ristorante «Da Mario».",
+    "chars": 41
+  },
+  "L06/01.mp3": {
+    "hash": "54107e1a3d658750",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Donna",
+    "text": "Gigi, vieni a fare una passeggiata?",
+    "chars": 35
+  },
+  "L06/02.mp3": {
+    "hash": "1d98954ecf5a6e44",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Gigi",
+    "text": "No, adesso non ho tempo.",
+    "chars": 24
+  },
+  "L06/03.mp3": {
+    "hash": "53114908d3eb0bb2",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Donna",
+    "text": "Perché? Cosa fai?",
+    "chars": 17
+  },
+  "L06/04.mp3": {
+    "hash": "2438fe50947786b0",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Gigi",
+    "text": "Studio l'ungherese.",
+    "chars": 19
+  },
+  "L06/05.mp3": {
+    "hash": "619942051cf41b75",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Donna",
+    "text": "È bello il libro?",
+    "chars": 17
+  },
+  "L06/06.mp3": {
+    "hash": "2e02ffdb0f2173a1",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Gigi",
+    "text": "Molto interessante. Il suo titolo è: «Il rosso e il nero».",
+    "chars": 58
+  },
+  "L06/07.mp3": {
+    "hash": "c98a29dd63c9167b",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Donna",
+    "text": "Bene, allora non facciamo la passeggiata, leggo anch'io. Dov'è il mio libro?",
+    "chars": 76
+  },
+  "L06/08.mp3": {
+    "hash": "d1102215bf2f95f2",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Gigi",
+    "text": "Eccolo, è sul tavolo. Il titolo è interessante:",
+    "chars": 47
+  },
+  "L06/09.mp3": {
+    "hash": "2a9c7b3d08901a70",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Gigi",
+    "text": "«Il poliziotto, sua moglie e il basilico».",
+    "chars": 42
+  },
+  "L06/lesson.mp3": {
+    "hash": "cacb0b931e1071d1",
+    "voice": "",
+    "who": "",
+    "text": "10 parti",
+    "chars": 0
+  },
+  "L06/title.mp3": {
+    "hash": "ecf7f719a99ee418",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione sei. Libri interessanti.",
+    "chars": 32
+  },
+  "L07/01.mp3": {
+    "hash": "9872624174f96895",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Cosa fa Pietro in camera?",
+    "chars": 25
+  },
+  "L07/02.mp3": {
+    "hash": "6cd7e2ed0c8dc3ee",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Legge un libro interessante.",
+    "chars": 28
+  },
+  "L07/03.mp3": {
+    "hash": "7ea2ff3a1063b09a",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "E Maria in cucina?",
+    "chars": 18
+  },
+  "L07/04.mp3": {
+    "hash": "a59a8331b92d7204",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Fa il pollo arrosto.",
+    "chars": 20
+  },
+  "L07/05.mp3": {
+    "hash": "163aefb20f3bafac",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Dove vive lo straniero?",
+    "chars": 23
+  },
+  "L07/06.mp3": {
+    "hash": "ada673f6e9f4fbd7",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "In Ungheria.",
+    "chars": 12
+  },
+  "L07/07.mp3": {
+    "hash": "6718d78a5c8d9d83",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "E la famiglia Rossi?",
+    "chars": 20
+  },
+  "L07/08.mp3": {
+    "hash": "2118e38a385db239",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "A Roma.",
+    "chars": 7
+  },
+  "L07/09.mp3": {
+    "hash": "dc435044bee73397",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Dove va Giovanni?",
+    "chars": 17
+  },
+  "L07/10.mp3": {
+    "hash": "433fe257f2644a6d",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "In albergo.",
+    "chars": 11
+  },
+  "L07/lesson.mp3": {
+    "hash": "369833f24e6f09ca",
+    "voice": "",
+    "who": "",
+    "text": "11 parti",
+    "chars": 0
+  },
+  "L07/title.mp3": {
+    "hash": "d929e53b51a6edee",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione sette. Ripasso.",
+    "chars": 23
+  },
+  "L08/01.mp3": {
+    "hash": "0dc334d44f18d827",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Stamattina il signor Bianchi va in banca.",
+    "chars": 41
+  },
+  "L08/02.mp3": {
+    "hash": "e7ca6dd9c3f0490f",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "La banca è in via Garibaldi.",
+    "chars": 28
+  },
+  "L08/03.mp3": {
+    "hash": "8dcfae49b3535e64",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Signor Bianchi",
+    "text": "Buongiorno. Dov'è la cassa?",
+    "chars": 27
+  },
+  "L08/04.mp3": {
+    "hash": "96e0b7f5e2f74674",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Cassiere",
+    "text": "È lì a sinistra, vicino alla finestra.",
+    "chars": 38
+  },
+  "L08/05.mp3": {
+    "hash": "5898bd7ee87f05c3",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Signor Bianchi",
+    "text": "Grazie mille.",
+    "chars": 13
+  },
+  "L08/06.mp3": {
+    "hash": "5872329c7f0a46f6",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Signor Bianchi",
+    "text": "Ecco due assegni, vorrei dei contanti.",
+    "chars": 38
+  },
+  "L08/07.mp3": {
+    "hash": "b4c96837e70237bc",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Cassiere",
+    "text": "Signore, questi assegni sono falsi.",
+    "chars": 35
+  },
+  "L08/08.mp3": {
+    "hash": "6a614a78d9ffc6a1",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Signor Bianchi",
+    "text": "Se non mi dà cento milioni di euro, sparo!",
+    "chars": 42
+  },
+  "L08/09.mp3": {
+    "hash": "a1234de77a15dfc1",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Cassiere",
+    "text": "Ecco i soldi. Prego, cento milioni di euro.",
+    "chars": 43
+  },
+  "L08/10.mp3": {
+    "hash": "7acababaa48b974d",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Signor Bianchi",
+    "text": "Va bene. Non sparo.",
+    "chars": 19
+  },
+  "L08/11.mp3": {
+    "hash": "e72ee1509cf60a75",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Il signor Bianchi esce dalla banca e torna a casa. La polizia lo aspetta già.",
+    "chars": 77
+  },
+  "L08/lesson.mp3": {
+    "hash": "b90775f11d1688d2",
+    "voice": "",
+    "who": "",
+    "text": "12 parti",
+    "chars": 0
+  },
+  "L08/title.mp3": {
+    "hash": "5d1f29289d04dc6e",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione otto. Una visita in banca.",
+    "chars": 34
+  },
+  "L09/01.mp3": {
+    "hash": "28caa8121c479b7d",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Sono le otto di mattina.",
+    "chars": 24
+  },
+  "L09/02.mp3": {
+    "hash": "2bac936268178610",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "La signora Neri va al lavoro.",
+    "chars": 29
+  },
+  "L09/03.mp3": {
+    "hash": "3760686b911236bb",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "In piazza Venezia sale sul tram.",
+    "chars": 32
+  },
+  "L09/04.mp3": {
+    "hash": "8e845d2ef4cc088d",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Sul tram si siede e legge il giornale.",
+    "chars": 38
+  },
+  "L09/05.mp3": {
+    "hash": "b21290f590efde5a",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Scende dal tram vicino alla banca.",
+    "chars": 34
+  },
+  "L09/06.mp3": {
+    "hash": "63dd2cb4654b4450",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Poi cammina a piedi per cinquecento metri.",
+    "chars": 42
+  },
+  "L09/07.mp3": {
+    "hash": "8b20bffd5cd7bf56",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Si ferma davanti a un grande palazzo. È il suo posto di lavoro.",
+    "chars": 63
+  },
+  "L09/08.mp3": {
+    "hash": "5a9262e9455accc1",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Sale in ascensore al terzo piano.",
+    "chars": 33
+  },
+  "L09/09.mp3": {
+    "hash": "f9898451ba2f350b",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "La signora Neri è nervosa perché sono già le nove.",
+    "chars": 50
+  },
+  "L09/10.mp3": {
+    "hash": "6f7a83715e4a5457",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Direttore",
+    "text": "Buongiorno, signora Neri. Perché arriva solo adesso?",
+    "chars": 52
+  },
+  "L09/11.mp3": {
+    "hash": "9bcc83347623e579",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Signora Neri",
+    "text": "Il nostro bambino è malato, direttore. Domani arrivo puntuale.",
+    "chars": 62
+  },
+  "L09/lesson.mp3": {
+    "hash": "40fedc19f8078ea5",
+    "voice": "",
+    "who": "",
+    "text": "12 parti",
+    "chars": 0
+  },
+  "L09/title.mp3": {
+    "hash": "3ce5002be94a01d0",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione nove. È tardi.",
+    "chars": 22
+  },
+  "L10/01.mp3": {
+    "hash": "848df31f150412b2",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Il professore di ungherese va dal dentista.",
+    "chars": 43
+  },
+  "L10/02.mp3": {
+    "hash": "fb0b9dba309c7102",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Dal dentista aspettano in molti.",
+    "chars": 32
+  },
+  "L10/03.mp3": {
+    "hash": "539a70564dc9e197",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Si siede. Gli fa molto male il dente, ma bisogna aspettare.",
+    "chars": 59
+  },
+  "L10/04.mp3": {
+    "hash": "b6af8ddcaa645dbd",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Finalmente entra nello studio del medico.",
+    "chars": 41
+  },
+  "L10/05.mp3": {
+    "hash": "abcf865475fc7544",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Dentista",
+    "text": "Che cosa le fa male? Dove le fa male? A sinistra? A destra?",
+    "chars": 59
+  },
+  "L10/06.mp3": {
+    "hash": "aa12a8e6c6a779f2",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Mi fa male sia a sinistra che a destra. Sto molto male.",
+    "chars": 55
+  },
+  "L10/07.mp3": {
+    "hash": "b808a6d9b61fdce6",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Dentista",
+    "text": "Non abbia paura. Le faccio un'iniezione. Va tutto bene?",
+    "chars": 55
+  },
+  "L10/08.mp3": {
+    "hash": "7eff82b33d9f7016",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Il dente non mi fa più male. Grazie. Quanto pago?",
+    "chars": 49
+  },
+  "L10/09.mp3": {
+    "hash": "58c49e929ddef00b",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Dentista",
+    "text": "Sono cento euro. Arrivederci, a domani alle cinque del pomeriggio.",
+    "chars": 66
+  },
+  "L10/10.mp3": {
+    "hash": "c4dd7a8509a5923b",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Dal dentista il professore va in una pasticceria.",
+    "chars": 49
+  },
+  "L10/11.mp3": {
+    "hash": "7c57442c5138d921",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Ha molta fame e vuole mangiare qualcosa.",
+    "chars": 40
+  },
+  "L10/lesson.mp3": {
+    "hash": "9ff8353f496eed1c",
+    "voice": "",
+    "who": "",
+    "text": "12 parti",
+    "chars": 0
+  },
+  "L10/title.mp3": {
+    "hash": "1b6c0d513ca7faa9",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione dieci. Dal dentista.",
+    "chars": 28
+  },
+  "L11/01.mp3": {
+    "hash": "db9f53b69997f67c",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Studente 1",
+    "text": "Non avete paura dell'esame di oggi?",
+    "chars": 35
+  },
+  "L11/02.mp3": {
+    "hash": "d6ce787e4c8e14e2",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Studente 2",
+    "text": "Sì che abbiamo paura, perché il professore è molto severo.",
+    "chars": 58
+  },
+  "L11/03.mp3": {
+    "hash": "2c93f5fa5a7b4ad3",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Studente 1",
+    "text": "A che ora avete l'esame?",
+    "chars": 24
+  },
+  "L11/04.mp3": {
+    "hash": "8d63b7f5f83f8acb",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Studente 2",
+    "text": "Alle quattro del pomeriggio.",
+    "chars": 28
+  },
+  "L11/05.mp3": {
+    "hash": "29836d995642e0d9",
+    "voice": "wOXFTxgu7FQDBb1dsL7I",
+    "who": "Studente 1",
+    "text": "Noi l'abbiamo alle cinque, ma non di fisica, bensì di matematica.",
+    "chars": 65
+  },
+  "L11/06.mp3": {
+    "hash": "db57e8d8e52b0371",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Buongiorno, signori. Chi vuole fare l'esame di fisica? Prego, entrate e sedetevi.",
+    "chars": 81
+  },
+  "L11/07.mp3": {
+    "hash": "133a79a2bd21e0cb",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Studente 2",
+    "text": "Professore, sono molto nervoso e mi fa male la testa.",
+    "chars": 53
+  },
+  "L11/08.mp3": {
+    "hash": "50d7b658a1d24186",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Non fa niente, figliolo. Tutti hanno paura degli esami.",
+    "chars": 55
+  },
+  "L11/09.mp3": {
+    "hash": "aa7ca85ba63b505a",
+    "voice": "kmhW33fhWZsJVeOyIdMz",
+    "who": "Studente 2",
+    "text": "Ma io non so niente. Torno a casa. Arrivederci.",
+    "chars": 47
+  },
+  "L11/10.mp3": {
+    "hash": "bb3b06129c00f56f",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Professore",
+    "text": "Chi altro vuole fare l'esame di fisica?",
+    "chars": 39
+  },
+  "L11/lesson.mp3": {
+    "hash": "8ae91c7a61cee4c9",
+    "voice": "",
+    "who": "",
+    "text": "11 parti",
+    "chars": 0
+  },
+  "L11/title.mp3": {
+    "hash": "3e9fbdf0b8e2a95d",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione undici. Oggi abbiamo un esame.",
+    "chars": 38
+  },
+  "L12/01.mp3": {
+    "hash": "10727458b19e8a28",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Cari turisti, siamo sul Tevere.",
+    "chars": 31
+  },
+  "L12/02.mp3": {
+    "hash": "523e33a422143519",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Questo è Ponte Sisto. Sulle due rive del Tevere, a Trastevere e in centro, passano autobus arancioni e tram verdi.",
+    "chars": 114
+  },
+  "L12/03.mp3": {
+    "hash": "96fd162bad7e3b07",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Adesso saliamo al Campidoglio. Lì ci sono i grandi musei.",
+    "chars": 57
+  },
+  "L12/04.mp3": {
+    "hash": "e32b64d91f140763",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Questa è la chiesa di Santa Maria in Aracoeli. È molto antica. Le finestre sono particolarmente belle.",
+    "chars": 102
+  },
+  "L12/05.mp3": {
+    "hash": "8cc1ed09cdb3b273",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Adesso scendiamo di nuovo verso il fiume.",
+    "chars": 41
+  },
+  "L12/06.mp3": {
+    "hash": "96a2ce294508e216",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Questo palazzo a destra è Montecitorio, la Camera dei Deputati. È barocco.",
+    "chars": 74
+  },
+  "L12/07.mp3": {
+    "hash": "6afafdc1e5afd507",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "In alto a sinistra, quelli sono l'albergo Hassler e la chiesa di Trinità dei Monti.",
+    "chars": 83
+  },
+  "L12/08.mp3": {
+    "hash": "085b64fc19958ff1",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Turista",
+    "text": "Scusi, perché ci sono palazzi moderni in un quartiere antico?",
+    "chars": 61
+  },
+  "L12/09.mp3": {
+    "hash": "15c5c070df3aa011",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Perché anche qui la gente vive e lavora. Nella capitale italiana non ci sono solo monumenti.",
+    "chars": 92
+  },
+  "L12/10.mp3": {
+    "hash": "9f24d054761c1ffd",
+    "voice": "yqYUuLveKQAg3xn3wYbI",
+    "who": "Turista",
+    "text": "Quanti abitanti ha Roma?",
+    "chars": 24
+  },
+  "L12/11.mp3": {
+    "hash": "db4693ace1a0330b",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Roma ha quasi tre milioni di abitanti. L'Italia ne ha sessanta milioni.",
+    "chars": 71
+  },
+  "L12/12.mp3": {
+    "hash": "9d28ad39a64bf63a",
+    "voice": "S7L0uJpUCUDUktI3y5cw",
+    "who": "Guida",
+    "text": "Signore e signori, la visita è finita.",
+    "chars": 38
+  },
+  "L12/lesson.mp3": {
+    "hash": "c05fd4375d5ffe0a",
+    "voice": "",
+    "who": "",
+    "text": "13 parti",
+    "chars": 0
+  },
+  "L12/title.mp3": {
+    "hash": "2cd3cb1e11f5006c",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione dodici. Visita guidata a Roma.",
+    "chars": 38
+  },
+  "L13/01.mp3": {
+    "hash": "25216f227ba9752e",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Che cosa fa Giuseppe Fiore dalla mattina alla sera?",
+    "chars": 51
+  },
+  "L13/02.mp3": {
+    "hash": "27edf3f413ab6bbf",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "La mattina si alza alle sette. Si lava, si veste, fa colazione e legge il giornale.",
+    "chars": 83
+  },
+  "L13/03.mp3": {
+    "hash": "e12aef9149402f90",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Poi scende in strada. Sale sull'autobus e scende davanti alla fabbrica.",
+    "chars": 71
+  },
+  "L13/04.mp3": {
+    "hash": "afbf11ac7a909df5",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Dalle otto alle cinque lavora in fabbrica accanto a una macchina.",
+    "chars": 65
+  },
+  "L13/05.mp3": {
+    "hash": "1390744f14077518",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "A mezzogiorno, alle dodici in punto, pranza, poi beve un caffè al bar.",
+    "chars": 70
+  },
+  "L13/06.mp3": {
+    "hash": "c7d97ced0e187054",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Il pomeriggio è già molto stanco e nervoso.",
+    "chars": 43
+  },
+  "L13/07.mp3": {
+    "hash": "0f79ba67f78f904f",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Alle otto di sera torna a casa, cena, guarda la tv, si spoglia e va a letto.",
+    "chars": 76
+  },
+  "L13/08.mp3": {
+    "hash": "dde8585100a380e6",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Di notte dorme a casa.",
+    "chars": 22
+  },
+  "L13/09.mp3": {
+    "hash": "c07dce2f4af61a92",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Ma che cosa fa Giuseppe Fiore dalle cinque del pomeriggio alle otto di sera?",
+    "chars": 76
+  },
+  "L13/10.mp3": {
+    "hash": "4ff12dd0d2875f60",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Sono fatti suoi.",
+    "chars": 16
+  },
+  "L13/lesson.mp3": {
+    "hash": "3e9c10890fc2c908",
+    "voice": "",
+    "who": "",
+    "text": "11 parti",
+    "chars": 0
+  },
+  "L13/title.mp3": {
+    "hash": "3c93c8bfa7b9206f",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione tredici. Fatti suoi.",
+    "chars": 28
+  },
+  "L14/01.mp3": {
+    "hash": "2f6d405da18b3a91",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "In banca chiediamo dei contanti.",
+    "chars": 32
+  },
+  "L14/02.mp3": {
+    "hash": "470a1bb861a5cd0e",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "I turisti non fanno esami.",
+    "chars": 26
+  },
+  "L14/03.mp3": {
+    "hash": "6fadc006852b95af",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Già in pasticceria mi fa male il dente.",
+    "chars": 39
+  },
+  "L14/04.mp3": {
+    "hash": "9365b83a401ee7b3",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Passeggio a piedi sul ponte.",
+    "chars": 28
+  },
+  "L14/05.mp3": {
+    "hash": "a51551a818e95c0f",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Alle quattro del pomeriggio il professore di ungherese ha già molta fame.",
+    "chars": 73
+  },
+  "L14/06.mp3": {
+    "hash": "7cd1bdbc9a357c94",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Che fai stasera? – Fatti miei.",
+    "chars": 30
+  },
+  "L14/07.mp3": {
+    "hash": "d03bd0372df66807",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Sono stanco perché lavoro molto.",
+    "chars": 32
+  },
+  "L14/08.mp3": {
+    "hash": "b5a7c65171f41afe",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "Oggi il medico è nervoso.",
+    "chars": 25
+  },
+  "L14/09.mp3": {
+    "hash": "f5248e4ad12b0de2",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Mi fermo davanti al palazzo.",
+    "chars": 28
+  },
+  "L14/10.mp3": {
+    "hash": "800346c635aeb650",
+    "voice": "MxbaIHXywTPlbmHYvbPn",
+    "who": "Narratrice",
+    "text": "La mattina andiamo al fiume.",
+    "chars": 28
+  },
+  "L14/lesson.mp3": {
+    "hash": "7ebe7005f165728f",
+    "voice": "",
+    "who": "",
+    "text": "11 parti",
+    "chars": 0
+  },
+  "L14/title.mp3": {
+    "hash": "e45817fa407b7312",
+    "voice": "aXHehUlg30OAHs2yeSFp",
+    "who": "Narratore",
+    "text": "Lezione quattordici. Ripasso.",
+    "chars": 29
+  }
+}
